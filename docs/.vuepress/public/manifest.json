@@ -1,6 +1,7 @@
 {
-  "name": "HomePage For Xiao",
-  "short_name": "Xiao",
+  "name": "个人主页",
+  "short_name": "晓",
+  "description": "郑晓威的个人主页",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
