@@ -41,11 +41,11 @@ module.exports = {
         collapsable: false,
         children: ['webapp/']
       },
-      {
-        title: '代码块',
-        collapsable: false,
-        children: ['block/promise', 'block/page']
-      },
+      // {
+      //   title: '代码块',
+      //   collapsable: false,
+      //   children: ['block/promise', 'block/page']
+      // },
       {
         title: '其他',
         collapsable: false,
