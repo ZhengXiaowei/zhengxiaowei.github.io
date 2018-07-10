@@ -13,7 +13,7 @@ title: cordova 打包
 
 首先我们通过 npm 安装 cordova，因为之后我们都需要通过 cordova 的命令进行操作
 
-```js
+```sh
 npm install -g cordova
 ```
 
@@ -23,13 +23,13 @@ npm install -g cordova
 
 然后我们就可以初始化一个 app 的项目结构了，cordova 初始化项目的命令如下
 
-```js
+```sh
 cordova create projectFileName com.cordova.helloworld projectName
 ```
 
 参数说明
 
-```js
+```sh
 projectFileName #初始化项目的文件夹名称
 com.cordova.helloworld #可以理解为项目的 ID
 projectName #这个 app 的名称
@@ -47,7 +47,7 @@ projectName #这个 app 的名称
 
 ## 目录说明
 
-```js
+```sh
 hooks #主要用来存放一些自定义的cordova脚本命令 一般情况下很少用到 需要了解的 也可自行百度谷歌看看
 platforms #主要存放各个平台的原生代码文件(会自动生成) 比如生成的android文件
 plugins #用来存放cordova插件 之后会说到
@@ -63,7 +63,7 @@ config.xml #一些cordova的配置信息 比如工程名 app图标等
 
 使用如下命令进行构建平台的搭建，这里以`android`为例
 
-```js
+```sh
 cd projectFileName #先进入项目目录
 cordova platform add android
 ```
@@ -93,7 +93,7 @@ cordova platform add android
 
 可以使用命令
 
-```js
+```sh
 cordova run android
 ```
 
