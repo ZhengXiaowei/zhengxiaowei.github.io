@@ -31,12 +31,7 @@ module.exports = {
         collapsable: false,
         children: [
           'javascript/',
-          'javascript/partner-constructor',
-          'javascript/partner-decorator',
-          'javascript/partner-factory',
-          'javascript/partner-proxy',
-          'javascript/partner-single',
-          'javascript/partner-strategy'
+          'javascript/partner'
         ]
       },
       {
