@@ -94,6 +94,33 @@ function getExpireTime() {
 之所以缓存逻辑写在响应拦截器中是因为只有在响应拦截器中可以得到接口返回的数据，而请求拦截器中，无法做到。
 :::
 
+## 使用
+
+```vue
+<template>
+  <div>
+    i am page A
+    <router-link to="/">回首页</router-link>
+  </div>
+</template>
+
+<script>
+import axios from '../utils/axios'
+
+export default {
+  mounted () {
+    // 加上属性cache:true 则表示当前接口需要缓存（可以从缓存获取）
+    axios('v2/book/1003078', {
+      cache: true
+    }).then(r => {
+      console.log(r)
+    })
+  }
+}
+</script>
+
+```
+
 ## 简单封装
 
 新建一个`cache.js`
