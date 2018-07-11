@@ -29,7 +29,15 @@ module.exports = {
       {
         title: 'JavaScript',
         collapsable: false,
-        children: ['javascript/']
+        children: [
+          'javascript/',
+          'javascript/partner-constructor',
+          'javascript/partner-decorator',
+          'javascript/partner-factory',
+          'javascript/partner-proxy',
+          'javascript/partner-single',
+          'javascript/partner-strategy'
+        ]
       },
       {
         title: 'Vue',
