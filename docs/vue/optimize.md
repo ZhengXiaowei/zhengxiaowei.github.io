@@ -62,7 +62,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
 </html>
 ```
-::: danger
+::: danger 提示
 如果资源插件内部有依赖别的插件，甚至依赖多个插件，不建议使用cdn加速。
 :::
 
