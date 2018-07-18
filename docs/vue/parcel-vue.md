@@ -108,6 +108,9 @@ new Vue({
 
 <img :src="$withBase('/assets/demo1.png')" />
 
+::: tip 提示
+`parcel`这里有一点感觉还不错，如果`yarn dev`运行后，发现项目缺少某些依赖，`parcel`则会自动安装上这些依赖。
+:::
 这样，利用 parcel 构建的一个简单的 vue 项目就完成了。
 
 ## 使用 css 预处理器
