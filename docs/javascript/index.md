@@ -108,7 +108,7 @@ function getExpireTime() {
 import axios from '../utils/axios'
 
 export default {
-  mounted () {
+  mounted() {
     // 加上属性cache:true 则表示当前接口需要缓存（可以从缓存获取）
     axios('v2/book/1003078', {
       cache: true
@@ -118,7 +118,6 @@ export default {
   }
 }
 </script>
-
 ```
 
 ## 简单封装
@@ -130,51 +129,106 @@ export default {
 let CACHES = {}
 
 export default class Cache {
-  constructor(options) {
+  constructor(axios) {
+    this.axios = axios
+    this.cancelToken = axios.CancelToken
+    this.options = {}
+  }
+
+  use(options) {
     let defaults = {
-      expire: 60000, // 过期时间 默认1分钟
-      storage: false, // 是否开启本地缓存
-      storage_expire: 360000, // 本地缓存的过期时间
+      expire: 60000, // 过期时间 默认一分钟
+      storage: false, // 是否开启缓存
+      storage_expire: 3600000, // 本地缓存过期时间 默认一小时
+      instance: this.axios, // axios的实例对象 默认指向当前axios
+      requestConfigFn: null, // 请求拦截的操作函数 参数为请求的config对象 返回一个Promise
+      responseConfigFn: null, // 响应拦截的操作函数 参数为响应数据的response对象 返回一个Promise
       ...options
     }
     this.options = defaults
+    this.init()
+    // if (options && !options.instance) return this.options.instance
   }
 
   init() {
-    if (this.options.storage) {
+    // 初始化
+    let options = this.options
+    if (options.storage) {
       // 如果开启本地缓存 则设置一个过期时间 避免时间过久 缓存一直存在
-      storageExpire('expire').then(() => {
+      this._storageExpire('expire').then(() => {
         if (localStorage.length === 0) CACHES = {}
         else mapStorage(localStorage, 'get')
       })
     }
+    this.request(options.requestConfigFn)
+    this.response(options.responseConfigFn)
   }
 
-  // 从缓存中找数据
-  find = (config, cancelToken) => {
-    if (config.cache) {
-      let source = cancelToken.source()
-      config.cancelToken = source.token
-      let data = CACHES[config.url]
-      let expire = getExpireTime()
-      // 判断缓存数据是否存在 存在的话 是否过期 没过期就返回
-      if (data && expire - data.expire < this.options.expire) {
-        source.cancel(data)
+  request(cb) {
+    // 请求拦截器
+    let options = this.options
+    options.instance.interceptors.request.use(async config => {
+      // 判断用户是否返回 config 的 promise
+      let newConfig = cb && (await cb(config))
+      config = newConfig || config
+      if (config.cache) {
+        let source = this.cancelToken.source()
+        config.cancelToken = source.token
+        let data = CACHES[config.url]
+        let expire = getExpireTime()
+        // 判断缓存数据是否存在 存在的话 是否过期 没过期就返回
+        if (data && expire - data.expire < this.options.expire) {
+          source.cancel(data)
+        }
       }
-    }
+      return config
+    })
   }
 
-  // 只缓存get请求
-  setCache = response => {
-    if (response.config.method === 'get' && response.config.cache) {
-      let data = {
-        expire: getExpireTime(),
-        data: response.data
+  response(cb) {
+    // 响应拦截器
+    this.options.instance.interceptors.response.use(
+      async response => {
+        // 判断用户是否返回了 response 的 Promise
+        let newResponse = cb && (await cb(response))
+        response = newResponse || response
+        if (response.config.method === 'get' && response.config.cache) {
+          let data = {
+            expire: getExpireTime(),
+            data: response
+          }
+          CACHES[`${response.config.url}`] = data
+          if (this.options.storage) mapStorage(CACHES)
+        }
+        return response
+      },
+      error => {
+        // 返回缓存数据
+        if (this.axios.isCancel(error)) {
+          return Promise.resolve(error.message.data)
+        }
+        return Promise.reject(error)
       }
-      CACHES[`${response.config.url}`] = data
-      // 如果开启本地缓存 则将数据存入本地缓存
-      if (this.options.storage) mapStorage(CACHES)
-    }
+    )
+  }
+
+  // 本地缓存过期判断
+  _storageExpire(cacheKey) {
+    return new Promise(resolve => {
+      let key = getStorage(cacheKey)
+      let date = getExpireTime()
+      if (key) {
+        // 缓存存在 判断是否过期
+        let isExpire = date - key < this.options.storage_expire
+        // 如果过期 则重新设定过期时间 并清空缓存
+        if (!isExpire) {
+          removeStorage()
+        }
+      } else {
+        setStorage(cacheKey, date)
+      }
+      resolve()
+    })
   }
 }
 
@@ -192,25 +246,6 @@ function mapStorage(caches, type = 'set') {
       if (reg.test(cache)) CACHES[key] = JSON.parse(cache)
       else CACHES[key] = cache
     }
-  })
-}
-
-// 本地缓存过期判断
-function storageExpire(cacheKey) {
-  return new Promise(resolve => {
-    let key = getStorage(cacheKey)
-    let date = getExpireTime()
-    if (key) {
-      // 缓存存在 判断是否过期
-      let isExpire = date - key < this.options.storage_expire
-      // 如果过期 则重新设定过期时间 并清空缓存
-      if (!isExpire) {
-        removeStorage()
-      }
-    } else {
-      setStorage(cacheKey, date)
-    }
-    resolve()
   })
 }
 
@@ -240,42 +275,81 @@ function getExpireTime() {
 
 ```js
 import axios from 'axios'
-import Cache from './cache'
+import Cache from './cache2'
 
-const instance = axios.create({
+// axios的自定义实例
+let instance = axios.create({
   baseURL: ''
 })
 
-let cache = new Cache()
-
-// 如果开启缓存的话 则需要调用init方法
-// cache.init()
-
-const CancelToken = axios.CancelToken
-
-instance.interceptors.request.use(config => {
-  cache.find(config, CancelToken)
-  // 做其他数据处理
-  return config
-})
-
-instance.interceptors.response.use(
-  response => {
-    cache.setCache(response)
-    return response
+let cache = new Cache(axios) // 将当前 axios 对象传入 Cache 中
+cache.use({
+  expire: 30000,
+  storage: true,
+  instance, // 如果有自定义axios实例 比如上面的instance 需要将其传入instance 没有则不传
+  requestConfigFn: config => {
+    // 请求拦截自定义操作
+    if (config.header) {
+      config.header.token = 'i am token'
+    } else {
+      config.header = { token: 'i am token' }
+    }
+    // 需要将config对象通过 Promise 返回 cache 中 也可以使用new Promise的写法
+    return Promise.resolve(config)
   },
-  error => {
-    // 返回缓存数据
-    if (axios.isCancel(error)) return Promise.resolve(error.message.data)
-    return Promise.reject(error)
+  responseConfigFn: res => {
+    // 响应拦截的自定义操作
+    if (!res.data.code) {
+      // 需要将 res 通过 Promise 返回
+      return Promise.resolve(res)
+    }
   }
-)
+})
 
 export default instance
 ```
 
-::: tip 提示
-这里之所以没有将axios整个对象传入cache中是因为用户可能会在拦截器中做些自己的数据操作。
+然后页面中接口请求如下配置:
 
-之后会考虑如何传入axios对象后用户还能自定义拦截器操作，尽量简化代码使用。
-:::
+```vue
+<template>
+  <div>
+    i am page A
+    <router-link to="/">回首页</router-link>
+  </div>
+</template>
+
+<script>
+import axios from '../utils/axios'
+
+export default {
+  mounted() {
+    // 只需要在 axios 的配置中加入 cache:true 即可开启缓存
+    axios('v2/book/1003078', {
+      cache: true
+    }).then(r => {
+      console.log(r)
+    })
+  }
+}
+</script>
+```
+
+或者在统一的`api`接口管理文件中配置：
+
+```js
+import axios from './axios'
+
+export const getBooks = () => {
+  return axios('v2/book/1003078', { cache: true })
+}
+```
+
+[项目传送门](https://github.com/ZhengXiaowei/request-cache)
+
+## 总结
+
+* `cache.js`可能还有些情况未考虑进去
+* `requestConfigFn`和`responseConfigFn`能操作的空间可能也不够大
+
+后续还会继续优化
