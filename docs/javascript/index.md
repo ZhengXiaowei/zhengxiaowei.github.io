@@ -96,6 +96,8 @@ function getExpireTime() {
 
 ## 使用
 
+然后页面中接口请求如下配置:
+
 ```vue
 <template>
   <div>
@@ -118,6 +120,16 @@ export default {
   }
 }
 </script>
+```
+
+或者在统一的`api`接口管理文件中配置：
+
+```js
+import axios from './axios'
+
+export const getBooks = () => {
+  return axios('v2/book/1003078', { cache: true })
+}
 ```
 
 ## 简单封装
@@ -309,47 +321,11 @@ cache.use({
 export default instance
 ```
 
-然后页面中接口请求如下配置:
-
-```vue
-<template>
-  <div>
-    i am page A
-    <router-link to="/">回首页</router-link>
-  </div>
-</template>
-
-<script>
-import axios from '../utils/axios'
-
-export default {
-  mounted() {
-    // 只需要在 axios 的配置中加入 cache:true 即可开启缓存
-    axios('v2/book/1003078', {
-      cache: true
-    }).then(r => {
-      console.log(r)
-    })
-  }
-}
-</script>
-```
-
-或者在统一的`api`接口管理文件中配置：
-
-```js
-import axios from './axios'
-
-export const getBooks = () => {
-  return axios('v2/book/1003078', { cache: true })
-}
-```
-
 [项目传送门](https://github.com/ZhengXiaowei/request-cache)
 
 ## 总结
 
-* `cache.js`可能还有些情况未考虑进去
-* `requestConfigFn`和`responseConfigFn`能操作的空间可能也不够大
+- `cache.js`可能还有些情况未考虑进去
+- `requestConfigFn`和`responseConfigFn`能操作的空间可能也不够大
 
 后续还会继续优化
