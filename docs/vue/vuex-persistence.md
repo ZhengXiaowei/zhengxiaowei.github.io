@@ -259,6 +259,10 @@ export const getAccount = state => {
 ```
 
 ::: tip 提示
+上面的判断还不够完整，应该还要判断是否是 JSON 字符串类型，是的话再进行`JSON.parse`操作，不然普通的字符串类型会报错，这个自行改善。
+:::
+
+::: tip 提示
 记得将`getter`在`index.js`引入
 :::
 
@@ -297,10 +301,6 @@ export default {
 }
 </script>
 ```
-
-::: tip 提示
-上面的判断还不够完整，应该还要判断是否是 JSON 字符串类型，是的话再进行`JSON.parse`操作，不然普通的字符串类型会报错，这个自行改善。
-:::
 
 到这基本就结束了，现在刷新浏览器，那些需要持久化的属性就不会被重置了。
 
@@ -419,7 +419,6 @@ function clearStorage(type) {
   let key = type.match(reg)[2].toLowerCase()
   str.removeItem(key)
 }
-
 ```
 
 `vue`模板中的完整使用：
@@ -443,18 +442,18 @@ export default {
     ...mapState(['count']),
     ...mapGetters(['getAccount'])
   },
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    addStore () {
+    addStore() {
       let account = { user: 'Randy', age: 22 }
       this.withCache({ mutationType: 'SET_COUNT', data: this.msg })
       this.withCache({ mutationType: 'SET_ACCOUNT_0', data: account })
     },
-    clearStore () {
+    clearStore() {
       this.resetAllState()
     },
     ...mapMutations(['SET_COUNT']),
