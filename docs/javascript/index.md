@@ -321,7 +321,19 @@ cache.use({
 export default instance
 ```
 
-[项目传送门](https://github.com/ZhengXiaowei/request-cache)
+## 打包 npm
+
+该工具已经打包至 NPM 库，可通过包命令安装：
+
+```bash
+# npm
+npm install axios-request-cache --save
+
+# yarn
+yarn add axios-request-cache
+```
+
+[项目传送门](https://github.com/ZhengXiaowei/axios-request-cache)
 
 ## 总结
 
