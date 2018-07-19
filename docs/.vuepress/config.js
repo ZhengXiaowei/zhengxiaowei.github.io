@@ -37,7 +37,7 @@ module.exports = {
       {
         title: 'Vue',
         collapsable: false,
-        children: ['vue/', 'vue/vueMultipage', 'vue/optimize', 'vue/parcel-vue']
+        children: ['vue/', 'vue/vuex-persistence', 'vue/vueMultipage', 'vue/optimize', 'vue/parcel-vue']
       },
       {
         title: 'WebApp',
