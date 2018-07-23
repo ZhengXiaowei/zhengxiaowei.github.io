@@ -24,7 +24,7 @@ console.log(c)
 ```
 
 ::: tip 输出
-1,2,3,4,5,6
+`[1,2,3,4,5,6]`
 :::
 
 ### 数组去重
@@ -53,7 +53,7 @@ a.RemoveRepeat()
 ```
 
 ::: tip 输出
-1,2,3,4,5
+`[1,2,3,4,5]`
 :::
 
 ### 数组过滤 & 筛选
@@ -116,7 +116,7 @@ age:16
 }
 ]
 
-1
+`1`
 :::
 
 > every
@@ -129,7 +129,7 @@ let isAdult = students.every(student => {
 ```
 
 ::: tip 输出
-false
+`false`
 :::
 
 > some
@@ -142,7 +142,7 @@ let isAdult = students.some(student => {
 ```
 
 ::: tip 输出
-true
+`true`
 :::
 
 ### 数组是否包含
@@ -156,9 +156,9 @@ console.log(`有猪：${animals.includes('pigs')}`)
 ```
 
 ::: tip 输出
-有狗：true
+有狗：`true`
 
-有猪：false
+有猪：`false`
 :::
 
 > indexOf
@@ -188,11 +188,11 @@ console.log(`总和为：${sums}`)
 ```
 
 ::: tip 输出
-第1次，sum为1，当前值为2
+第 1 次，sum 为 1，当前值为 2
 
-第2次，sum为3，当前值为3
+第 2 次，sum 为 3，当前值为 3
 
-第3次，sum为6，当前值为4
+第 3 次，sum 为 6，当前值为 4
 
 总和为：10
 :::
@@ -201,22 +201,113 @@ console.log(`总和为：${sums}`)
 // sum的默认值 因为设置初始默认值为10 所以sum的初始值也为10 curIndex默认索引为0
 let arr = [1, 2, 3, 4]
 let sums = arr.reduce((sum, curVal, curIndex) => {
-  console.log(`第${curIndex+1}次，sum为${sum}，当前值为${curVal}`)
+  console.log(`第${curIndex + 1}次，sum为${sum}，当前值为${curVal}`)
   return sum + curVal
 }, 10)
 console.log(`总和为：${sums}`)
 ```
 
 ::: tip 输出
-第1次，sum为10，当前值为1
+第 1 次，sum 为 10，当前值为 1
 
-第2次，sum为11，当前值为2
+第 2 次，sum 为 11，当前值为 2
 
-第3次，sum为13，当前值为3
+第 3 次，sum 为 13，当前值为 3
 
-第4次，sum为16，当前值为4
+第 4 次，sum 为 16，当前值为 4
 
 总和为：20
 :::
 
 未完待续。。。
+
+### 数组操作
+
+> push & unshift
+
+```js
+// 向数组追加数据
+let arr = ['张三', '李四', '王五']
+arr.push('六小龄童')
+console.log(`使用push向后追加：${arr}`)
+arr.unshift('二牛')
+console.log(`使用unshift向前追加：${arr}`)
+```
+
+::: tip 结果
+使用`push`向后追加：`['张三','李四','王五','六小龄童']`
+
+使用`unshift`向前追加：`['二牛','张三','李四','王五']`
+:::
+
+> pop & shift
+
+```js
+// 删除数组的最后/第一个
+let arr = ['张三', '李四', '王五']
+arr.pop()
+console.log(`使用pop删除最后一个后剩下：${arr}`)
+
+arr.shift()
+console.log(`使用shift删除第一个后剩下：${arr}`)
+```
+
+::: tip 结果
+使用`pop`删除最后一个后剩下：`['张三','李四']`
+
+使用`shift`删除第一个后剩下：`['李四','王五']`
+:::
+
+> splice(index, deleteLength, item1, item2,...)
+
+```js
+// 截取--获取第二个水果
+let arr = ['apple', 'banana', 'purple']
+let target = arr.splice(1, 1)
+console.log(`target为：${target}`)
+
+// 插入--在第二个水果后插入orange
+arr.splice(2, 0, 'orange')
+console.log(`插入后，水果都有：${arr}`)
+
+// 替换--把 banana 替换成 watermelon
+arr.splice(1, 1, 'watermelon')
+console.log(`替换后的水果都有：${arr}`)
+```
+
+::: tip 结果
+target 为：`['banana']`
+
+插入后，水果都有：`['apple','banana','orange','purple']`
+
+替换后的水果都有：`['apple','watermelon','purple']`
+:::
+
+> slice(begin,end)
+
+```js
+// 复制一个数组
+let arr = [1, 2, 3, 4]
+let copyArr = arr.slice()
+console.log(`copyArr：${copyArr}`)
+
+// 复制/截取第二个到第四个(不包括)之间的数据
+let newArr = arr.slice(1, 3)
+console.log(`newArr：${newArr}`)
+```
+
+::: tip 结果
+copyArr：`[1, 2, 3, 4]`
+
+newArr：`[2, 3]`
+:::
+
+待续。。。
+
+## 字符串
+
+待续。。
+
+## 对象
+
+待续。。
