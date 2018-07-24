@@ -306,6 +306,25 @@ newArr：`[2, 3]`
 
 ## 字符串
 
+### 字符串截取
+
+> substr(start, length) & substring(start, end)
+
+```js
+// 从a开始截取长度为3的字符串
+let str = 'bcdafhgd'
+console.log(`截取后的字符为：${str.substr(3, 3)}`)
+
+// 截取位置1-3上的字符
+console.log(`截取后的字符为：${str.substring(1, 3)}`)
+```
+
+::: tip 输出
+截取后的字符为：`afh`
+
+截取后的字符为：`cd`
+:::
+
 待续。。
 
 ## 对象
