@@ -29,16 +29,19 @@ module.exports = {
       {
         title: 'JavaScript',
         collapsable: false,
-        children: [
-          'javascript/',
-          'javascript/partner',
-          'javascript/js'
-        ]
+        children: ['javascript/', 'javascript/partner', 'javascript/js']
       },
       {
         title: 'Vue',
         collapsable: false,
-        children: ['vue/', 'vue/vuex-persistence', 'vue/vueMultipage', 'vue/optimize', 'vue/parcel-vue']
+        children: [
+          'vue/',
+          'vue/vuex-persistence',
+          'vue/vueMultipage',
+          'vue/optimize',
+          'vue/parcel-vue',
+          'vue/sync-component'
+        ]
       },
       {
         title: 'WebApp',
