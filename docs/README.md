@@ -8,7 +8,6 @@
   user: {
     name: "郑晓威",
     job: "Web前端",
-    phone: "18668052463",
     email: "503325017@qq.com",
     address: "浙江杭州"
   },
@@ -40,8 +39,8 @@
       project: "追书云阅App",
       project_type: "app",
       project_info: "小说阅读",
-      main_job: "负责app书籍的分类、排行、详情、目录、消费记录和充值记录等模块的开发，并通过jsBridge和app端进行交互",
-      status: "上线"
+      main_job: "负责app书籍的分类、排行、详情、目录、消费记录和充值记录等模块的开发，并通过 jsBridge 和 app 端进行交互",
+      status: "预上线"
     }
   ],
   interesting: "喜欢学习、打游戏、运动。"
