@@ -46,7 +46,7 @@ module.exports = {
       {
         title: 'WebApp',
         collapsable: false,
-        children: ['webapp/']
+        children: ['webapp/', 'webapp/questions']
       },
       // {
       //   title: '代码块',
