@@ -2,7 +2,7 @@
 title: 设计模式
 ---
 
-# js设计模式
+# js 设计模式
 
 ::: tip 提示
 各设计模式说明未填写
@@ -28,10 +28,16 @@ console.log(constructor_demo.getUserInfo())
 // 张三的年龄为18
 ```
 
-## 装饰器模式
+## 适配器模式
 
-```javascript
-class Person {
+::: tip 介绍
+
+- 旧的接口/功能和使用者不兼容
+- 中间加个适配器转换接口/功能
+  :::
+
+```js
+class Chinese {
   constructor(name) {
     this.name = name
   }
@@ -41,23 +47,69 @@ class Person {
   }
 }
 
-class EngLishName {
-  constructor(person) {
-    this.person = person
+class EnglishName {
+  constructor(name) {
+    this.people = new Chinese(name)
   }
 
-  getEnglishName() {
-    return `我是${this.person.getName()} 我的英文名是Randy`
+  getEngName() {
+    let name = this.people.getName()
+    return `我的中文名是${name}，我的英文名是Randy`
   }
 }
 
-let randy = new Person('张三')
-let engRandy = new EngLishName(randy)
-console.log(engRandy.getEnglishName())
-// 我是张三 我的英文名是Randy
+let user = new EnglishName('张三')
+user.getEngName()
+// 我的中文名是张三，我的英文名是Randy
+```
+
+## 装饰器模式
+
+::: tip 介绍
+
+- 为新对象添加新的功能
+- 不改变其原有的结构和功能
+  :::
+
+```javascript
+class Cricle {
+  constructor() {}
+
+  draw() {
+    console.log('drawing')
+  }
+}
+
+class Decorator {
+  constructor(circle) {
+    this.circle = circle
+  }
+
+  draw() {
+    this.circle.draw()
+    this.setBorder(this.circle)
+  }
+
+  setBorder(circle) {
+    console.log('drawing border')
+  }
+}
+
+let circle = new Circle()
+circle.draw() // drawing
+let drawBorder = new Decorator(circle)
+drawBorder.draw()
+// drawing
+// drawing border
 ```
 
 ## 工厂模式
+
+::: tip 介绍
+
+- 对 `new`操作单独封装
+- 遇到`new`时考虑是否用工厂模式
+  :::
 
 ```javascript
 // 简单工厂模式
@@ -146,34 +198,87 @@ console.log(new JingTian('景田矿泉水'))
 
 ## 代理模式
 
+::: tip 介绍
+
+- 使用者无权访问目标对象
+- 中间加代理，通过代理做授权和控制
+  :::
+
 ```javascript
-// 代理模式
-class ProxyDemo {
-  constructor(name) {
-    this.name = name
+class RealImage {
+  constructor(fileName) {
+    this.fileName = fileName
+    this.loadFromDisk()
   }
 
-  getName() {
-    return this.name
-  }
-}
-
-class proxy extends ProxyDemo {
-  constructor(name) {
-    super(name)
+  display() {
+    console.log('display...' + this.fileName)
   }
 
-  getName() {
-    console.log(super.getName())
+  loadFromDisk() {
+    console.log('loading...' + this.fileName)
   }
 }
 
-let getName = new proxy('张三')
+class ProxyImage {
+  constructor(fileName) {
+    this.image = new RealImage(fileName)
+  }
 
-getName.getName() // 张三
+  display() {
+    this.image.display()
+  }
+}
+
+let img = new ProxyImage('a.png')
+img.display()
+// loading... a.png
+// display... a.png
+
+// ES6 Proxy
+let star = {
+  name: '张三',
+  age: 25,
+  phone: '13911119999'
+}
+
+let agent = new Proxy(star, {
+  get: function(target, key) {
+    if (key === 'phone') {
+      // 返回经纪人电话
+      return '13966662222'
+    }
+    if (key === 'price') {
+      // 经纪人报价
+      return 100000
+    }
+    return target[key]
+  },
+  set: function(target, key, val) {
+    if (key === 'customPrice') {
+      if (val < 100000) throw Error('价格太低')
+    } else {
+      target[key] = val
+      return true
+    }
+  }
+})
+
+console.log(agent.phone) // 13966662222
+console.log(agent.name)  // 张三
+console.log(agent.price) // 100000
+
+agent.customPrice = 110000
+console.log(agent.customPrice) // 110000
 ```
 
 ## 单例模式
+
+::: tip 介绍
+
+- 系统中被唯一使用
+- 一个类只有一个实例
+  :::
 
 ```javascript
 // 单例模式
