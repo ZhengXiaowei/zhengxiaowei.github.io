@@ -5,7 +5,7 @@ yarn build
 
 cd docs/.vuepress/dist
 
-echo 'weixiaomu.com' > CNAME
+# echo 'weixiaomu.com' > CNAME
 
 git init
 git add -A
