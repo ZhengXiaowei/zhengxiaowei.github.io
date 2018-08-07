@@ -29,7 +29,12 @@ module.exports = {
       {
         title: 'JavaScript',
         collapsable: false,
-        children: ['javascript/', 'javascript/partner', 'javascript/js', 'javascript/canvas']
+        children: [
+          'javascript/', 
+          'javascript/partner', 
+          // 'javascript/js', 
+          'javascript/canvas'
+        ]
       },
       {
         title: 'Vue',
