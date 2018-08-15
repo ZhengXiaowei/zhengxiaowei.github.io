@@ -61,7 +61,7 @@ module.exports = {
       {
         title: '其他',
         collapsable: false,
-        children: ['others/', 'others/vsESlint']
+        children: ['others/', 'others/vsESlint', 'other/nginx']
       }
     ]
   }
