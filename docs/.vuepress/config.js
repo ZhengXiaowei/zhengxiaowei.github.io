@@ -33,7 +33,8 @@ module.exports = {
           'javascript/', 
           'javascript/partner', 
           // 'javascript/js', 
-          'javascript/canvas'
+          'javascript/canvas',
+          'javascript/listview'
         ]
       },
       {
