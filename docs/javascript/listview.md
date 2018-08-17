@@ -90,28 +90,7 @@ title: List-view 实现
       <div class="title">A</div>
       <div class="list">
         <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
+        <!-- 省略n个 -->
         <p>1</p>
       </div>
     </div>
@@ -119,30 +98,7 @@ title: List-view 实现
       <div class="title">B</div>
       <div class="list">
         <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
-        <p>2</p>
+        <!-- 省略n个 -->
         <p>2</p>
       </div>
     </div>
@@ -150,30 +106,7 @@ title: List-view 实现
       <div class="title">C</div>
       <div class="list">
         <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
-        <p>3</p>
+        <!-- 省略n个 -->
         <p>3</p>
       </div>
     </div>
@@ -271,5 +204,394 @@ function listViewScroll() {
 ```
 
 ## Vue 实现
+
+::: tip 提示
+这里的`vue`项目是通过`vue-cli`脚手架建立的。
+:::
+
+我们将`ListView.vue`封装成一个`vue`组件，接收一个`list`参数，然后建立一个`index.vue`，在其引入：
+
+```vue
+<template>
+  <div class="home">
+    <list-view :data="list"
+               @loading="loadMore" />
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+// 数据源
+import datas from '@/data.js'
+import ListView from '@/components/ListView.vue'
+
+export default {
+  name: 'home',
+  components: {
+    ListView
+  },
+  data() {
+    return {
+      list: []
+    }
+  },
+  methods: {
+    loadMore () {
+      // 滚动加载数据
+      let isPut = this.list.some(tag => {
+        return tag.tag.includes('D')
+      })
+      let D = { tag: "D", list: ["迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼","迪士尼", "迪士尼","迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼"] }
+      if (!isPut) this.list.push(D)
+      else console.log('没有更多了')
+    }
+  },
+  mounted() {
+    this.list = datas
+  }
+}
+</script>
+```
+
+然后模拟一些数据放在`data.js`中：
+
+```js
+const data = [
+  {
+    tag: 'A',
+    list: [
+      '阿里',
+      // 省略n个
+      '阿里'
+    ]
+  },
+  {
+    tag: 'B',
+    list: [
+      '不理',
+      // 省略n个
+      '不理'
+    ]
+  },
+  {
+    tag: 'C',
+    list: [
+      '磁力',
+      // 省略n个
+      '磁力'
+    ]
+  }
+]
+
+export default data
+```
+
+然后我们在`ListView.vue`组件中书写结构：
+
+```vue
+<template>
+  <div>
+    <!-- 右侧tag部分 -->
+    <ul class="short-menu">
+      <li class="menu-tag"
+          :class="[index===current?'cur': '']"
+          v-for="(tag, index) in tagList"
+          :key="index"
+          :data-tag-index="index"
+          @touchstart="getTagStartPosition"
+          @touchmove.stop.prevent="moveTagPosition">{{tag}}</li>
+    </ul>
+    <!-- 顶部的固定头 -->
+    <div class="fixed-title"
+         v-show="fixedText"
+         ref="fixedTitle">{{fixedText}}</div>
+    <!-- 滚动内容部分 -->
+    <div class="wrapper"
+         ref="wrapper">
+      <div v-for="(block,index) in data"
+           :key="index"
+           ref="list">
+        <div class="title">{{block.tag}}</div>
+        <div class="list"
+             v-for="(item,key) in block.list"
+             :key="key">
+          <p>{{ item }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+// 右侧Tag标签的高度
+const Tag_Height = 18
+// 固定头的高度
+const Item_Tag_Height = 38
+
+export default {
+  name: 'ListView',
+  props: {
+    data: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+      current: 0, // 当前tag的索引
+      scrollY: 0, // 滚动距离
+      fixedDiff: 0 // 固定头过渡距离
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="stylus">
+.wrapper
+  position absolute
+  top 0
+  right 0
+  left 0
+  bottom 0
+  overflow-y scroll
+  -webkit-overflow-scrolling touch
+
+  .title
+    background #0094ff
+    color #fff
+    height 38px
+    line-height 38px
+    text-align left
+    padding 0 10px
+
+  .list p
+    height 30px
+    line-height 30px
+    padding 0 10px
+    text-align left
+
+.short-menu
+  position fixed
+  right 0
+  top 50%
+  transform translateY(-50%)
+  width 20px
+  z-index 999
+
+  .cur
+    color #0094ff
+
+.fixed-title
+  position fixed
+  top 0
+  width 100%
+  background #0094ff
+  color #fff
+  height 38px
+  line-height 38px
+  z-index 999
+  text-align left
+  padding 0 10px
+</style>
+```
+
+大部分的逻辑和之前纯 Javascript 实现的差不多，这里主要是右侧点击滑动到对应区块的逻辑稍作调整，以及增加了右侧`tag`滑动，实施显示对应区块的功能以及滚动到底部加载数据的功能。
+
+> 右侧滑动显示对应区块
+
+这里使用的是`touchstart`和`touchmove`两个事件:
+
+```vue
+<script>
+export default {
+  methods: {
+    getTagStartPosition(e) {
+      let { tagIndex } = e.target.dataset
+      // 记录起始y坐标
+      this.y1 = e.touches[0].pageY
+      // 记录起始点击的tag
+      this.current = this.touchTagIndex = parseInt(tagIndex)
+      this.scrollToElement(this.current)
+    },
+    moveTagPosition (e) {
+      // 获取移动到的y坐标
+      this.y2 = e.touches[0].pageY
+      // 如果移动的距离超过本身tag的高度 那么计算移动了多少个tag 向下取整
+      let moveTagNum = Math.floor((this.y2 - this.y1) / Tag_Height)
+      this.current = this.touchTagIndex + moveTagNum
+      // 边界值判断
+      if (this.current < 0) this.current = 0
+      if (this.current > this.data.length - 1) this.current = this.data.length - 1
+      this.scrollToElement(this.current)
+    },
+    scrollToElement (index) {
+      // 滚动到对应的区块，因为滑动到每个区块的距离我们都存到了数组中，所以只要取到对应区块的距离即可
+      let scrollTop = this.heightArr[index]
+      this.$refs.wrapper.scrollTop = scrollTop
+    }
+  }
+}
+</script>
+```
+
+> 滚动加载
+
+```vue
+<script>
+export default {
+  methods: {
+    listViewScroll () {
+      // 获取滚动容器的高度
+      let wrapper = this.$refs.wrapper
+      let wrapperHeight = wrapper.clientHeight
+      wrapper.addEventListener('scroll', (e) => {
+        this.scrollY = e.target.scrollTop
+        // 判断滚动条是否滚动到底部（距离底部100px），滚动到底部后触发加载事件
+        // 滚动高度 - 容器高度 - 滚动距离 = 滚动条距离底部的距离
+        if (this.heightArr[this.heightArr.length - 1] - wrapperHeight - this.scrollY < 100) {
+          this.$emit('loading')
+        }
+      })
+    }
+  }
+}
+</script>
+```
+
+完整的代码：
+
+```vue
+<script>
+const Tag_Height = 18
+const Item_Tag_Height = 38
+
+export default {
+  name: "HelloWorld",
+  props: {
+    data: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  data () {
+    return {
+      current: 0,
+      scrollY: 0,
+      fixedDiff: 0
+    }
+  },
+  computed: {
+    fixedText () {
+      if (this.scrollY <= 0) return ''
+      return this.data[this.current] ? this.data[this.current].tag : ''
+    },
+    tagList () {
+      return this.data.map(tag => {
+        return tag.tag
+      })
+    }
+  },
+  methods: {
+    getTagStartPosition (e) {
+      let { tagIndex } = e.target.dataset
+      // 记录起始y坐标
+      this.y1 = e.touches[0].pageY
+      // 记录起始点击的tag
+      this.current = this.touchTagIndex = parseInt(tagIndex)
+      this.scrollToElement(this.current)
+    },
+    moveTagPosition (e) {
+      // 获取移动到的y坐标
+      this.y2 = e.touches[0].pageY
+      // 如果移动的距离超过本身tag的高度 那么计算移动了多少个tag 向下取整
+      let moveTagNum = (this.y2 - this.y1) / Tag_Height | 0
+      this.current = this.touchTagIndex + moveTagNum
+      // 边界值判断
+      if (this.current < 0) this.current = 0
+      if (this.current > this.data.length - 1) this.current = this.data.length - 1
+      this.scrollToElement(this.current)
+    },
+    scrollToElement (index) {
+      // 滚动到对应的区块
+      let scrollTop = this.heightArr[index]
+      this.$refs.wrapper.scrollTop = scrollTop
+    },
+    getDataListHeights () {
+      // 收集滑动高各个区块所需要的记录
+      let list = this.$refs.list
+      let height = 0
+      this.heightArr = []
+      this.heightArr.push(height)
+      for (let i = 0; i < list.length; i++) {
+        height += list[i].clientHeight
+        this.heightArr.push(height)
+      }
+    },
+    listViewScroll () {
+      let wrapper = this.$refs.wrapper
+      let wrapperHeight = wrapper.clientHeight
+      wrapper.addEventListener('scroll', (e) => {
+        this.scrollY = e.target.scrollTop
+        // 判断滚动条是否滚动到底部（距离底部100px），滚动到底部后触发加载事件
+        if (this.heightArr[this.heightArr.length - 1] - wrapperHeight - this.scrollY < 100) {
+          this.$emit('loading')
+        }
+      })
+    }
+  },
+  watch: {
+    scrollY (y) {
+      let heightArr = this.heightArr
+      // 最上方
+      if (y <= 0) { this.current = 0; return }
+      // 在两个区块之间滚动
+      for (let i = 0; i < heightArr.length - 1; i++) {
+        let h1 = heightArr[i]
+        let h2 = heightArr[i + 1]
+        if (y >= h1 && y < h2) {
+          this.current = i
+          this.fixedDiff = h2 - y
+          break
+        }
+      }
+    },
+    fixedDiff (diff) {
+      // 监听固定头的过渡距离
+      let dis = 0
+      if (diff > 0 && diff < Item_Tag_Height) {
+        dis = diff - Item_Tag_Height
+      } else {
+        dis = 0
+      }
+      if (this.fixedDiff === dis) return
+      this.$refs.fixedTitle.style.transform = `translate3d(0,${dis}px,0)`
+    },
+    data () {
+      // 当数据变化时 重新计算高度集合
+      setTimeout(() => {
+        this.getDataListHeights()
+      }, 20)
+    }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.getDataListHeights()
+      this.listViewScroll()
+    }, 20)
+  }
+};
+</script>
+```
+
+最后的效果如下：
+
+<img :src="$withBase('/assets/vue-list-view.gif')">
+
+## 小程序实现
 
 待续~
