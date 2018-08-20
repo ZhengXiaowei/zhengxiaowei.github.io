@@ -52,7 +52,10 @@ module.exports = {
       {
         title: 'WebApp',
         collapsable: false,
-        children: ['webapp/', 'webapp/questions']
+        children: [
+          'webapp/', 
+          'webapp/questions'
+        ]
       },
       // {
       //   title: '代码块',
@@ -62,7 +65,12 @@ module.exports = {
       {
         title: '其他',
         collapsable: false,
-        children: ['others/', 'others/vsESlint', 'others/nginx']
+        children: [
+          'others/', 
+          'others/vsESlint', 
+          'others/nginx',
+          'others/android-dev'
+        ]
       }
     ]
   }

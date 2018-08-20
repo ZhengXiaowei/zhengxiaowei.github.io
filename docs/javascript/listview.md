@@ -236,12 +236,40 @@ export default {
     }
   },
   methods: {
-    loadMore () {
+    loadMore() {
       // 滚动加载数据
       let isPut = this.list.some(tag => {
         return tag.tag.includes('D')
       })
-      let D = { tag: "D", list: ["迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼","迪士尼", "迪士尼","迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼", "迪士尼"] }
+      let D = {
+        tag: 'D',
+        list: [
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼',
+          '迪士尼'
+        ]
+      }
       if (!isPut) this.list.push(D)
       else console.log('没有更多了')
     }
@@ -416,7 +444,7 @@ export default {
       this.current = this.touchTagIndex = parseInt(tagIndex)
       this.scrollToElement(this.current)
     },
-    moveTagPosition (e) {
+    moveTagPosition(e) {
       // 获取移动到的y坐标
       this.y2 = e.touches[0].pageY
       // 如果移动的距离超过本身tag的高度 那么计算移动了多少个tag 向下取整
@@ -424,10 +452,11 @@ export default {
       this.current = this.touchTagIndex + moveTagNum
       // 边界值判断
       if (this.current < 0) this.current = 0
-      if (this.current > this.data.length - 1) this.current = this.data.length - 1
+      if (this.current > this.data.length - 1)
+        this.current = this.data.length - 1
       this.scrollToElement(this.current)
     },
-    scrollToElement (index) {
+    scrollToElement(index) {
       // 滚动到对应的区块，因为滑动到每个区块的距离我们都存到了数组中，所以只要取到对应区块的距离即可
       let scrollTop = this.heightArr[index]
       this.$refs.wrapper.scrollTop = scrollTop
@@ -443,15 +472,20 @@ export default {
 <script>
 export default {
   methods: {
-    listViewScroll () {
+    listViewScroll() {
       // 获取滚动容器的高度
       let wrapper = this.$refs.wrapper
       let wrapperHeight = wrapper.clientHeight
-      wrapper.addEventListener('scroll', (e) => {
+      wrapper.addEventListener('scroll', e => {
         this.scrollY = e.target.scrollTop
         // 判断滚动条是否滚动到底部（距离底部100px），滚动到底部后触发加载事件
         // 滚动高度 - 容器高度 - 滚动距离 = 滚动条距离底部的距离
-        if (this.heightArr[this.heightArr.length - 1] - wrapperHeight - this.scrollY < 100) {
+        if (
+          this.heightArr[this.heightArr.length - 1] -
+            wrapperHeight -
+            this.scrollY <
+          100
+        ) {
           this.$emit('loading')
         }
       })
@@ -469,16 +503,16 @@ const Tag_Height = 18
 const Item_Tag_Height = 38
 
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     data: {
       type: Array,
-      default () {
+      default() {
         return []
       }
     }
   },
-  data () {
+  data() {
     return {
       current: 0,
       scrollY: 0,
@@ -486,18 +520,18 @@ export default {
     }
   },
   computed: {
-    fixedText () {
+    fixedText() {
       if (this.scrollY <= 0) return ''
       return this.data[this.current] ? this.data[this.current].tag : ''
     },
-    tagList () {
+    tagList() {
       return this.data.map(tag => {
         return tag.tag
       })
     }
   },
   methods: {
-    getTagStartPosition (e) {
+    getTagStartPosition(e) {
       let { tagIndex } = e.target.dataset
       // 记录起始y坐标
       this.y1 = e.touches[0].pageY
@@ -505,23 +539,24 @@ export default {
       this.current = this.touchTagIndex = parseInt(tagIndex)
       this.scrollToElement(this.current)
     },
-    moveTagPosition (e) {
+    moveTagPosition(e) {
       // 获取移动到的y坐标
       this.y2 = e.touches[0].pageY
       // 如果移动的距离超过本身tag的高度 那么计算移动了多少个tag 向下取整
-      let moveTagNum = (this.y2 - this.y1) / Tag_Height | 0
+      let moveTagNum = ((this.y2 - this.y1) / Tag_Height) | 0
       this.current = this.touchTagIndex + moveTagNum
       // 边界值判断
       if (this.current < 0) this.current = 0
-      if (this.current > this.data.length - 1) this.current = this.data.length - 1
+      if (this.current > this.data.length - 1)
+        this.current = this.data.length - 1
       this.scrollToElement(this.current)
     },
-    scrollToElement (index) {
+    scrollToElement(index) {
       // 滚动到对应的区块
       let scrollTop = this.heightArr[index]
       this.$refs.wrapper.scrollTop = scrollTop
     },
-    getDataListHeights () {
+    getDataListHeights() {
       // 收集滑动高各个区块所需要的记录
       let list = this.$refs.list
       let height = 0
@@ -532,23 +567,31 @@ export default {
         this.heightArr.push(height)
       }
     },
-    listViewScroll () {
+    listViewScroll() {
       let wrapper = this.$refs.wrapper
       let wrapperHeight = wrapper.clientHeight
-      wrapper.addEventListener('scroll', (e) => {
+      wrapper.addEventListener('scroll', e => {
         this.scrollY = e.target.scrollTop
         // 判断滚动条是否滚动到底部（距离底部100px），滚动到底部后触发加载事件
-        if (this.heightArr[this.heightArr.length - 1] - wrapperHeight - this.scrollY < 100) {
+        if (
+          this.heightArr[this.heightArr.length - 1] -
+            wrapperHeight -
+            this.scrollY <
+          100
+        ) {
           this.$emit('loading')
         }
       })
     }
   },
   watch: {
-    scrollY (y) {
+    scrollY(y) {
       let heightArr = this.heightArr
       // 最上方
-      if (y <= 0) { this.current = 0; return }
+      if (y <= 0) {
+        this.current = 0
+        return
+      }
       // 在两个区块之间滚动
       for (let i = 0; i < heightArr.length - 1; i++) {
         let h1 = heightArr[i]
@@ -560,7 +603,7 @@ export default {
         }
       }
     },
-    fixedDiff (diff) {
+    fixedDiff(diff) {
       // 监听固定头的过渡距离
       let dis = 0
       if (diff > 0 && diff < Item_Tag_Height) {
@@ -571,20 +614,20 @@ export default {
       if (this.fixedDiff === dis) return
       this.$refs.fixedTitle.style.transform = `translate3d(0,${dis}px,0)`
     },
-    data () {
+    data() {
       // 当数据变化时 重新计算高度集合
       setTimeout(() => {
         this.getDataListHeights()
       }, 20)
     }
   },
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.getDataListHeights()
       this.listViewScroll()
     }, 20)
   }
-};
+}
 </script>
 ```
 
@@ -594,4 +637,262 @@ export default {
 
 ## 小程序实现
 
-待续~
+直接建立一个`list-view`的界面，这里使用小程序自带的`scroll-view`做滚动容器：
+
+```html
+<scroll-view class="wrapper" scroll-y style="height:{{device.windowHeight}}px" scroll-into-view="{{target}}" bind:scroll="listenScroll">
+  <block wx:for="{{lists}}" wx:key="index" wx:for-item="block">
+    <view id="list{{index}}" class="demo-list">
+      <view class="title">{{block.tag}}</view>
+      <block wx:for="{{block.list}}" wx:key="key" wx:for-index="key">
+        <view class="list">
+          <view>{{item}}</view>
+        </view>
+      </block>
+    </view>
+  </block>
+</scroll-view>
+<view animation="{{fixedTopAnimation}}" class="fixed-title">{{fixedTitle}}</view>
+<view class="short-menu">
+  <block wx:for="{{tagList}}" wx:key="index" wx:for-item="tag">
+    <view class="menu-tag {{index===current ? 'cur' : ''}}" data-index="{{index}}" catch:touchstart="getTagStartPosition" catch:touchmove="moveTagPosition">
+      {{tag}}
+    </view>
+  </block>
+</view>
+```
+
+::: tip 提示
+因为使用小程序的`scroll-view`需要设置一个固定的高度，所以高度这里我们使用`wx.getSystemSync`直接获取设备的高度并赋值进去
+
+```js
+// app.js
+App({
+  onLaunch: function() {
+    // 然后再其他页面中能通过getApp().system来获取设备信息
+    this.system = wx.getSystemInfoSync()
+  }
+})
+```
+
+:::
+
+然后具体逻辑和之前`vue`相差不大，这里就不再重复了，直接上代码：
+
+```js
+//index.js
+//获取应用实例
+const app = getApp()
+import ListData from '../../mock/data.js'
+
+const Tag_Height = 19
+const Item_Tag_Height = 38
+
+Page({
+  data: {
+    lists: ListData,
+    tagList: [],
+    device: {},
+    current: 0,
+    scrollY: 0,
+    fixedDiff: 0,
+    heightArr: [],
+    fixedTopAnimation: {},
+    fixedTitle: 'A',
+    target: ''
+  },
+  getTagStartPosition(e) {
+    let { index } = e.target.dataset
+    // 记录起始y坐标
+    this.y1 = e.touches[0].pageY
+    // 记录起始点击的tag
+    this.current = this.touchTagIndex = parseInt(index)
+    this.setData({ current: this.current })
+    this.scrollToElement(this.current)
+  },
+  moveTagPosition(e) {
+    // 获取移动到的y坐标
+    this.y2 = e.touches[0].pageY
+    // 如果移动的距离超过本身tag的高度 那么计算移动了多少个tag 向下取整
+    let moveTagNum = ((this.y2 - this.y1) / Tag_Height) | 0
+    this.current = this.touchTagIndex + moveTagNum
+    this.setData({ current: this.current })
+    // 边界值判断
+    if (this.current < 0) this.setData({ current: 0 })
+    if (this.current > this.data.tagList.length - 1)
+      this.setData({ current: this.data.tagList.length - 1 })
+    this.scrollToElement(this.current)
+  },
+  scrollToElement(index) {
+    // 通过scroll-view 的 scroll-into-view属性完成区块跳转
+    this.setData({ target: 'list' + index })
+  },
+  getDataListHeights() {
+    let height = 0
+    let heightArr = []
+    heightArr.push(height)
+    // 将返回的高度存入数组
+    this.getHeightSync('.demo-list').then(r => {
+      for (let i = 0; i < r.length; i++) {
+        height += r[0].height
+        heightArr.push(height)
+      }
+      this.setData({ heightArr })
+    })
+  },
+  getHeightSync(selector) {
+    return new Promise(resolve => {
+      // 在小程序中没有dom的存在，所以要获取一些节点的信息需要通过它自带的API来完成
+      // 这是一个异步过程
+      let wxQuery = wx.createSelectorQuery()
+      wxQuery
+        .selectAll(selector)
+        .boundingClientRect(rect => {
+          resolve(rect)
+        })
+        .exec()
+    })
+  },
+  listenScroll(e) {
+    // 使用scroll-view自带的监听滚动事件
+    let { scrollTop } = e.detail
+    let heightArr = this.data.heightArr
+    let fixedDiff = 0
+    if (scrollTop <= 0) {
+      this.setData({ current: 0, fixedTitle: 'A' })
+      return
+    }
+    for (let i = 0; i < heightArr.length; i++) {
+      let h1 = heightArr[i]
+      let h2 = heightArr[i + 1]
+      if (scrollTop >= h1 && scrollTop < h2) {
+        fixedDiff = h2 - scrollTop
+        let dis = 0
+        if (fixedDiff > 0 && fixedDiff < Item_Tag_Height) {
+          dis = fixedDiff - Item_Tag_Height
+        } else {
+          dis = 0
+        }
+        if (fixedDiff === dis) return
+        this.setData({
+          current: i,
+          fixedDiff: dis,
+          fixedTitle: this.data.tagList[i]
+        })
+        // 固定头的过渡动画，还不够完善
+        this.fixedTopAnimationFn(dis)
+      }
+    }
+  },
+  fixedTopAnimationFn(diff) {
+    // 因为小程序不能操作dom，所以修改动画来说也是比较麻烦了，这里还是通过它自带的API来实现动画，不过略有瑕疵
+    let animation = wx.createAnimation({
+      timingFunction: 'linear',
+      duration: 100
+    })
+    animation.translateY(`${diff}px`).step()
+    this.setData({ fixedTopAnimation: animation.export() })
+  },
+  onLoad() {
+    let tagList = ListData.map(block => {
+      return block.tag
+    })
+    this.setData({ device: app.system, tagList })
+    this.getDataListHeights()
+  }
+})
+```
+
+::: tip 缺陷
+小程序在`page`中没有办法监听数据
+:::
+
+最终实现的效果如下：
+
+<img :src="$withBase('/assets/mini-list-view.gif')">
+
+## 小完善
+
+之前说过，在小程序中无法监听数据，那么我们来做个小完善，模拟一下数据的监听，这里我们主要利用`Object.defineProperty`来实现：
+
+```js
+// app.js
+App({
+  onLaunch: function() {
+    this.system = wx.getSystemInfoSync()
+  },
+  useWatch: function(data, watch) {
+    // 循环watch监听的列表
+    Object.keys(watch).forEach(key => {
+      // 监听数据的变化
+      this.observe(data, key, watch[key])
+    })
+  },
+  observe: function(data, key, fn) {
+    let val = data[key]
+    // 利用Object.defineProperty监听数据的变化以及修改数据
+    Object.defineProperty(data, key, {
+      configurable: true, // 让数据能够被修改
+      enumerable: true,
+      get: function() {
+        // 获取数据
+        return val
+      },
+      set: function(newVal) {
+        // 设置数据，并将新老数据返回
+        val = newVal
+        fn(newVal, val)
+      }
+    })
+  }
+})
+```
+
+然后我们在需要监听数据的页面`js`中使用：
+
+```js
+// list-view 页面的 index.js
+const app = getApp()
+Page({
+  data: {
+    lists: ListData,
+    tagList: [],
+    device: {},
+    current: 0,
+    scrollY: 0,
+    fixedDiff: 0,
+    heightArr: [],
+    fixedTopAnimation: {},
+    fixedTitle: 'A',
+    target: ''
+  },
+  onLoad() {
+    app.useWatch(this.data, this.watch)
+  },
+  watch: {
+    scrollY: function(y) {
+      let heightArr = this.data.heightArr
+      // 最上方
+      if (y <= 0) {
+        this.setData({ current: 0 })
+        return
+      }
+      // 在两个区块之间滚动
+      for (let i = 0; i < heightArr.length - 1; i++) {
+        let h1 = heightArr[i]
+        let h2 = heightArr[i + 1]
+        if (y >= h1 && y < h2) {
+          this.setData({
+            current: i,
+            fixedDiff: dis,
+            fixedTitle: this.data.tagList[i]
+          })
+          // 省略其他代码
+        }
+      }
+    }
+  }
+})
+```
+
+这样，我们就简单的完成了一个数据监听的操作了。
