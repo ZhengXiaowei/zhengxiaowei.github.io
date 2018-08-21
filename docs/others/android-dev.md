@@ -4,6 +4,10 @@ title: Mac 配置 Android 环境
 
 # MAC 下安装和配置 android-sdk
 
+::: tip 提示
+本文是转载的
+:::
+
 ## 安装
 
 在 MAC 上安装 android-sdk，标准的安装方法是使用`homebrew`，运行如下命令：
