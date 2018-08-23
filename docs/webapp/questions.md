@@ -115,4 +115,61 @@ meta.setAttribute(
 head.appendChild(meta)
 ```
 
-待续。。。
+## `rem` 和 `px` 的取舍
+
+如果项目只适配手机端，`px`和`rem`可以根据个人习惯自主选择。
+
+如果项目适配多种设备，比如手机和 pad 设备，分辨率差的比较大的情况下，使用`rem`最优
+
+## 移动端点击背景图/链接有底色
+
+```css
+/* 点击的时候底色透明即可 */
+-webkit-tap-highlight-color: transparent;
+```
+
+## 禁止选择文字/图片
+
+```css
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+```
+
+## 禁止复制/保存图片
+
+```css
+img {
+  -webkit-touch-callout: none;
+}
+```
+
+## 页面动画容易出现闪烁白屏
+
+> 使用`translate3d`优化
+
+```css
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-ms-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+```
+
+## 使用`float`排列布局容易出现断层
+
+> 出现原因
+
+在使用`float`布局列表的时候，容易出现某一行只出现第一个位置或者最后一个位置的内容，出现这个的原因是，上一行有某个内容的高度和其他高度不同的原因，导致将底下那一行的内容给挤了下去。
+
+> 解决
+
+给每个`item`设置一个**最小高度/固定高度**即可：
+
+```css
+.item {
+  min-height: 200px
+}
+```
