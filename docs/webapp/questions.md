@@ -179,7 +179,7 @@ transform: translate3d(0, 0, 0);
 ```css
 /* 斜边部分 原理和小三角一样 */
 position: absolute;
-width: 100%;
+width: 0;
 height: 0;
 border-width: 100px 0 0 414px; /* 底边的宽度要等于设备宽度 */
 border-style: solid;
