@@ -173,3 +173,21 @@ transform: translate3d(0, 0, 0);
   min-height: 200px
 }
 ```
+
+## 斜边布局
+
+```css
+/* 斜边部分 原理和小三角一样 */
+position: absolute;
+width: 100%;
+height: 0;
+border-width: 100px 0 0 414px; /* 底边的宽度要等于设备宽度 */
+border-style: solid;
+border-color: transparent transparent gray gray;
+bottom: 0;
+z-index: 99;
+```
+
+实现效果：
+
+<img :src="$withBase('/assets/css_xie.png')">
