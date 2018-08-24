@@ -42,6 +42,14 @@
   <img :src="$withBase('/assets/highlight-matching-tag.gif')">
 
 - [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) - 运行选中的 js 代码 结果显示在终端中 除 js 外还支持绝大多数语言
+- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) - 可以知道导入的包有多大
+
+  <img :src="$withBase('/assets/import-cost.gif')">
+
+- [Indenticator](https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator) - Indenticator(缩进指示器) 在视觉上突出显示当前的缩进深度。因此，现在您可以轻松区分在不同层次缩进的各种代码块。
+
+  <img :src="$withBase('/assets/indicator.gif')">
+
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - 代码拼写检查 用于变量规范命名
 - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - 写静态文件时可以利用 VSCode 自动启动一个服务 便于局域网内查看效果
 - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
