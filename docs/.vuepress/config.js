@@ -57,6 +57,13 @@ module.exports = {
           'webapp/questions'
         ]
       },
+      {
+        title: 'Services',
+        collapsable: false,
+        children: [
+          'services/'
+        ]
+      },
       // {
       //   title: '代码块',
       //   collapsable: false,
