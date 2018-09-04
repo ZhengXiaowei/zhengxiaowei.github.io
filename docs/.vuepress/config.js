@@ -61,7 +61,8 @@ module.exports = {
         title: 'Services',
         collapsable: false,
         children: [
-          'services/'
+          'services/',
+          'services/python'
         ]
       },
       // {

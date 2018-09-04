@@ -1,6 +1,6 @@
 ---
 sidebarDepth: 2
-title: Mongodb 学习
+title: Mongodb 好像有点意思？
 ---
 
 # 初识`Mongodb`
