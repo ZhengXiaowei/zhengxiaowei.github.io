@@ -134,6 +134,110 @@ print(people & people2) # {'Tom'}
 print(people ^ people2) # {'Sun', 'Jony', 'Zoom', 'Randy', 'Link', 'Jack', 'Frandy'}
 ```
 
+### `Dictionary` - 字典
+
+字典和我们常用的`JSON`基本一样，是以键值对的方式呈现的：
+
+```python
+dict = {}
+
+dict['name'] = '张三'
+
+dict[0] = 'number 0'
+
+dict2 = {'city': 'HangZhou', 'engName': 'Jack'}
+
+print(dict) # {name: '张三', 0: 'number 0'}
+
+print(dict2)  # {'city': 'HangZhou', 'engName': 'Jack'}
+```
+
+可以通过`keys`方法获取字典的所有键名，同时也可以通过`values`方法获取到字典的所有值：
+
+```python
+# 获取dict2中的所有键名
+print(dict2.keys()) # ['city', 'engName']
+
+# 获取dict2中的值
+print(dict2.values()) # ['HangZhou', 'Jack']
+```
+
+通过`clear`方法来清空字典：
+
+```python
+# 清空字典
+dict2.clear()
+
+print(dict2) # {}
+
+# 还可以使用重新赋值空字典的方式清空字典
+dict2 = {}
+
+print(dict2) # {}
+```
+
+## 运算符
+
+### 逻辑运算符
+
+和`js`不同的是，`python`中的**与或非**，是用运算符`and`、`or`、`not`来表示的：
+
+```python
+a = True
+b = False
+c = True
+
+if (a and b):
+  print('同为True')
+else:
+  print('有一个不为True')
+
+# 输出 有一个不为True
+
+if (b or c):
+  print('有一个为True就行了~')
+else:
+  print('啊，大家都是False啊')
+
+# 输出 有一个为True就行了~
+
+if not(a and c):
+  print('其实我本来是True才能看到的，结果被False看到了~')
+else:
+  print('哎，现在True能看到我了')
+
+# 输出 哎，现在True能看到我了
+```
+
+::: tip 提示
+在`Python`中，`True`和`False`的首字母需要大写。
+:::
+
+### 成员运算符
+
+- `in` 在...里
+- `not in` 不在...里
+
+```python
+a = 1
+b = 2
+c = [2, 4, 6, 8, 9]
+
+if (a in c):
+  print('c中含有a->1')
+else:
+  print('c中不含有a->1')
+
+# 输出 c中不含有a->1
+
+if (b not in c):
+  print('c中没有b->2')
+else:
+  print('c中有b->2')
+
+# 输出 c中有b->2
+```
+
 待续。。。
 
 <!-- ### 数据声明
