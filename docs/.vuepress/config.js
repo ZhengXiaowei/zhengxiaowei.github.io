@@ -46,7 +46,8 @@ module.exports = {
           'vue/vueMultipage',
           'vue/optimize',
           'vue/parcel-vue',
-          'vue/sync-component'
+          'vue/sync-component',
+          'vue/rebuild'
         ]
       },
       {
