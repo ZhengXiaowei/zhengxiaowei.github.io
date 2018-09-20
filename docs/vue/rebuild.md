@@ -503,7 +503,133 @@ export default {
 
 最后实现的效果如下：
 
-<img :src="$withBase('/assets/reader.gif')">
+<img :src="$withBase('/assets/reader/reader.gif')">
+
+---
+
+### 显示阅读器的菜单
+
+阅读器的核心部分完成之后，接下来就是显示阅读的操作菜单了。
+
+我们先在`reader-wrapper.vue`中布置出菜单部分：
+
+```vue
+<template>
+  <div class="reader-wrapper"
+       ref="wrapper"
+       :style="{fontSize:fz}">
+    <!-- 阅读器部分 -->
+    <div :class="[
+      'wrapper-content',
+      direction === 'horizontal' ? 'horizontal' : 'vertical']"
+         ref="readerWrapper">
+      <div class="scroll-content"
+           ref="content">
+        <div class="content"
+             ref="chapter">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+    <!-- 头部菜单和底部菜单 -->
+    <transition name="down">
+      <div class="wrapper-header" v-show="menu">
+        <slot name="header">
+          <reader-header></reader-header>
+        </slot>
+      </div>
+    </transition>
+    <transition name="up">
+      <div class="wrapper-menu" v-show="menu">
+        <slot name="menu">
+          <reader-menu></reader-menu>
+        </slot>
+      </div>
+    </transition>
+  </div>
+</template>
+```
+
+之所以菜单部分还是用插槽是因为，之后是有打算将阅读器部分完全抽离出来，封装成独立的组件，方便之后的项目使用，不同的项目，可能菜单部分多少有些不一样，所以使用插槽，让其更具灵活一些。
+
+这里还加入了显示菜单的动画，用过阅读app的朋友都能看到这么个效果，呼出操作菜单的时候，顶部是下滑而出，底部是上滑而出，所以我们要做的也是这个效果，直接使用`transition`即可，动画效果也比较简单：
+
+```stylus
+// 下滑
+.down-enter, .down-leave-to {
+  opacity 0
+  transform translateY(-100%)
+}
+
+// 上滑
+.up-enter, .up-leave-to {
+  opacity 0
+  transform translateY(100%)
+}
+
+.down-enter-active, .down-leave-active,
+.up-enter-active, .up-leave-active {
+  transition all 0.3s
+}
+```
+
+然后我们建立一个`reader-header.vue`和`reader-menu.vue`用于放置头部菜单和底部菜单，`reader-header`部分比较简单：
+
+```vue
+<!-- reader-header.vue -->
+<template>
+  <div class="reader-header">
+    header
+  </div>
+</template>
+```
+
+然后就是`reader-menu`部分：
+
+```vue
+<template>
+  <div class="reader-menu">
+    <div class="reader-menu__box">
+      <div class="menu-box__text">字号</div>
+      <div class="menu-box__item">
+        <div class="item-font__operator item-font__subtract">A-</div>
+        <div class="item-font__text">19</div>
+        <div class="item-font__operator item-font__add">A+</div>
+        <div class="item-font__reset">默认</div>
+      </div>
+    </div>
+    <div class="reader-menu__box">
+      <div class="menu-box__text">背景</div>
+      <div class="menu-box__item">
+        <div class="item-bg"></div>
+        <div class="item-bg"></div>
+        <div class="item-bg"></div>
+        <div class="item-bg"></div>
+        <div class="item-bg"></div>
+      </div>
+    </div>
+    <div class="reader-menu__box">
+      <div class="menu-box__item">
+        <div class="item-operator">上一章</div>
+        <div class="item-operator">目录</div>
+        <div class="item-operator">翻页方式</div>
+        <div class="item-operator">夜间</div>
+        <div class="item-operator">下一章</div>
+      </div>
+    </div>
+  </div>
+</template>
+```
+
+这样，头部和底部的菜单就完成了。
+
+哈哈哈 都是简单的书写哈~
+
+最后完成的效果如下：
+
+<img :src="$withBase('/assets/reader/reader-menu.gif')">
+
+---
 
 ## todos
 
