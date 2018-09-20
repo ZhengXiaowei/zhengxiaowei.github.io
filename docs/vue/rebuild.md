@@ -68,7 +68,7 @@ module.exports = {
 
 整个项目逻辑最复杂的就是阅读器这块，而阅读器这块，这里打算使用[黄轶老师](https://github.com/ustbhuangyi)出品的[`better-scroll`](https://github.com/ustbhuangyi/better-scroll)进行封装重构。
 
-之所以使用`better-scroll`我也想了挺久的，`better-scroll`在滚动上体验上确实没得说，相当的好，唯一让我犹豫的就是它太大了，虽然`gzip`后只有`9kb`，但是对于一些简单的使用来说，感觉还是有些大了。
+之所以使用`better-scroll`我也想了挺久的，`better-scroll`在滚动上体验上确实没得说，相当的好，唯一让我犹豫的就是它太大了，打包进`vendor`的话无疑会大大加大包的体积，但是后来又灵光一闪，诶，我打包的时候抽离出来用cdn的方式引入不就好了？毕竟`gzip`只有`9kb`，就小多了。于是就美滋滋的决定了~。
 
 扯多了，开始吧~
 
