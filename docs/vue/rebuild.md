@@ -437,24 +437,17 @@ export default {
       if (this.direction === "vertical") return;
       this.distance = pos.x;
       let arr = this.disArr;
-      let reader = this.$refs.reader;
       let pageDir = arr[this.curPage - 1];
       let diff = this.distance - pageDir;
       // * 从右向左滑
       if (dir.x === 1) {
         if (diff < THRESHOLD_NEXT) this.nextPage();
-        else {
-          reader.scrollTo(pageDir, 0, 300);
-          this.distance = pageDir;
-        }
+        else this.lockPage();
       }
       // * 从左向右滑
       if (dir.x === -1) {
         if (diff > THRESHOLD_PREV) this.prevPage();
-        else {
-          reader.scrollTo(pageDir, 0, 300);
-          this.distance = pageDir;
-        }
+        else this.lockPage();
       }
     },
     countPage({ pageCount, disArr, dWidth }) {
@@ -473,9 +466,7 @@ export default {
         console.log("最后一页了");
       } else {
         this.curPage++;
-        let pageDir = this.disArr[this.curPage - 1];
-        reader.scrollTo(pageDir, 0, 300);
-        this.distance = pageDir;
+        this.lockPage();
       }
     },
     prevPage() {
@@ -486,10 +477,15 @@ export default {
         console.log("第一页了");
       } else {
         this.curPage--;
-        let pageDir = this.disArr[this.curPage - 1];
-        reader.scrollTo(pageDir, 0, 300);
-        this.distance = pageDir;
+        this.lockPage();
       }
+    },
+    lockPage() {
+      // * 锁定停留的页面
+      let reader = this.$refs.reader;
+      let pageDir = this.disArr[this.curPage - 1];
+      reader.scrollTo(pageDir, 0, 300);
+      this.distance = pageDir;
     }
   }
 };
