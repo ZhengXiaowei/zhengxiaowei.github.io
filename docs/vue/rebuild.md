@@ -165,23 +165,11 @@ export default {
         });
       }
     },
-    disable() {
-      this.scroll && this.scroll.disable();
-    },
-    enable() {
-      this.scroll && this.scroll.enable();
-    },
     refresh() {
       this.scroll && this.scroll.refresh();
     },
     scrollTo() {
       this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments);
-    },
-    scrollToElement() {
-      this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments);
-    },
-    clickItem(e, item) {
-      this.$emit("click", item);
     },
     destroy() {
       this.scroll.destroy();
