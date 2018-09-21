@@ -1,8 +1,8 @@
 ---
-title: 项目重构
+title: 重构Vue阅读器
 ---
 
-# 项目重构
+# 重构Vue阅读器
 
 早期项目因为赶进度之类的，一些代码和模块都是挤在一起，显得很冗余，也很不方便之后的维护，所以打算将公司的项目进行一次重构，本次重构使用`vue-cli3.0`为模板进行升级重构。
 
@@ -619,7 +619,177 @@ export default {
 
 ---
 
+### 字体大小切换
+
+唔，昨天我们把底部菜单的布局给实现了，今天实现下一些具体功能 -- **字体大小切换**
+
+阅读器上肯定会存在一些默认属性，比如默认的字体大小，默认的背景色，默认的阅读方式(竖屏还是横屏)之类的，我们可以将这些默认配置写入到一个配置文件里，这里有两种方式做默认配置：
+
+- 一个通过`vuex`来控制这些默认数据
+- 一个是通过一个`js`文件存储，然后通过`bus`来操作
+
+两者不管使用哪一种，都得需要借助`localStorage`来保存用户的操作，避免刷新浏览器后重置了用户的设置。
+
+我个人喜欢将用户容易操作到的变量存入`vuex`中，然后一些固有数据放在`js`配置文件中做使用，这里就不做`vuex`的配置和说明了，看[官方文档](https://vuex.vuejs.org/zh/guide/)或者我之前写过的一篇粗略的[Vuex学习笔记](./index.html)也可。
+
+我这里将用户的常用操作变量放在`vuex中`：
+
+```js
+// state.js
+const str = window.localStorage;
+
+const state = {
+  fontSize: str.getItem("fontSize") || 14,            // 默认字体
+  bgIndex: str.getItem("bgIndex") || 1,               // 背景索引
+  direction: str.getItem("direction") || "vertical",  // 阅读方式
+  night: str.getItem("night") || false                // 是否夜间模式
+};
+
+export default state;
+```
+
+都是优先从缓存中取，如果有就用缓存数据，没有则使用默认数据。
+
+`commit`部分就不写了，这里就写下`action`部分，用户操作`commit`后顺便将这些数据存入缓存中：
+
+```js
+// action.js
+import * as type from "./mutation-type";
+const str = window.localStorage;
+
+// 修改阅读器的设置
+export const setReaderOptions = ({ commit, getters }, { name, value }) => {
+  switch (name) {
+    case "font":
+      commit(type.SET_FONTSIZE, value);
+      str.setItem("fontSize", value);
+      break;
+    case "bg":
+      commit(type.SET_BG_INDEX, value);
+      str.setItem("bgIndex", value);
+      break;
+    case "direction":
+      commit(type.SET_READER_DIRECTION, value);
+      str.setItem("direction", value);
+      break;
+    case "night":
+      commit(type.TOGGLE_READER_NIGHT);
+      str.setItem("night", getters.night);
+      break;
+    default:
+      return;
+  }
+};
+```
+
+然后我们再定义一个`readerOptions.js`来放置固定的配置数据：
+
+```js
+// readerOptions.js
+const readerOptions = {
+  defaultFontSize: 19,  // 默认字体大小
+  maxFontSize: 36,      // 最大字体大小
+  minFontSize: 12,      // 最小字体大小
+  bgColorList: []       // 背景列表，含背景色，对应背景色的字体色，暂时没找对应数据
+};
+
+export default readerOptions;
+```
+
+最后我们就在`reader-menu.vue`中引入使用就行：
+
+```vue
+<script>
+import { mapState, mapGetters, mapActions } from "vuex";
+import ReaderOptions from "./readerOptions.js";
+
+export default {
+  computed: {
+    ...mapState("reader", ["direction"]),
+    ...mapGetters("reader", ["fontSize", "night"])
+  },
+  data() {
+    return {
+      min: ReaderOptions.minFontSize,
+      max: ReaderOptions.maxFontSize,
+      default: ReaderOptions.defaultFontSize,
+      bgList: ReaderOptions.bgColorList
+    };
+  },
+  methods: {
+    subtract() {
+      this.font = this.fontSize;
+      // * 边界判断
+      if (this.font - 1 < this.min) return;
+      this.setReaderOptions({ name: "font", value: this.font - 1 });
+      this.$emit("font", this.font - 1);
+    },
+    add() {
+      this.font = this.fontSize;
+      // * 边界判断
+      if (this.font + 1 > this.max) return;
+      this.setReaderOptions({ name: "font", value: this.font + 1 });
+      this.$emit("font", this.font + 1);
+    },
+    resetFont() {
+      this.setReaderOptions({ name: "font", value: this.default });
+      this.$emit("font", this.default);
+    },
+    toggleNight() {
+      this.setReaderOptions({ name: "night" });
+    },
+    changeDir() {
+      let dir = this.direction === "vertical" ? "horizontal" : "vertical";
+      this.setReaderOptions({
+        name: "direction",
+        value: dir
+      });
+      this.$emit("direction", dir);
+    },
+    ...mapActions("reader", ["setReaderOptions"])
+  }
+}
+</script>
+```
+
+是不是不难？以为就这样结束了？哎，坑还有着呢~
+
+- 修改字体大小后，需要重新刷新`bs`的容器高度或者宽度，不然会出现滚动不到底的情况
+- 横屏下，因为字体变化，所以生成的页码数量也会跟着变动，所以需要重新计算页码
+- 横屏下，如果滑动到第3页，再修改字体，页面会默认滚动到最开始的地方，也就是`x=0`，再次滑动会直接跳过第2页，直接到第3页，体验不好
+- 横屏下，重新计算宽度后，滚动不到最后
+
+想必你们也想到了怎么解决了，对，就是利用`bs`的`refresh`方法：
+
+```vue
+<script>
+export default {
+  watch: {
+    font() {
+      // * 字体变化后需要重新计算宽度
+      this.$nextTick(() => {
+        if (this.direction === "horizontal") {
+          // * 因为重新计算位置后，dom也发生了变化，所以refresh要放在initDir之后
+          // * 可以使用setTimeout也可以再使用一次this.$nextTick()方法
+          this.initDir(this.direction);
+          setTimeout(() => {
+            this.refresh();
+            // * 重新锁定滚动位置，原来在第几页就还是第几页
+            // * false 表示不需要滚动动画，不然修改字体总会从第1页动画滑动到当前页，看起来也不好
+            this._lockPage(false);
+          }, 20);
+        } else this.refresh()
+      });
+    }
+  },
+}
+</script>
+```
+
+老规矩 最后的实现效果如下：
+
+<img :src="$withBase('/assets/reader/reader-change-font.gif')">
+
 ## todos
 
 - 背景切换
-- 字体大小切换
