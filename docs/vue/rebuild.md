@@ -134,14 +134,14 @@ export default {
   mounted() {
     setTimeout(() => {
       // * 初始化bs
-      this.initScroll();
+      this.init();
     }, 20);
   },
   destroyed() {
     this.$refs.wrapper && this.$refs.wrapper.destroy();
   },
   methods: {
-    initScroll() {
+    init() {
       if (!this.$refs.wrapper) {
         return;
       }
@@ -323,11 +323,11 @@ export default {
       let pageCount = Math.ceil(total / this.width);
       this.$emit("count-page", {
         pageCount,
-        disArr: this.perScrollDis(pageCount), // 每页需要的滚动距离
+        disArr: this.perSwiperDis(pageCount), // 每页需要的滚动距离
         dWidth: this.width
       });
     },
-    perScrollDis(totalPage) {
+    perSwiperDis(totalPage) {
       // * 计算每页的滚动距离
       let sum = 0;
       let arr = [];
@@ -363,7 +363,7 @@ this.countPage(refs.chapter.scrollWidth);
 <script>
 export default {
   methods: {
-    initScroll() {
+    init() {
       // 省略若干代码...
       // * 监听手指离开屏幕的事件 并返回最后的x，y坐标和移动方向
       // * 我们只需要横屏滚动的时候监听
