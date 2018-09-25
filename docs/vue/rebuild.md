@@ -977,7 +977,9 @@ if (x > x1 && x < x2 && y > y1 && y < y2) {
 
 接下来逻辑也就很简单了，无非就是菜单的显示隐藏，上一页下一页的操作，以及一些细节把控，这里就不多写了。
 
-最终效果可[预览](https://zhengxiaowei.github.io/vue-reader/)
+最终效果可扫码体验：
+
+<img :src="$withBase('/assets/reader/vue-reader.png')" alt="扫码体验">
 
 ::: tip 提示
 过程中代码进行过多次整理，所以这里书写的代码未必是最新的，最新的代码可查看[`github`](https://github.com/ZhengXiaowei/vue-reader)
