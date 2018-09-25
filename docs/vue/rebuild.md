@@ -2,7 +2,7 @@
 title: 重构Vue阅读器
 ---
 
-# 重构Vue阅读器
+# 重构 Vue 阅读器
 
 早期项目因为赶进度之类的，一些代码和模块都是挤在一起，显得很冗余，也很不方便之后的维护，所以打算将公司的项目进行一次重构，本次重构使用`vue-cli3.0`为模板进行升级重构。
 
@@ -68,7 +68,7 @@ module.exports = {
 
 整个项目逻辑最复杂的就是阅读器这块，而阅读器这块，这里打算使用[黄轶老师](https://github.com/ustbhuangyi)出品的[`better-scroll`](https://github.com/ustbhuangyi/better-scroll)进行封装重构。
 
-之所以使用`better-scroll`我也想了挺久的，`better-scroll`在滚动上体验上确实没得说，相当的好，唯一让我犹豫的就是它太大了，打包进`vendor`的话无疑会大大加大包的体积，但是后来又灵光一闪，诶，我打包的时候抽离出来用cdn的方式引入不就好了？毕竟`gzip`只有`9kb`，就小多了。于是就美滋滋的决定了~。
+之所以使用`better-scroll`我也想了挺久的，`better-scroll`在滚动上体验上确实没得说，相当的好，唯一让我犹豫的就是它太大了，打包进`vendor`的话无疑会大大加大包的体积，但是后来又灵光一闪，诶，我打包的时候抽离出来用 cdn 的方式引入不就好了？毕竟`gzip`只有`9kb`，就小多了。于是就美滋滋的决定了~。
 
 扯多了，开始吧~
 
@@ -540,7 +540,7 @@ export default {
 
 之所以菜单部分还是用插槽是因为，之后是有打算将阅读器部分完全抽离出来，封装成独立的组件，方便之后的项目使用，不同的项目，可能菜单部分多少有些不一样，所以使用插槽，让其更具灵活一些。
 
-这里还加入了显示菜单的动画，用过阅读app的朋友都能看到这么个效果，呼出操作菜单的时候，顶部是下滑而出，底部是上滑而出，所以我们要做的也是这个效果，直接使用`transition`即可，动画效果也比较简单：
+这里还加入了显示菜单的动画，用过阅读 app 的朋友都能看到这么个效果，呼出操作菜单的时候，顶部是下滑而出，底部是上滑而出，所以我们要做的也是这个效果，直接使用`transition`即可，动画效果也比较简单：
 
 ```stylus
 // 下滑
@@ -630,7 +630,7 @@ export default {
 
 两者不管使用哪一种，都得需要借助`localStorage`来保存用户的操作，避免刷新浏览器后重置了用户的设置。
 
-我个人喜欢将用户容易操作到的变量存入`vuex`中，然后一些固有数据放在`js`配置文件中做使用，这里就不做`vuex`的配置和说明了，看[官方文档](https://vuex.vuejs.org/zh/guide/)或者我之前写过的一篇粗略的[Vuex学习笔记](./index.html)也可。
+我个人喜欢将用户容易操作到的变量存入`vuex`中，然后一些固有数据放在`js`配置文件中做使用，这里就不做`vuex`的配置和说明了，看[官方文档](https://vuex.vuejs.org/zh/guide/)或者我之前写过的一篇粗略的[Vuex 学习笔记](./index.html)也可。
 
 我这里将用户的常用操作变量放在`vuex中`：
 
@@ -639,10 +639,10 @@ export default {
 const str = window.localStorage;
 
 const state = {
-  fontSize: str.getItem("fontSize") || 14,            // 默认字体
-  bgIndex: str.getItem("bgIndex") || 1,               // 背景索引
-  direction: str.getItem("direction") || "vertical",  // 阅读方式
-  night: str.getItem("night") || false                // 是否夜间模式
+  fontSize: str.getItem("fontSize") || 14, // 默认字体
+  bgIndex: str.getItem("bgIndex") || 1, // 背景索引
+  direction: str.getItem("direction") || "vertical", // 阅读方式
+  night: str.getItem("night") || false // 是否夜间模式
 };
 
 export default state;
@@ -687,10 +687,10 @@ export const setReaderOptions = ({ commit, getters }, { name, value }) => {
 ```js
 // readerOptions.js
 const readerOptions = {
-  defaultFontSize: 19,  // 默认字体大小
-  maxFontSize: 36,      // 最大字体大小
-  minFontSize: 12,      // 最小字体大小
-  bgColorList: []       // 背景列表，含背景色，对应背景色的字体色，暂时没找对应数据
+  defaultFontSize: 19, // 默认字体大小
+  maxFontSize: 36, // 最大字体大小
+  minFontSize: 12, // 最小字体大小
+  bgColorList: [] // 背景列表，含背景色，对应背景色的字体色，暂时没找对应数据
 };
 
 export default readerOptions;
@@ -748,7 +748,7 @@ export default {
     },
     ...mapActions("reader", ["setReaderOptions"])
   }
-}
+};
 </script>
 ```
 
@@ -756,7 +756,7 @@ export default {
 
 - 修改字体大小后，需要重新刷新`bs`的容器高度或者宽度，不然会出现滚动不到底的情况
 - 横屏下，因为字体变化，所以生成的页码数量也会跟着变动，所以需要重新计算页码
-- 横屏下，如果滑动到第3页，再修改字体，页面会默认滚动到最开始的地方，也就是`x=0`，再次滑动会直接跳过第2页，直接到第3页，体验不好
+- 横屏下，如果滑动到第 3 页，再修改字体，页面会默认滚动到最开始的地方，也就是`x=0`，再次滑动会直接跳过第 2 页，直接到第 3 页，体验不好
 - 横屏下，重新计算宽度后，滚动不到最后
 
 想必你们也想到了怎么解决了，对，就是利用`bs`的`refresh`方法：
@@ -778,11 +778,11 @@ export default {
             // * false 表示不需要滚动动画，不然修改字体总会从第1页动画滑动到当前页，看起来也不好
             this._lockPage(false);
           }, 20);
-        } else this.refresh()
+        } else this.refresh();
       });
     }
-  },
-}
+  }
+};
 </script>
 ```
 
@@ -790,6 +790,195 @@ export default {
 
 <img :src="$withBase('/assets/reader/reader-change-font.gif')">
 
-## todos
+---
 
-- 背景切换
+### 背景色切换
+
+背景色切换相对来说会简单一些，就是根据选择的背景色，去修改容器的`background`就 OK 了，我们将背景色的数据放入配置文件`ReaderOptions.js`中：
+
+```js
+// ReaderOptions.js
+
+const ReaderOptions = {
+  // * 背景集合
+  bgColorStyles: [
+    {
+      menuColor: "#f5dce4",
+      background: "#f5dce4",
+      color: "#7B3149"
+    },
+    {
+      menuColor: "#DFF5DC",
+      background: "#DFF5DC",
+      color: "#1F4D2B"
+    },
+    {
+      menuColor: "#38658C",
+      background: "#38658C",
+      color: "#fff"
+    },
+    {
+      menuColor: "#e6e6e6",
+      background: "#e6e6e6",
+      color: "#262626"
+    },
+    {
+      menuColor: "#ffdca3",
+      background:
+        "url(https://xxx/reader_bg_parchment_paper.jpg) center / 100% 100% fixed",
+      color: "#4c3831"
+    }
+  ],
+  // * 夜间模式背景数据
+  nightStyle: {
+    color: "#999",
+    background: "#222"
+  }
+};
+```
+
+然后我们在`reader-menu.vue`中，背景色这块循环`bgColorStyles`这块内容即可，然后每次我们点击色块，就修改对应的键值，如果是在**夜间模式**修改色块，则**取消夜间模式**：
+
+```vue
+<template>
+  <!-- 省略若干内容 -->
+  <div class="reader-menu__box">
+      <div class="menu-box__text">背景</div>
+      <div class="menu-box__item">
+        <template v-for="(bgStyle, i) in bgStyleList">
+          <div class="item-bg"
+               :key="i"
+               :style="{background:bgStyle.menuColor}"
+               @click.stop="bgChange(i)">
+            <img v-show="i===bgIndex"
+                 class="item-bg__check"
+                 src="./assets/check.png"
+                 alt="">
+          </div>
+        </template>
+      </div>
+    </div>
+</template>
+
+<script>
+import ReaderOptions from "./readerOptions.js";
+
+export default {
+  data() {
+    return {
+      bgStyleList: ReaderOptions.bgColorStyles
+    };
+  },
+  methods: {
+    bgChange(i) {
+      // * 修改背景色
+      if (this.bgIndex === i) return;
+      this.setReaderOptions({ name: "bg", value: i });
+      // * 如果处于夜间模式 则切换回来
+      if (this.night) this.toggleNight();
+      this.$emit("bg");
+    }
+  }
+};
+</script>
+```
+
+`reader-menu.vue`这块基本就这样，然后在`reader-wrapper.vue`中修改背景色：
+
+```vue
+<template>
+  <div class="reader-wrapper"
+       ref="wrapper"
+       :style="{
+         fontSize: fz,
+         background: night ? nightStyle.background : bgStyleList[bgIndex].background,
+         color: night ? nightStyle.color : bgStyleList[bgIndex].color
+        }">
+    <!-- 内容省略 -->
+  </div>
+</template>
+```
+
+::: tip 提示
+需要判断当前是否处于夜间模式，夜间模式采用夜间模式的配色
+:::
+
+
+### 阅读器的操作行为
+
+根据用户点击的区域不同，阅读器会有不同的行为，比如点击右侧，则滑入下一页，点击中心区域显示菜单等。
+
+不同的阅读器操作行为可能略有所不同，比如在`iReader`中，阅读器的操作行为如下图：
+
+<img :src="$withBase('/assets/reader/reader02.png')" alt="iReader">
+
+而在`搜狗阅读`中，阅读器的操作行为如下：
+
+<img :src="$withBase('/assets/reader/reader01.png')" alt="搜狗阅读">
+
+大多数就是这两种了，而我们这里要实现的，就是像`搜狗阅读`这种。
+
+一般来说，这种边界距离不会是固定的，都是根据屏幕尺寸来算的，我们在此将这这个比例设置成`1/4`，并写入配置文件`ReaderOptions.js`中：
+
+```js
+const readerOptions = {
+  // * 阅读器边界
+  readerTap: {
+    tapArea: 1 / 4,             // 比例
+    width: Math.min(            // 阅读器的宽
+      window.innerWidth,
+      window.screen.width,
+      document.body.offsetWidth
+    ),
+    height: Math.min(           // 阅读器的高
+      window.innerHeight,
+      window.screen.height
+    )
+  }
+}
+```
+
+然后我们来计算区域，我们先将`x`方向的区域计算下：
+
+- 左侧区域`x1`等于 `width * tapArea`
+- 右侧区域`x2`等于 `width - 左侧区域的x坐标`
+
+其次就是`y`方向的区域：
+
+- 顶部区域`y1`等于 `height * tapArea`
+- 底部区域`y2`等于 `height - 顶部区域`
+
+这样中心区域也就直接出来的。
+
+然后**左侧和左上**的部分加起来就是上一页的操作区域了：
+
+```js
+// x,y 为用户点击的坐标
+if (x < x1 || (x < y1 && x < x2)) {
+  // 左边以及左上部分的区域
+}
+```
+
+同样**右侧和右下**的部分加起来就是下一页的操作区域：
+
+```js
+if (x > x2 || (x > x1 && y > y2)) {
+  // 右边以及右下部分的区域
+}
+```
+
+最后就是**中心区域**了：
+
+```js
+if (x > x1 && x < x2 && y > y1 && y < y2) {
+  // 中心区域
+}
+```
+
+接下来逻辑也就很简单了，无非就是菜单的显示隐藏，上一页下一页的操作，以及一些细节把控，这里就不多写了。
+
+最终效果可[预览](https://zhengxiaowei.github.io/vue-reader/)
+
+::: tip 提示
+过程中代码进行过多次整理，所以这里书写的代码未必是最新的，最新的代码可查看[`github`](https://github.com/ZhengXiaowei/vue-reader)
+:::
