@@ -984,3 +984,14 @@ if (x > x1 && x < x2 && y > y1 && y < y2) {
 ::: tip 提示
 过程中代码进行过多次整理，所以这里书写的代码未必是最新的，最新的代码可查看[`github`](https://github.com/ZhengXiaowei/vue-reader)
 :::
+
+
+## bugs
+
+- 横屏下，手指水平滑动一段距离后再向其他方向滑动，则页面会卡在滑动距离那无法切换页面
+
+::: tip 解决
+该bug出现的原因是因为在`touchEnd`中使用`movingDirectionX`来判断滑动方向，而该属性是在滑动过程中去判断，比如我水平滑动`100px`后，手指向上移动，这时候滑动距离还是`100px`，可`movingDirectionX`却没有办法获取到你的滑动方向，所以导致了该bug出现。
+
+弃`movingDirectionX`改用`directionX`，不过`directionX`在`touchEnd`中获取一直为0，因为`directionX`是滚动结束后相对于开始的坐标进行判断滚动方向的，所以该属性在`scrollEnd`中才能正确获取，所以这里暂时将`touchEnd`事件改为`scrollEnd`事件，并不影响整体程序运行。
+:::
