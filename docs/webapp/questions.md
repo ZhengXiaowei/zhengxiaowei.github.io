@@ -96,23 +96,23 @@ border-1px($color = #ccc, $radius = 2px, $style = solid)
 可以使用`js`判断后动态插入：
 
 ```js
-let dpr = 1
-let ratio = window.devicePixelRatio
-let doc = document
-let head = doc.querySelector('head')
+let dpr = 1;
+let ratio = window.devicePixelRatio;
+let doc = document;
+let head = doc.querySelector("head");
 if (ratio === 2) {
-  dpr = 2
+  dpr = 2;
 } else if (ratio === 3) {
-  dpr = 3
+  dpr = 3;
 }
-let scale = 1 / dpr
-let meta = doc.createElement('meta')
-meta.setAttribute('name', 'viewport')
+let scale = 1 / dpr;
+let meta = doc.createElement("meta");
+meta.setAttribute("name", "viewport");
 meta.setAttribute(
-  'content',
+  "content",
   `initial-scale=${scale}, maximum-scale=${scale}, minimum-scale=${scale}, user-scalable=no`
-)
-head.appendChild(meta)
+);
+head.appendChild(meta);
 ```
 
 ## `rem` 和 `px` 的取舍
@@ -170,7 +170,7 @@ transform: translate3d(0, 0, 0);
 
 ```css
 .item {
-  min-height: 200px
+  min-height: 200px;
 }
 ```
 
@@ -191,3 +191,87 @@ z-index: 99;
 实现效果：
 
 <img :src="$withBase('/assets/css_xie.png')">
+
+## transform 和 fixed
+
+在父元素使用`transform`下使用`fixed`，将会使`fixed`失效。
+
+解决方案是：
+
+- 在使用了`transform`的容器中不使用`fixed`，换`absolute`，并需要通过 js 计算固定位置
+- 依然使用`fixed`，不过使用`fixed`的容器放在使用`transform`的容器之外。
+
+## 遮罩层滚动点透问题
+
+在出现遮罩层的时候，我们可以使用`@touchmove.prevent`来防止点透的问题出现，也就是遮罩层背后的内容还能滚动的问题。但是如果这样的话，如果遮罩层内有需要滚动的容器，那将使容器的滚动也失效。
+
+通过自身的了解和网上的收集，主要解决方案有以下几种：
+
+- 给`body`设置 css`{overflow:hidden}`
+
+  ::: warning 问题
+  IOS 上无效
+  :::
+
+- 给`body,html`都设置 css`{overflow:hidden}`
+
+  ::: warning 问题
+
+  a - 滚动位置会丢失，需要通过 js 设置 scrollTop
+
+  b - 没效果
+  :::
+
+- 目前比较完美的解决方案
+  ```js
+  (function() {
+    var scrollTop = 0;
+
+    // 显示弹出层
+    open.onclick = function() {
+      // 在弹出层显示之前，记录当前的滚动位置
+      scrollTop = getScrollTop();
+
+      // 使body脱离文档流
+      document.body.classList.add("dialog-open");
+
+      // 把脱离文档流的body拉上去！否则页面会回到顶部！
+      document.body.style.top = -scrollTop + "px";
+
+      mask.style.display = "block";
+    };
+
+    // 隐藏弹出层
+    close.onclick = function() {
+      mask.style.display = "none";
+
+      // body又回到了文档流中（我胡汉三又回来啦！）
+      document.body.classList.remove("dialog-open");
+
+      // 滚回到老地方
+      to(scrollTop);
+    };
+
+    function to(scrollTop) {
+      document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
+    }
+    function getScrollTop() {
+      return document.body.scrollTop || document.documentElement.scrollTop;
+    }
+  })();
+
+  function fixedBody(){
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    document.body.style.cssText += 'position:fixed;top:-'+scrollTop+'px;';
+  }
+
+  function looseBody() {
+    var body = document.body;
+    body.style.position = '';
+    var top = body.style.top;
+    document.body.scrollTop = document.documentElement.scrollTop = -parseInt(top);
+    body.style.top = '';
+  }
+  ```
+
+不过这样依旧会有点问题，就是如果在遮罩层中滚动的时候，做点击操作，会容易出现卡死的现象，就是滚动后需要进行两次点击，再能进行对应的点击操作。对此的解决方案是，改`click`事件为`touchstart`事件。
