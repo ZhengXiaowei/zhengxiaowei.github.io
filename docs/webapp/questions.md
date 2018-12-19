@@ -286,3 +286,35 @@ z-index: 99;
 - 取消`webkit-overflow-scrolling:touch`，但是这样会导致滚动时手指离开就马上停住滚动，没有了惯性滚动
 
 - 让子内容的高度`+1px`，比如父容器使用了`webkit-overflow-scrolling:touch`，那么子内容的容器设置高度`height:calc(100% + 1px)`既可以解决。
+
+## SPA路由使用`history`模式下的微信分享bug
+
+会出现的一个情况是，我已进入页面是可以分享的，当时如果这时候路由变化，比如`replace`或者`push`操作之后，那么分享就会出现问题，并不会如同配置那样分享出来。因为报了`invaild signature`的错误。
+
+这主要还区分安卓和苹果，两者的情况不同。
+
+出现这个的原因是：
+
+在`history`模式下，`vue-router`操作的是浏览器的历史记录，从而改变`URL`的变化。
+
+而官方[JSSDK文档](https://)中也有提到：
+
+> 同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题会在Android6.2中修复
+
+但是坑爹的是，`android`中出现的问题不多，因为每次`URL`变化后，微信记录的都是当前那个`URL`，而`IOS`则不然，`IOS`是微信只记录页面第一次加载进来的`URL`地址。
+
+举个栗子：
+
+一进入系统的地址是`https://a.com`，然后先后进入`a`、`b`，也就是`https://a.com/a`和`https://a.com/b`，然后停在`b`页面，在`android`中，微信记录的是`https://a.com/b`这个地址，而`IOS`中记录的却是`https://a.com`，也就是第一次进来的路由地址。
+
+这个时候我们刷新页面，那么`https://a.com/b`就是`IOS`第一次进来的地址了，所以`IOS`微信中记录的地址也就变成了`https://a.com/b`了。
+
+解决方式：
+
+注册一个全局变量，比如可以在`window`下挂在一个`wxSignURL`的变量，当一进入页面的时候保存第一次记录的地址：`window.wxSignURL = location.href`。
+
+这段代码可以写在`main.js`里，也可以写在`router.js`的钩子函数中，不过要区别对待，如果是`android`，则使用每次跳转后的路由，如果是`IOS`则使用记录的`wxSignURL`。
+
+然后获取`微信签名`的时候，把这个`URL`传过去即可。
+
+`IOS`和`android`的判断使用浏览器的`ua`判断即可。根据资料，微信会在`window`下挂载一个`__wxjs_is_wkwebview`属性，如果是在`IOS`中，该值为`true`，也可以通过这个属性去判断。
