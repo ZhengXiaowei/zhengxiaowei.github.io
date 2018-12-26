@@ -54,8 +54,15 @@ module.exports = {
         title: 'WebApp',
         collapsable: false,
         children: [
-          'webapp/', 
+          'webapp/',
           'webapp/questions'
+        ]
+      },
+      {
+        title: 'Flutter',
+        collapsable: false,
+        children: [
+          'flutter/'
         ]
       },
       {
