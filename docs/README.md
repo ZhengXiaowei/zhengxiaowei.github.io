@@ -40,7 +40,14 @@
       project_type: "app",
       project_info: "小说阅读",
       main_job: "负责app书籍的分类、排行、详情、目录、消费记录和充值记录等模块的开发，并通过 jsBridge 和 app 端进行交互",
-      status: "预上线"
+      status: "上线"
+    },
+    {
+      project: "原创书殿",
+      project_type: "H5",
+      project_info: "小说阅读",
+      main_job: "负责h5的项目搭建(vue-cli3 + vant)，并实现微骨架屏结构(非ssr渲染，白屏体验依旧= =)，完成项目的核心功能(首页，阅读，分类，排行，送礼，赠票，评论等)，优化项目性能，让项目有更快的体验",
+      status: "上线"
     }
   ],
   interesting: "喜欢学习、打游戏、运动。"
