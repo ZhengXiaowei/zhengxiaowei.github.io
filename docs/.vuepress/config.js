@@ -30,9 +30,9 @@ module.exports = {
         title: 'JavaScript',
         collapsable: false,
         children: [
-          'javascript/', 
-          'javascript/partner', 
-          // 'javascript/js', 
+          'javascript/',
+          'javascript/partner',
+          // 'javascript/js',
           'javascript/canvas',
           'javascript/listview'
         ]
@@ -70,7 +70,8 @@ module.exports = {
         collapsable: false,
         children: [
           'services/',
-          'services/python'
+          'services/python',
+          'services/mysql'
         ]
       },
       // {
@@ -82,8 +83,8 @@ module.exports = {
         title: '其他',
         collapsable: false,
         children: [
-          'others/', 
-          'others/vsESlint', 
+          'others/',
+          'others/vsESlint',
           'others/nginx',
           'others/android-dev'
         ]
