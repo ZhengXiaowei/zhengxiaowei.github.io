@@ -309,3 +309,4 @@ drop index [name] on demoTable;
 
 - 事务
 - 子查询
+- union [all / distinct]
