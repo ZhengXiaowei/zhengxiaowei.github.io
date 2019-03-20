@@ -62,7 +62,8 @@ module.exports = {
         title: 'Flutter',
         collapsable: false,
         children: [
-          'flutter/'
+          'flutter/',
+          'flutter/dart'
         ]
       },
       {
