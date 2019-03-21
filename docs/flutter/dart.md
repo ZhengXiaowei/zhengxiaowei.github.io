@@ -2,7 +2,7 @@
 title: Dart基础语法
 ---
 
-# Dart基础语法
+# Dart 基础语法
 
 ::: tip 提示
 在一个`dart`文件中，有且只有一个主入口`main()`函数。
@@ -10,7 +10,7 @@ title: Dart基础语法
 
 ## 变量声明
 
-在`Javascript`中，变量并没有类型要求，通常我们在`Js`中声明变量会用到**3个**关键字 --- **var**、**let**、**const**。
+在`Javascript`中，变量并没有类型要求，通常我们在`Js`中声明变量会用到**3 个**关键字 --- **var**、**let**、**const**。
 
 而在`Dart`中，变量是有严格的类型控制的，比如:
 
@@ -101,13 +101,13 @@ void main() {
 ```js
 let demoObj = {
   a: 1
-}
+};
 
 let a = demoObj.a || 3;
 let b = demoObj.b || 2;
 
 console.log(a); // 1
-console.log(b) // 2
+console.log(b); // 2
 ```
 
 在`dart`中，可以使用`??`这个运算符来进行实现：
@@ -157,8 +157,97 @@ print(str); // 我是文本内容
 
 ## 异步编程
 
-待完善...
+`js`中，我们使用`Promise`进行异步编程，比如：
+
+```js
+function demoPromise() {
+  return new Promise((resolve, reject) => {
+    // do something right
+    resolve();
+
+    // if error
+    reject();
+  });
+}
+```
+
+不过在`dart`中，则是使用`Future`进行异步编程，且和`Promsie`有些异同，具体例子如下：
+
+```dart
+
+getText(text) {
+  if(text != "") {
+    return new Future(() {
+      return text;
+    });
+  }
+  else {
+    return new Future.error("text 不能为空");
+  }
+}
+
+main() {
+  getText("我是文本").then((value) {
+    print(value);
+  });
+  // output: 我是文本
+
+  getText("").then((value) {
+    print(value);
+  }).catchError((e) {
+    print(e);
+  })
+  // output: text 不能为空
+}
+
+```
+
+`Future`中一样通过`then`进行无错误的返回值处理，不同于`Promise`的是，`Future`如果针对错误，需要使用`new Future.error()`来进行错误反馈，等同于`Promise.reject()`。
+
+此外还可以使用`whenComplete()`，该方法在`Future`中，无论返回的是什么都绝对会经过这个方法，类似于`Promise`中的`finally`。来看个例子：
+
+```dart
+main() {
+  getText().then((_) =>
+    Future.error("first error")
+  ).whenComplete(() =>
+    print("future complete")
+  ).then((_) =>
+    print("second then")
+  ).catchError((e) =>
+    print(e);
+  );
+  //output: future complete
+  //output: first error
+}
+
+getText() {
+  return new Future(() {
+    return;
+  });
+}
+```
+
+第一个`then`中返回的是一个错误，如果不存在`whenComplete`的话，那么结果将会阻塞第二个`then`的继续，并直接跳到`catchError`中，但是存在`whenComplete`，那么会顺着`Future`链继续执行`whenComplete`中的内容，再阻断第二个`then`的执行，直接跳到`catchError`中。
+
+::: warning 提示
+如果一个`Future`中没有返回什么实质性的内容，比如`getText`方法是直接`return`出来的，那么再调用的时候，`then`中需要一个占位符进行占位，不然程序会报错，比如上述代码中`then((_))`就使用了`_`进行占位。
+:::
 
 ## async/await
 
-待完善...
+和`js`中的使用基本一样，唯一不同的地方就是在`dart`中，`async`的位置需要写在函数名之后，看个例子：
+
+```dart
+main() async {
+  var text = await getText("text content");
+  print(text);
+}
+// output: text content;
+
+getText(text) {
+  return new Future(() {
+    return text;
+  });
+}
+```
