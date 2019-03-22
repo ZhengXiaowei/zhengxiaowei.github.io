@@ -78,7 +78,7 @@ module.exports = {
       // {
       //   title: '代码块',
       //   collapsable: false,
-      //   children: ['block/promise', 'block/page']
+      //   children: ['block/promise', 'block/page', 'block/filterObject']
       // },
       {
         title: '其他',
