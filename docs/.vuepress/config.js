@@ -1,78 +1,80 @@
+/*
+ * @Author: ZhengXiaowei
+ * @Date: 2019-01-11 11:59:01
+ * @LastEditors: ZhengXiaowei
+ * @LastEditTime: 2019-01-11 11:59:01
+ * @Description: vuepress 入口文件
+ */
 module.exports = {
-  title: 'Xiao Blog',
+  title: "Xiao Blog",
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.json' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ["link", { rel: "icon", href: "/logo.png" }],
+    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["meta", { name: "theme-color", content: "#3eaf7c" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
-      'meta',
-      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }
+      "meta",
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" }
     ],
     [
-      'link',
-      { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon-152x152.png' }
+      "link",
+      { rel: "apple-touch-icon", href: "/icons/apple-touch-icon-152x152.png" }
     ],
     [
-      'meta',
+      "meta",
       {
-        name: 'msapplication-TileImage',
-        content: '/icons/msapplication-icon-144x144.png'
+        name: "msapplication-TileImage",
+        content: "/icons/msapplication-icon-144x144.png"
       }
     ],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ["meta", { name: "msapplication-TileColor", content: "#000000" }]
   ],
   serviceWorker: true,
   themeConfig: {
-    lastUpdated: '上次更新',
+    lastUpdated: "上次更新",
     sidebar: [
       {
-        title: 'JavaScript',
+        title: "JavaScript",
         collapsable: false,
         children: [
-          'javascript/',
-          'javascript/partner',
+          "javascript/",
+          "javascript/partner",
           // 'javascript/js',
-          'javascript/canvas',
-          'javascript/listview'
+          "javascript/canvas",
+          "javascript/listview"
         ]
       },
       {
-        title: 'Vue',
+        title: "Vue",
         collapsable: false,
         children: [
-          'vue/',
-          'vue/vuex-persistence',
-          'vue/vueMultipage',
-          'vue/optimize',
-          'vue/parcel-vue',
-          'vue/sync-component',
-          'vue/rebuild'
+          "vue/",
+          "vue/vuex-persistence",
+          "vue/vueMultipage",
+          "vue/optimize",
+          "vue/parcel-vue",
+          "vue/sync-component",
+          "vue/rebuild"
         ]
       },
       {
-        title: 'WebApp',
+        title: "WebApp",
         collapsable: false,
-        children: [
-          'webapp/',
-          'webapp/questions'
-        ]
+        children: ["webapp/", "webapp/questions"]
       },
       {
-        title: 'Flutter',
+        title: "Flutter",
         collapsable: false,
-        children: [
-          'flutter/',
-          'flutter/dart'
-        ]
+        children: ["flutter/", "flutter/dart"]
       },
       {
-        title: 'Services',
+        title: "Services",
         collapsable: false,
         children: [
-          'services/',
-          'services/python',
-          'services/mysql'
+          "services/",
+          "services/mongodb",
+          "services/python",
+          "services/mysql"
         ]
       },
       // {
@@ -81,15 +83,15 @@ module.exports = {
       //   children: ['block/promise', 'block/page', 'block/filterObject']
       // },
       {
-        title: '其他',
+        title: "其他",
         collapsable: false,
         children: [
-          'others/',
-          'others/vsESlint',
-          'others/nginx',
-          'others/android-dev'
+          "others/",
+          "others/vsESlint",
+          "others/nginx",
+          "others/android-dev"
         ]
       }
     ]
   }
-}
+};

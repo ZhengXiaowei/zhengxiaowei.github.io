@@ -22,6 +22,29 @@
   ],
   work_exp: [
     {
+      project: "淘万券",
+      project_type: "APP",
+      project_info: "微电商",
+      main_job: "项目采用的是vue-cli3 + vant进行多页开发的，整个项目前端负责首页，详情，历史，我的卡券以及一些专题页面的开发，剩余页面是app原生开发，通过和app直接的交互完成整个混合app的构建。",
+      status: "上线1.0"
+    },
+    {
+      project: "原创书殿PC",
+      project_type: "PC_WEB",
+      project_info: "小说阅读",
+      project_url: "http://www.ycsd.cn",
+      main_job: "页面为后端渲染，主要利用webpack进行多页开发，负责整个网站的静态页面构建。",
+      status: "上线"
+    },
+    {
+      project: "原创书殿",
+      project_type: "H5",
+      project_info: "小说阅读",
+      project_url: "https://m.ycsd.cn",
+      main_job: "负责h5的项目搭建(vue-cli3 + vant)，并实现微骨架屏结构(非ssr渲染，白屏体验依旧= =，完成项目的核心功能(首页，阅读，分类，排行，送礼，赠票，评论等)，优化项目性能，让项目有更快的体验",
+      status: "上线"
+    },
+    {
       project: "帮找工具",
       project_type: "小程序",
       project_info: "帮找工具用酬金找人的模式发起者建立帮找任务后，先转发自己好友、朋友圈、微信群，通过您、您朋友、朋友的朋友......的接力转发，最终找到您需要的人或物。",
@@ -40,13 +63,6 @@
       project_type: "app",
       project_info: "小说阅读",
       main_job: "负责app书籍的分类、排行、详情、目录、消费记录和充值记录等模块的开发，并通过 jsBridge 和 app 端进行交互",
-      status: "上线"
-    },
-    {
-      project: "原创书殿",
-      project_type: "H5",
-      project_info: "小说阅读",
-      main_job: "负责h5的项目搭建(vue-cli3 + vant)，并实现微骨架屏结构(非ssr渲染，白屏体验依旧= =)，完成项目的核心功能(首页，阅读，分类，排行，送礼，赠票，评论等)，优化项目性能，让项目有更快的体验",
       status: "上线"
     }
   ],
