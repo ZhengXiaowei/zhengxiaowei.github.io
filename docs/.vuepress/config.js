@@ -41,7 +41,8 @@ module.exports = {
           "javascript/partner",
           // 'javascript/js',
           "javascript/canvas",
-          "javascript/listview"
+          "javascript/listview",
+          "javascript/typescript"
         ]
       },
       {
