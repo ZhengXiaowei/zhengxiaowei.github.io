@@ -55,7 +55,8 @@ module.exports = {
           "vue/optimize",
           "vue/parcel-vue",
           "vue/sync-component",
-          "vue/rebuild"
+          "vue/rebuild",
+          "vue/vue-tsx"
         ]
       },
       {
