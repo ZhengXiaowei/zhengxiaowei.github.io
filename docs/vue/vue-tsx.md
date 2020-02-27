@@ -45,7 +45,7 @@ import "vue-tsx-support/enable-check";
 
 // 省略。。
 ```
-然后删掉`src/shims-tsx.d.ts`文件，避免和`vue-tsx-support/enable-check`冲突。
+然后删掉`src/shims-tsx.d.ts`文件，避免和`vue-tsx-support/enable-check`声明重复冲突。
 
 最后在我们的`vue.config.js`文件里的`configureWebpack`属性下增加一项`resolve`：
 
@@ -77,7 +77,7 @@ interface ButtonClick {
 
 interface ButtonProps {
   text: string;
-  btnClick: ButtonClick
+  btnClick?: ButtonClick
 }
 
 @Component
@@ -108,14 +108,10 @@ import { Component, Vue } from "vue-property-decorator";
 import { Component as tsc } from "vue-tsx-support";
 import ZButton from "@/components/button/button.tsx";
 
-@Component({
-  components: {
-    [ZButton.name]: ZButton
-  }
-})
+@Component
 export default class HomeContainer extends tsc<Vue> {
   protected render() {
-    return <z-button text="点我！"></z-button>;
+    return <Zbutton text="点我！"></Zbutton>;
   }
 }
 ```
@@ -186,7 +182,7 @@ interface ButtonClick {
 
 interface ButtonProps {
   text: string;
-  btnClick: ButtonClick;
+  btnClick?: ButtonClick;
 }
 
 // 在Component装饰器上注入mixin
@@ -213,5 +209,251 @@ export default class ZButton extends tsc.Component<ButtonProps> {
 ```
 
 ## vuex
+`vuex`的`ts`改造主要有两种方案，一种是基于[vuex-class](https://github.com/ktsn/vuex-class)的方式，一种是基于[vue-module-decorators](https://github.com/championswimmer/vuex-module-decorators)的方式。
 
-## api
+因为编码习惯的原因，喜欢在书写`vuex`的时候，一个`module store`的各个小模块都单独写成一个文件，而`vue-module-decorators`则是一个`module store`对应一个文件。所以在选择上，我选择了`vuex-class`，有需要的朋友也可以了解下`vuex-module-decorators`。
+
+安装`vuex-class`：
+
+```bash
+npm install vue-class --save
+#or
+yarn add vuex-class
+```
+
+新建一个`system`的`module`，针对`system`的`store`建立各自文件
+* `state.ts`
+* `getter.ts`
+* `mutation.ts`
+* `mutation-type.ts`
+* `actions.ts`
+
+编写一个简单的例子，在`vuex`中存储`user`信息。
+
+先来编写`state`中的内容：
+
+```typescript
+// store/modules/system/state.ts
+
+interface SystemState {
+  user: Object
+}
+
+const state: SystemState = {
+  user: {}
+}
+
+export default state;
+```
+
+`mutation-type.ts`：
+
+```typescript
+// store/modules/system/mutation-type.ts
+interface SystemMutationType {
+  SET_USER_INFO: String;
+}
+
+const Mutation_Type: SystemMutationType = {
+  SET_USER_INFO: "SET_USER_INFO"
+}
+
+export default Mutation_Type;
+```
+
+`mutation.ts`：
+
+```typescript
+// store/modules/system/mutation.ts
+import type from "./mutation-type";
+
+const mutation: any = {
+  [type.SET_USER_INFO as string](state: SystemState, user: Object) {
+    state.user = user;
+  }
+}
+
+export default mutation;
+```
+
+`action.ts`：
+
+```typescript
+import type from "./mutation-type";
+import { Commit } from "vuex";
+
+export const cacheUser = (context: { commit: Commit }, user: Object) => {
+  context.commit(type.SET_USER_INFO as string, user);
+}
+```
+
+然后建立一个`index.ts`将这些外抛出去：
+
+```typescript
+// store/modules/system/index.ts
+import state from "./state";
+import mutations from "./mutation";
+import * as actions from "./action";
+import * as getters from "./getter";
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
+};
+```
+
+最后在`store`的入口文件处引用该`module`：
+
+```typescript
+// store/index.ts
+import Vue from "vue";
+import Vuex from "vuex";
+import system from "./modules/system";
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  modules: {
+    system
+  }
+});
+```
+
+接着我们去组件`button.tsx`中使用：
+
+```typescript
+// components/button/button.tsx
+import { Component, Prop } from "vue-property-decorator";
+import * as tsc from "vue-tsx-support";
+// 引入store命名空间 方便使用某个模块
+import { namespace } from "vuex-class";
+
+// 通过namespace(module name)的方式使用某个模块的store
+const systemStore = namespace("system");
+
+@Component
+export default class ZButton extends tsc.Component<ButtonProps> {
+  @Prop() text!: string;
+  // store使用state和action 其他getter和mutation类型
+  @systemStore.State("user") user!: Object;
+  @systemStore.Action("cacheUser") cacheUser: any;
+
+  public btnClick(value: string): void {
+    console.log("value is: ", value);
+    // 点击调用store的action方式存储user信息
+    // 而state中的user信息会同步 可通过vue-tools查看
+    this.cacheUser({ name: "张三", phone: "13333333333" });
+  }
+
+  // 点击事件中调用mixin的方法
+  protected render() {
+    return (
+      <div>
+        <button onClick={() => this.btnClick()}>{this.text}</button>
+      </div>
+    );
+  }
+}
+```
+
+## 三方组件库
+
+目前主流的三方组件库都是支持`ts`的，且官方文档上都会提供`ts`下的`demo`以及配置。这里以有赞的[vant](https://github.com/youzan/vant)作为例子。
+
+安装：
+
+```bash
+npm install vant --save
+#or
+yarn add vant
+```
+
+在`ts`下如果想要按需加载`vant`的话，就不能使用`babel-plugin-import`了，而是要使用`ts-import-plugin`。
+
+安装`ts-import-plugin`：
+
+```bash
+npm install ts-import-plugin --save-dev
+#or
+yarn add ts-import-plugin -D
+```
+
+安装结束后，需要在`vue.config.js`中注入到`webpack`中使用：
+
+```js
+// vue.config.js
+const merge = require("webpack-merge");
+const tsImportPluginFactory = require("ts-import-plugin");
+
+// 将ts-import-plugin合并到webpack配置中
+const webpackMergeConfig = config => {
+  config.module
+    .rule("ts")
+    .use("ts-loader")
+    .tap(options => {
+      options = merge(options, {
+        transpileOnly: true,
+        getCustomTransformers: () => ({
+          before: [
+            tsImportPluginFactory({
+              libraryName: "vant",
+              libraryDirectory: "es",
+              style: true
+            })
+          ]
+        }),
+        compilerOptions: {
+          module: "es2015"
+        }
+      });
+      return options;
+    });
+}
+
+module.exports = {
+  chainWebpack: config => {
+    webpackMergeConfig(config);
+    // ...省略
+  }
+}
+```
+
+然后就可以在组件文件中使用`vant`三方组件库了：
+
+```typescript
+// components/index.ts
+import Vue from "vue";
+import { Button } from "vant";
+
+Vue.use(Button);
+```
+
+`button.tsx`：
+
+```typescript
+// components/button/button.tsx
+import { Component, Prop } from "vue-property-decorator";
+import * as tsc from "vue-tsx-support";
+
+@Component
+export default class ZButton extends tsc.Component<ButtonProps> {
+  @Prop() text!: string;
+
+  public btnClick(value: string): void {
+    console.log("value is: ", value);
+  }
+
+  // 点击事件中调用mixin的方法
+  protected render() {
+    return (
+      <div>
+        // 使用van-button
+        <van-button type="primary">我是vant button</van-button>
+      </div>
+    );
+  }
+}
+```
