@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dart基础语法 | Xiao Blog</title>
+    <meta name="description" content="">
+    <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/31.styles.72922159.css" as="style"><link rel="preload" href="/assets/js/app.a03d4e4f.js" as="script"><link rel="preload" href="/assets/js/26.15fba687.js" as="script"><link rel="prefetch" href="/assets/js/0.0f59b883.js"><link rel="prefetch" href="/assets/js/1.9796cf5f.js"><link rel="prefetch" href="/assets/js/2.2a946d02.js"><link rel="prefetch" href="/assets/js/3.59a83de8.js"><link rel="prefetch" href="/assets/js/4.21fdbdec.js"><link rel="prefetch" href="/assets/js/5.a09ec324.js"><link rel="prefetch" href="/assets/js/6.d6543f82.js"><link rel="prefetch" href="/assets/js/7.3de0ccee.js"><link rel="prefetch" href="/assets/js/8.88711e9b.js"><link rel="prefetch" href="/assets/js/9.338fb1f3.js"><link rel="prefetch" href="/assets/js/10.538a23d4.js"><link rel="prefetch" href="/assets/js/11.55badfb5.js"><link rel="prefetch" href="/assets/js/12.6f950838.js"><link rel="prefetch" href="/assets/js/13.5399a19b.js"><link rel="prefetch" href="/assets/js/14.451eca1f.js"><link rel="prefetch" href="/assets/js/15.35ff6acf.js"><link rel="prefetch" href="/assets/js/16.ece38f4c.js"><link rel="prefetch" href="/assets/js/17.3bcb6de9.js"><link rel="prefetch" href="/assets/js/18.74c09d5d.js"><link rel="prefetch" href="/assets/js/19.aa302882.js"><link rel="prefetch" href="/assets/js/20.d26e17c2.js"><link rel="prefetch" href="/assets/js/21.140f1446.js"><link rel="prefetch" href="/assets/js/22.d56b6200.js"><link rel="prefetch" href="/assets/js/23.c0b205ad.js"><link rel="prefetch" href="/assets/js/24.e3ca6758.js"><link rel="prefetch" href="/assets/js/25.5bbdea6c.js"><link rel="prefetch" href="/assets/js/27.36d4982c.js"><link rel="prefetch" href="/assets/js/28.ef10919f.js"><link rel="prefetch" href="/assets/js/29.1fd2d94f.js"><link rel="prefetch" href="/assets/js/30.152778aa.js">
+    <link rel="stylesheet" href="/assets/css/31.styles.72922159.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Xiao Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>JavaScript</span><!----></p><ul class="sidebar-group-items"><li><a href="/javascript/" class="sidebar-link">前端缓存</a></li><li><a href="/javascript/partner.html" class="sidebar-link">设计模式</a></li><li><a href="/javascript/canvas.html" class="sidebar-link">canvas踩坑记</a></li><li><a href="/javascript/listview.html" class="sidebar-link">List-view 实现</a></li><li><a href="/javascript/typescript.html" class="sidebar-link">Typescript</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Vue</span><!----></p><ul class="sidebar-group-items"><li><a href="/vue/" class="sidebar-link">Vuex学习笔记</a></li><li><a href="/vue/vuex-persistence.html" class="sidebar-link">Vuex 持久化方案一</a></li><li><a href="/vue/vueMultipage.html" class="sidebar-link">vue多页配置</a></li><li><a href="/vue/optimize.html" class="sidebar-link">vue项目优化</a></li><li><a href="/vue/parcel-vue.html" class="sidebar-link">parcel-vue初体验</a></li><li><a href="/vue/sync-component.html" class="sidebar-link">异步组件</a></li><li><a href="/vue/rebuild.html" class="sidebar-link">重构Vue阅读器</a></li><li><a href="/vue/vue-tsx.html" class="sidebar-link">搭建vue-tsx风格的开发模板</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>WebApp</span><!----></p><ul class="sidebar-group-items"><li><a href="/webapp/" class="sidebar-link">cordova 打包</a></li><li><a href="/webapp/questions.html" class="sidebar-link">移动端问题锦集</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>Flutter</span><!----></p><ul class="sidebar-group-items"><li><a href="/flutter/" class="sidebar-link">环境搭建</a></li><li><a href="/flutter/dart.html" class="active sidebar-link">Dart基础语法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/flutter/dart.html#变量声明" class="sidebar-link">变量声明</a></li><li class="sidebar-sub-header"><a href="/flutter/dart.html#为true的情况" class="sidebar-link">为true的情况</a></li><li class="sidebar-sub-header"><a href="/flutter/dart.html#null的检查" class="sidebar-link">null的检查</a></li><li class="sidebar-sub-header"><a href="/flutter/dart.html#函数的声明" class="sidebar-link">函数的声明</a></li><li class="sidebar-sub-header"><a href="/flutter/dart.html#异步编程" class="sidebar-link">异步编程</a></li><li class="sidebar-sub-header"><a href="/flutter/dart.html#async-await" class="sidebar-link">async/await</a></li></ul></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Services</span><!----></p><ul class="sidebar-group-items"><li><a href="/services/" class="sidebar-link">Mongodb 好像有点意思？</a></li><li><a href="/services/mongodb.html" class="sidebar-link">正经学个mongoDB吧！</a></li><li><a href="/services/python.html" class="sidebar-link">学学Python吧~</a></li><li><a href="/services/mysql.html" class="sidebar-link">向mysql低头</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>其他</span><!----></p><ul class="sidebar-group-items"><li><a href="/others/" class="sidebar-link">VSCode 常用插件推荐</a></li><li><a href="/others/vsESlint.html" class="sidebar-link">VSCode ESLint 配置</a></li><li><a href="/others/nginx.html" class="sidebar-link">nginx服务器搭建</a></li><li><a href="/others/android-dev.html" class="sidebar-link">Mac 配置 Android 环境</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="dart-基础语法"><a href="#dart-基础语法" aria-hidden="true" class="header-anchor">#</a> Dart 基础语法</h1><div class="tip custom-block"><p class="custom-block-title">提示</p><p>在一个<code>dart</code>文件中，有且只有一个主入口<code>main()</code>函数。</p></div><h2 id="变量声明"><a href="#变量声明" aria-hidden="true" class="header-anchor">#</a> 变量声明</h2><p>在<code>Javascript</code>中，变量并没有类型要求，通常我们在<code>Js</code>中声明变量会用到<strong>3 个</strong>关键字 --- <strong>var</strong>、<strong>let</strong>、<strong>const</strong>。</p><p>而在<code>Dart</code>中，变量是有严格的类型控制的，比如:</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">// 声明字符串类型</span>
+String name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+name <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span> <span class="token comment">// error, 会报错，因为改变了变量的类型</span>
+
+<span class="token comment">// num类型下又含int和double类型，所以可以在两种类型中改变</span>
+num price <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+price <span class="token operator">=</span> <span class="token number">13.4</span><span class="token punctuation">;</span> <span class="token comment">// 变成了double类型</span>
+
+<span class="token comment">// 也可以使用var进行变量声明，变量的类型根据你的第一次赋值进行确定</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span> <span class="token comment">// name为String类型</span>
+name <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span> <span class="token comment">// error, 类型被改变了。</span>
+
+<span class="token keyword">var</span> age <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+age <span class="token operator">=</span> <span class="token number">12.5</span><span class="token punctuation">;</span> <span class="token comment">// error, 一开始的age就为int类型 不能修改为double类型了</span>
+
+bool isFlag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+isFlag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 如果在之后的逻辑里会涉及到修改变量的类型 那么可以使用dynamic来声明变量</span>
+<span class="token keyword">dynamic</span> str <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+str <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+str <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+str <span class="token operator">=</span> <span class="token number">11.1</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面的代码都不会报错</span>
+
+<span class="token keyword">final</span> name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+name <span class="token operator">=</span> <span class="token string">&quot;李四&quot;</span><span class="token punctuation">;</span> <span class="token comment">// error, final 定义的变量不能修改</span>
+
+<span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+name <span class="token operator">=</span> <span class="token string">&quot;李四&quot;</span><span class="token punctuation">;</span> <span class="token comment">// error, const 定义的变量不能修改</span>
+</code></pre></div><p>从上面我们可以知道，<code>final</code>和<code>const</code>定义的变量都是不能修改的常量，但是他们两个关键字具体有什么区别？看个例子：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">final</span> name2 <span class="token operator">=</span> name<span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+<span class="token keyword">const</span> name3 <span class="token operator">=</span> name<span class="token punctuation">;</span> <span class="token comment">// 错误</span>
+<span class="token keyword">const</span> name4 <span class="token operator">=</span> <span class="token string">&quot;王五&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+
+name <span class="token operator">=</span> <span class="token string">&quot;李四&quot;</span><span class="token punctuation">;</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span>name2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 张三</span>
+<span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 李四</span>
+</code></pre></div><p>由上面的代码可以看到，<code>final</code>可以通过变量进行定义变成一个常量，哪怕之后变量的值发生了变化，而<code>final</code>定义的那个常量的值只会是变量的初始定义的值。</p><p>而<code>const</code>只能通过定义一个具体值来形成一个常量。</p><div class="tip custom-block"><p class="custom-block-title">提示</p><p>在<code>js</code>中声明未定义的变量，则该变量的默认值是<code>undefined</code>，而在<code>dart</code>中，默认值是<code>null</code>。</p></div><h2 id="为true的情况"><a href="#为true的情况" aria-hidden="true" class="header-anchor">#</a> 为<code>true</code>的情况</h2><p>在<code>js</code>中，只要变量的值不为<code>null</code>、<code>undefined</code>、<code>&quot;&quot;</code>、<code>数值0</code>的情况下，都为<code>true</code>。</p><p>而在<code>dart</code>中，只有<code>true</code>才为<code>true</code>。</p><p>举个栗子：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  String name <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+  <span class="token comment">// 报错 因为name不是一个bool类型的值</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;我的名字叫张三&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// true 且进入 if</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">==</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;我的名字是张三&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>简单理解就是，<code>if</code>中必须是一个<code>bool</code>类型的值才能够正确执行。</p><h2 id="null的检查"><a href="#null的检查" aria-hidden="true" class="header-anchor">#</a><code>null</code>的检查</h2><p>在<code>js</code>中，通常会碰到一种情况，就是一个对象中是否有某个属性，没有则给个默认值之类的，比如：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> demoObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> a <span class="token operator">=</span> demoObj<span class="token punctuation">.</span>a <span class="token operator">||</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> demoObj<span class="token punctuation">.</span>b <span class="token operator">||</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+</code></pre></div><p>在<code>dart</code>中，可以使用<code>??</code>这个运算符来进行实现：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;b&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;c&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> b <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token string">&quot;b&quot;</span><span class="token punctuation">]</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> c <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token string">&quot;c&quot;</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> d <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token string">&quot;d&quot;</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+<span class="token function">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+<span class="token function">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p><code>??</code>中只有前者的值为<code>null</code>的时候才会显示后者的值作为默认值</p></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p><code>?.</code>是<code>dart</code>提供的一种<code>null-aware</code>运算符，用来判断该值是否存在，不存在则阻断<code>.</code>后面的运算，并返回<code>null</code>。</p></div><h2 id="函数的声明"><a href="#函数的声明" aria-hidden="true" class="header-anchor">#</a> 函数的声明</h2><p>在<code>dart</code>中可直接声明函数：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token function">printText</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">printText</span><span class="token punctuation">(</span><span class="token string">&quot;this is test&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 或者可以加入类型</span>
+String <span class="token function">getText</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> text<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token function">getText</span><span class="token punctuation">(</span><span class="token string">&quot;我是文本内容&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 我是文本内容</span>
+</code></pre></div><h2 id="异步编程"><a href="#异步编程" aria-hidden="true" class="header-anchor">#</a> 异步编程</h2><p><code>js</code>中，我们使用<code>Promise</code>进行异步编程，比如：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">demoPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do something right</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// if error</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>不过在<code>dart</code>中，则是使用<code>Future</code>进行异步编程，且和<code>Promsie</code>有些异同，具体例子如下：</p><div class="language-dart extra-class"><pre class="language-dart"><code>
+<span class="token function">getText</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>text <span class="token operator">!=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> text<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Future<span class="token punctuation">.</span>error</span><span class="token punctuation">(</span><span class="token string">&quot;text 不能为空&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">getText</span><span class="token punctuation">(</span><span class="token string">&quot;我是文本&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// output: 我是文本</span>
+
+  <span class="token function">getText</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catchError</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment">// output: text 不能为空</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p><code>Future</code>中一样通过<code>then</code>进行无错误的返回值处理，不同于<code>Promise</code>的是，<code>Future</code>如果针对错误，需要使用<code>new Future.error()</code>来进行错误反馈，等同于<code>Promise.reject()</code>。</p><p>此外还可以使用<code>whenComplete()</code>，该方法在<code>Future</code>中，无论返回的是什么都绝对会经过这个方法，类似于<code>Promise</code>中的<code>finally</code>。来看个例子：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+    Future<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;first error&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">whenComplete</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;future complete&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;second then&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catchError</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//output: future complete</span>
+  <span class="token comment">//output: first error</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>第一个<code>then</code>中返回的是一个错误，如果不存在<code>whenComplete</code>的话，那么结果将会阻塞第二个<code>then</code>的继续，并直接跳到<code>catchError</code>中，但是存在<code>whenComplete</code>，那么会顺着<code>Future</code>链继续执行<code>whenComplete</code>中的内容，再阻断第二个<code>then</code>的执行，直接跳到<code>catchError</code>中。</p><div class="warning custom-block"><p class="custom-block-title">提示</p><p>如果一个<code>Future</code>中没有返回什么实质性的内容，比如<code>getText</code>方法是直接<code>return</code>出来的，那么再调用的时候，<code>then</code>中需要一个占位符进行占位，不然程序会报错，比如上述代码中<code>then((_))</code>就使用了<code>_</code>进行占位。</p></div><h2 id="async-await"><a href="#async-await" aria-hidden="true" class="header-anchor">#</a> async/await</h2><p>和<code>js</code>中的使用基本一样，唯一不同的地方就是在<code>dart</code>中，<code>async</code>的位置需要写在函数名之后，看个例子：</p><div class="language-dart extra-class"><pre class="language-dart"><code><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> text <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getText</span><span class="token punctuation">(</span><span class="token string">&quot;text content&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// output: text content;</span>
+
+<span class="token function">getText</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> text<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">上次更新: </span><span class="time">3/21/2019, 11:09:35 AM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/flutter/" class="prev router-link-active">
+          环境搭建
+        </a></span><span class="next"><a href="/services/">
+          Mongodb 好像有点意思？
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/26.15fba687.js" defer></script><script src="/assets/js/app.a03d4e4f.js" defer></script>
+  </body>
+</html>

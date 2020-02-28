@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuex 持久化方案一 | Xiao Blog</title>
+    <meta name="description" content="">
+    <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/31.styles.72922159.css" as="style"><link rel="preload" href="/assets/js/app.a03d4e4f.js" as="script"><link rel="preload" href="/assets/js/2.2a946d02.js" as="script"><link rel="prefetch" href="/assets/js/0.0f59b883.js"><link rel="prefetch" href="/assets/js/1.9796cf5f.js"><link rel="prefetch" href="/assets/js/3.59a83de8.js"><link rel="prefetch" href="/assets/js/4.21fdbdec.js"><link rel="prefetch" href="/assets/js/5.a09ec324.js"><link rel="prefetch" href="/assets/js/6.d6543f82.js"><link rel="prefetch" href="/assets/js/7.3de0ccee.js"><link rel="prefetch" href="/assets/js/8.88711e9b.js"><link rel="prefetch" href="/assets/js/9.338fb1f3.js"><link rel="prefetch" href="/assets/js/10.538a23d4.js"><link rel="prefetch" href="/assets/js/11.55badfb5.js"><link rel="prefetch" href="/assets/js/12.6f950838.js"><link rel="prefetch" href="/assets/js/13.5399a19b.js"><link rel="prefetch" href="/assets/js/14.451eca1f.js"><link rel="prefetch" href="/assets/js/15.35ff6acf.js"><link rel="prefetch" href="/assets/js/16.ece38f4c.js"><link rel="prefetch" href="/assets/js/17.3bcb6de9.js"><link rel="prefetch" href="/assets/js/18.74c09d5d.js"><link rel="prefetch" href="/assets/js/19.aa302882.js"><link rel="prefetch" href="/assets/js/20.d26e17c2.js"><link rel="prefetch" href="/assets/js/21.140f1446.js"><link rel="prefetch" href="/assets/js/22.d56b6200.js"><link rel="prefetch" href="/assets/js/23.c0b205ad.js"><link rel="prefetch" href="/assets/js/24.e3ca6758.js"><link rel="prefetch" href="/assets/js/25.5bbdea6c.js"><link rel="prefetch" href="/assets/js/26.15fba687.js"><link rel="prefetch" href="/assets/js/27.36d4982c.js"><link rel="prefetch" href="/assets/js/28.ef10919f.js"><link rel="prefetch" href="/assets/js/29.1fd2d94f.js"><link rel="prefetch" href="/assets/js/30.152778aa.js">
+    <link rel="stylesheet" href="/assets/css/31.styles.72922159.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Xiao Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>JavaScript</span><!----></p><ul class="sidebar-group-items"><li><a href="/javascript/" class="sidebar-link">前端缓存</a></li><li><a href="/javascript/partner.html" class="sidebar-link">设计模式</a></li><li><a href="/javascript/canvas.html" class="sidebar-link">canvas踩坑记</a></li><li><a href="/javascript/listview.html" class="sidebar-link">List-view 实现</a></li><li><a href="/javascript/typescript.html" class="sidebar-link">Typescript</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>Vue</span><!----></p><ul class="sidebar-group-items"><li><a href="/vue/" class="sidebar-link">Vuex学习笔记</a></li><li><a href="/vue/vuex-persistence.html" class="active sidebar-link">Vuex 持久化方案一</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/vuex-persistence.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/vue/vuex-persistence.html#问题" class="sidebar-link">问题</a></li><li class="sidebar-sub-header"><a href="/vue/vuex-persistence.html#实现" class="sidebar-link">实现</a></li></ul></li><li><a href="/vue/vueMultipage.html" class="sidebar-link">vue多页配置</a></li><li><a href="/vue/optimize.html" class="sidebar-link">vue项目优化</a></li><li><a href="/vue/parcel-vue.html" class="sidebar-link">parcel-vue初体验</a></li><li><a href="/vue/sync-component.html" class="sidebar-link">异步组件</a></li><li><a href="/vue/rebuild.html" class="sidebar-link">重构Vue阅读器</a></li><li><a href="/vue/vue-tsx.html" class="sidebar-link">搭建vue-tsx风格的开发模板</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>WebApp</span><!----></p><ul class="sidebar-group-items"><li><a href="/webapp/" class="sidebar-link">cordova 打包</a></li><li><a href="/webapp/questions.html" class="sidebar-link">移动端问题锦集</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Flutter</span><!----></p><ul class="sidebar-group-items"><li><a href="/flutter/" class="sidebar-link">环境搭建</a></li><li><a href="/flutter/dart.html" class="sidebar-link">Dart基础语法</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Services</span><!----></p><ul class="sidebar-group-items"><li><a href="/services/" class="sidebar-link">Mongodb 好像有点意思？</a></li><li><a href="/services/mongodb.html" class="sidebar-link">正经学个mongoDB吧！</a></li><li><a href="/services/python.html" class="sidebar-link">学学Python吧~</a></li><li><a href="/services/mysql.html" class="sidebar-link">向mysql低头</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>其他</span><!----></p><ul class="sidebar-group-items"><li><a href="/others/" class="sidebar-link">VSCode 常用插件推荐</a></li><li><a href="/others/vsESlint.html" class="sidebar-link">VSCode ESLint 配置</a></li><li><a href="/others/nginx.html" class="sidebar-link">nginx服务器搭建</a></li><li><a href="/others/android-dev.html" class="sidebar-link">Mac 配置 Android 环境</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="vuex-持久化方案一"><a href="#vuex-持久化方案一" aria-hidden="true" class="header-anchor">#</a> Vuex 持久化方案一</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>我们都知道<code>Vuex</code>是一个状态管理器，而他的缺点也很明确，在页面刷新之后，<code>Vuex</code>中的状态都会被重置，这对于一些不想被重置的状态数据而言，
+是一个不好的表现。如果是完全用<code>Vue</code>构建的 app 项目的话，则不需要考虑这些，因为在 app 中，不存在刷新浏览器的操作。</p><p>当然，如果是混合开发的，那还是有一些可能的，比如 app 端重新加载 <code>webview</code> 的话，那也是等同于刷新浏览器的操作了，这个时候 <code>Vuex</code> 也会被重置。</p><p>而今天要讨论的就是让<code>Vuex</code>的状态持久化，当然，这只是其中一个方案，这里我们需要配合本地存储来达到我们的目标。</p><h2 id="问题"><a href="#问题" aria-hidden="true" class="header-anchor">#</a> 问题</h2><ul><li>并不是所有状态都需要存入本地缓存</li><li>重置默认值，并不是所有的状态默认值都是<code>''</code></li></ul><h2 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h2><h3 id="vuex-demo"><a href="#vuex-demo" aria-hidden="true" class="header-anchor">#</a> Vuex Demo</h3><p>首先我们初始化一个<code>vue</code>项目：</p><div class="language-bash extra-class"><pre class="language-bash"><code>vue init webpack vuexDemo
+</code></pre></div><p>初始化成功后，我们通过<code>yarn</code>安装<code>vuex</code>：</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add vuex
+</code></pre></div><p>安装成功后，我们在项目根目录<code>src</code>建立一个<code>store</code>文件夹，该文件夹用于存放<code>vuex</code>的内容，结构入下：</p><div class="language- extra-class"><pre class="language-text"><code>store
+├── state.js            # vuex状态集合
+├── getter.js           # state的派生状态 可对state做些过滤或者其他操作
+├── action.js           # 异步mutation操作
+├── mutation.js         # 修改state状态
+├── mutation-type.js    # mutation的类型
+├── index.js            # vuex主文件
+</code></pre></div><p>我们对各个文件加入点简单的内容：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// state.js</span>
+<span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  count<span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> state
+
+<span class="token comment">// mutation-type.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">SET_COUNT</span> <span class="token operator">=</span> <span class="token string">'SET_COUNT'</span>
+
+<span class="token comment">// mutation.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+
+<span class="token keyword">const</span> mutation <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">SET_COUNT</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count <span class="token operator">=</span> data
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> mutation
+
+<span class="token comment">// index.js</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+<span class="token comment">// import * as actions from './action'</span>
+<span class="token comment">// import * as getters from './getter'</span>
+<span class="token keyword">import</span> state <span class="token keyword">from</span> <span class="token string">'./state'</span>
+<span class="token keyword">import</span> mutations <span class="token keyword">from</span> <span class="token string">'./mutation'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  actions<span class="token punctuation">,</span>
+  getters<span class="token punctuation">,</span>
+  state<span class="token punctuation">,</span>
+  mutations
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这里之所以没有引入<code>getter</code>和<code>action</code>，一个是因为我们取<code>state</code>中的<code>count</code>是直接取，并没有对其做什么特别的操作，所以<code>getter</code>中就省略了。</p><p>而<code>action</code>它提交的是一个<code>mutation</code>，而且它和<code>mutation</code>的区别在于:</p><ul><li><code>mutation</code>是同步的，<code>action</code>可以包含异步操作</li><li><code>mutation</code>直接修改<code>state</code>，而<code>action</code>提交的是<code>mutation</code>，然后再让<code>mutation</code>去修改<code>state</code></li><li><code>action</code>可以一次提交多个<code>mutation</code></li></ul><p>我们现在就是个简单的修改<code>state</code>，所以就先不管<code>action</code></p><p>然后在<code>vue</code>模板中:</p><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>hello<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>{{ msg }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>{{ count }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>addStore<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>添加<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapState<span class="token punctuation">,</span> mapMutations <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'HelloWorld'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      msg<span class="token punctuation">:</span> <span class="token string">'Welcome to Your Vue.js App'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">SET_COUNT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'SET_COUNT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>这样就完成了一个简单的<code>vuex</code>例子了，当点击<code>添加</code>按钮的时候，界面上的<code>0</code>就会变成<code>2</code>，并且如果装有<code>vue-devtools</code>的话，
+也能在<code>vuex</code>那一栏看到<code>count</code>的数值也变成了<code>2</code>，这里就不放动图演示了。</p><h3 id="持久化"><a href="#持久化" aria-hidden="true" class="header-anchor">#</a> 持久化</h3><p>接下来就是我们的关键内容了，想要让<code>vuex</code>持久化，自然离不开本地存储<code>localStorage</code>，我们往<code>state</code>里加些内容：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// state.js</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> window<span class="token punctuation">.</span>localStorage
+
+<span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  count<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  account<span class="token punctuation">:</span> str<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'account'</span><span class="token punctuation">)</span> <span class="token operator">?</span> str<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'account'</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们加入了一个<code>account</code>属性，这里表示如果缓存中有<code>account</code>的话就从缓存中取，没有则为空。</p><p>然后我们也同样设置下<code>mutation</code>和<code>mutation-type</code>：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// mutation-type.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">SET_COUNT</span> <span class="token operator">=</span> <span class="token string">'SET_COUNT'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">SET_ACCOUNT_0</span> <span class="token operator">=</span> <span class="token string">'SET_ACCOUNT_0'</span>
+
+<span class="token comment">// mutation.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+
+<span class="token keyword">const</span> mutation <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">SET_COUNT</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count <span class="token operator">=</span> data
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">SET_ACCOUNT_0</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> account<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>account <span class="token operator">=</span> account
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> mutation
+</code></pre></div><p>我们在定义<code>mutation-type</code>的时候，在尾部多加了个<code>_0</code>用来表示，该字段是存入缓存中的。</p><p>但是我们不会选择在<code>mutation</code>中去做缓存操作，毕竟我个人认为不适合在<code>mutation</code>中做过多的逻辑操作，我们选择将这部分逻辑操作放在<code>action</code>中：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// action.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> window<span class="token punctuation">.</span>localStorage
+
+<span class="token comment">/**
+ * 缓存操作
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">withCache</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> mutationType<span class="token punctuation">,</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">commit</span><span class="token punctuation">(</span>mutationType<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token comment">// 是不是以_0结尾 是的话表示需要缓存</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">~</span>mutationType<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'_0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setToStorage</span><span class="token punctuation">(</span>mutationType<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 正则太烂。。。就先这么写着了</span>
+<span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex">/(SET_)(\w+)(_0)/</span>
+<span class="token keyword">function</span> <span class="token function">setToStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> type<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> data <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> str<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> formatData <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    str<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> formatData<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面这段代码解决几个问题：</p><ul><li>因为在<code>action</code>中我不知道存储的目标属于哪个<code>type</code>，所以将其当做参数传入</li><li>存入缓存的<code>key</code>我们取的是<code>SET_xxx</code>中的<code>xxx</code>(小写)，尽量保持和<code>state</code>的字段名称一致。比如<code>SET_A</code>-&gt;<code>a</code>，<code>SET_B_0</code>-&gt;<code>b</code></li><li>本地缓存存<code>Object</code>类型会变成<code>[Object object]</code>，所以针对<code>Object</code>类型的数据，我们需要将其转成字符串再存入</li></ul><div class="tip custom-block"><p class="custom-block-title">提示</p><p>记得将<code>action</code>在<code>index.js</code>引入</p></div><p>然后我们在<code>vue</code>模板中，先引入<code>mapActions</code>，然后进行使用：</p><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapState<span class="token punctuation">,</span> mapMutations<span class="token punctuation">,</span> mapActions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'HelloWorld'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      msg<span class="token punctuation">:</span> <span class="token string">'Welcome to Your Vue.js App'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> account <span class="token operator">=</span> <span class="token punctuation">{</span> user<span class="token punctuation">:</span> <span class="token string">'Randy'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">22</span> <span class="token punctuation">}</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_COUNT'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_ACCOUNT_0'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> account <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'SET_COUNT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'withCache'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>直接调用<code>withCache</code>，传入<code>mutationType</code>和<code>data</code>，<code>withCache</code>会根据<code>mutationType</code>判断哪些是需要存入缓存的，哪些是不需要的。</p><p>当然，不需要存入缓存的，也可以直接调用<code>mapMutations</code>中的方法直接操作。</p><p>现在有个问题，就是我缓存存入<code>Object</code>类型的是字符串类型，所以我<code>state</code>中的对应数据也是字符串类型的，在模板中不利于使用，怎么办？这时候就可以使用<code>getter</code>了，我们在<code>getter</code>中将其转成<code>Object</code>类型即可：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// getter.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getAccount</span> <span class="token operator">=</span> state <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> account <span class="token operator">=</span> state<span class="token punctuation">.</span>account
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> account <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token operator">!</span>account<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>account<span class="token punctuation">)</span>
+  <span class="token keyword">else</span> <span class="token keyword">return</span> account
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>上面的判断还不够完整，应该还要判断是否是 JSON 字符串类型，是的话再进行<code>JSON.parse</code>操作，不然普通的字符串类型会报错，这个自行改善。</p></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>记得将<code>getter</code>在<code>index.js</code>引入</p></div><p>然后在模板中使用<code>mapGetters</code>引入：</p><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    ...
+    {{getAccount.user}}
+    ...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapState<span class="token punctuation">,</span> mapMutations<span class="token punctuation">,</span> mapActions<span class="token punctuation">,</span> mapGetters <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'HelloWorld'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'getAccount'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      msg<span class="token punctuation">:</span> <span class="token string">'Welcome to Your Vue.js App'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> account <span class="token operator">=</span> <span class="token punctuation">{</span> user<span class="token punctuation">:</span> <span class="token string">'Randy'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">22</span> <span class="token punctuation">}</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_COUNT'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_ACCOUNT_0'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> account <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'SET_COUNT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'withCache'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>到这基本就结束了，现在刷新浏览器，那些需要持久化的属性就不会被重置了。</p><p>可是真的就结束了吗？那么如果我要将缓存的数据给清空或者重置呢？因为<code>state</code>中每个属性的默认值都是不一样的，可能为<code>''</code>、<code>0</code>、<code>false</code>等各种类型的，那该怎么办？某问题啦~</p><h3 id="状态重置"><a href="#状态重置" aria-hidden="true" class="header-anchor">#</a> 状态重置</h3><p>可以复制出一份<code>state</code>作为它的初始默认值，比如在<code>store</code>新建一个<code>default_state.js</code>：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// default_state.js</span>
+<span class="token keyword">const</span> default_state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  count<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  account<span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> default_state
+</code></pre></div><p>然后我们定义一个类型为<code>RESET_ALL_STATE</code>的<code>mutation</code>：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// mutation-type.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">RESET_ALL_STATE</span> <span class="token operator">=</span> <span class="token string">'RESET_ALL_STATE'</span>
+
+<span class="token comment">// mutation.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+
+<span class="token keyword">const</span> mutation <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">SET_COUNT</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>count <span class="token operator">=</span> data
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">SET_ACCOUNT_0</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> account<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>account <span class="token operator">=</span> account
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>type<span class="token punctuation">.</span><span class="token constant">RESET_ALL_STATE</span><span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">[</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token punctuation">.</span>state<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>value
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> mutation
+</code></pre></div><p>最后我们在<code>action</code>中定义一个重置的操作<code>resetAllState</code>：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// action.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+<span class="token keyword">import</span> default_state <span class="token keyword">from</span> <span class="token string">'./default_state'</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> window<span class="token punctuation">.</span>localStorage
+
+<span class="token comment">/**
+ * 重置所有状态
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">resetAllState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 循环默认state 设置初始值</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>default_state<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>state <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token constant">RESET_ALL_STATE</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> state<span class="token punctuation">,</span> value<span class="token punctuation">:</span> default_state<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment">// 将有缓存的数据清空</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>typeItem <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">~</span>typeItem<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'_0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">clearStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">[</span>typeItem<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex">/(SET_)(\w+)(_0)/</span>
+<span class="token keyword">function</span> <span class="token function">clearStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> type<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  str<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>完整<code>action.js</code>：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> type <span class="token keyword">from</span> <span class="token string">'./mutation-type'</span>
+<span class="token keyword">import</span> default_state <span class="token keyword">from</span> <span class="token string">'./default_state'</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> window<span class="token punctuation">.</span>localStorage
+
+<span class="token comment">/**
+ * 缓存操作
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">withCache</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> mutationType<span class="token punctuation">,</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">commit</span><span class="token punctuation">(</span>mutationType<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">~</span>mutationType<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'_0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 需要缓存</span>
+    <span class="token function">setToStorage</span><span class="token punctuation">(</span>mutationType<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 重置所有状态
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">resetAllState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 循环默认state 设置初始值</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>default_state<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>state <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token constant">RESET_ALL_STATE</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> state<span class="token punctuation">,</span> value<span class="token punctuation">:</span> default_state<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment">// 将有缓存的数据清空</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>typeItem <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">~</span>typeItem<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'_0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">clearStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">[</span>typeItem<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex">/(SET_)(\w+)(_0)/</span>
+<span class="token keyword">function</span> <span class="token function">setToStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> type<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> data <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> str<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> formatData <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    str<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> formatData<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">clearStorage</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> type<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  str<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>vue</code>模板中的完整使用：</p><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>hello<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>{{ msg }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>{{ count }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">&gt;</span></span>{{ getAccount.user }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>addStore<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>添加<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>clearStore<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>清空<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters<span class="token punctuation">,</span> mapState<span class="token punctuation">,</span> mapMutations<span class="token punctuation">,</span> mapActions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'HelloWorld'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'getAccount'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      msg<span class="token punctuation">:</span> <span class="token string">'Welcome to Your Vue.js App'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> account <span class="token operator">=</span> <span class="token punctuation">{</span> user<span class="token punctuation">:</span> <span class="token string">'Randy'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">22</span> <span class="token punctuation">}</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_COUNT'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>msg <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">withCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutationType<span class="token punctuation">:</span> <span class="token string">'SET_ACCOUNT_0'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> account <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">clearStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">resetAllState</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'SET_COUNT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'withCache'</span><span class="token punctuation">,</span> <span class="token string">'resetAllState'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>好了，现在是真的结束了。</p><div class="tip custom-block"><p class="custom-block-title">总结</p><p>可能代码有些乱，但是大致的思路我想应该还是都能理解的。</p><p>如果还有有其他<code>vuex</code>的持久化方式，还会继续更新的。</p><p>也欢迎大家一同思考。</p></div></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">上次更新: </span><span class="time">8/31/2018, 5:52:20 PM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vue/" class="prev router-link-active">
+          Vuex学习笔记
+        </a></span><span class="next"><a href="/vue/vueMultipage.html">
+          vue多页配置
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/2.2a946d02.js" defer></script><script src="/assets/js/app.a03d4e4f.js" defer></script>
+  </body>
+</html>

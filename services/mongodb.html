@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正经学个mongoDB吧！ | Xiao Blog</title>
+    <meta name="description" content="">
+    <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/31.styles.72922159.css" as="style"><link rel="preload" href="/assets/js/app.a03d4e4f.js" as="script"><link rel="preload" href="/assets/js/13.5399a19b.js" as="script"><link rel="prefetch" href="/assets/js/0.0f59b883.js"><link rel="prefetch" href="/assets/js/1.9796cf5f.js"><link rel="prefetch" href="/assets/js/2.2a946d02.js"><link rel="prefetch" href="/assets/js/3.59a83de8.js"><link rel="prefetch" href="/assets/js/4.21fdbdec.js"><link rel="prefetch" href="/assets/js/5.a09ec324.js"><link rel="prefetch" href="/assets/js/6.d6543f82.js"><link rel="prefetch" href="/assets/js/7.3de0ccee.js"><link rel="prefetch" href="/assets/js/8.88711e9b.js"><link rel="prefetch" href="/assets/js/9.338fb1f3.js"><link rel="prefetch" href="/assets/js/10.538a23d4.js"><link rel="prefetch" href="/assets/js/11.55badfb5.js"><link rel="prefetch" href="/assets/js/12.6f950838.js"><link rel="prefetch" href="/assets/js/14.451eca1f.js"><link rel="prefetch" href="/assets/js/15.35ff6acf.js"><link rel="prefetch" href="/assets/js/16.ece38f4c.js"><link rel="prefetch" href="/assets/js/17.3bcb6de9.js"><link rel="prefetch" href="/assets/js/18.74c09d5d.js"><link rel="prefetch" href="/assets/js/19.aa302882.js"><link rel="prefetch" href="/assets/js/20.d26e17c2.js"><link rel="prefetch" href="/assets/js/21.140f1446.js"><link rel="prefetch" href="/assets/js/22.d56b6200.js"><link rel="prefetch" href="/assets/js/23.c0b205ad.js"><link rel="prefetch" href="/assets/js/24.e3ca6758.js"><link rel="prefetch" href="/assets/js/25.5bbdea6c.js"><link rel="prefetch" href="/assets/js/26.15fba687.js"><link rel="prefetch" href="/assets/js/27.36d4982c.js"><link rel="prefetch" href="/assets/js/28.ef10919f.js"><link rel="prefetch" href="/assets/js/29.1fd2d94f.js"><link rel="prefetch" href="/assets/js/30.152778aa.js">
+    <link rel="stylesheet" href="/assets/css/31.styles.72922159.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Xiao Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>JavaScript</span><!----></p><ul class="sidebar-group-items"><li><a href="/javascript/" class="sidebar-link">前端缓存</a></li><li><a href="/javascript/partner.html" class="sidebar-link">设计模式</a></li><li><a href="/javascript/canvas.html" class="sidebar-link">canvas踩坑记</a></li><li><a href="/javascript/listview.html" class="sidebar-link">List-view 实现</a></li><li><a href="/javascript/typescript.html" class="sidebar-link">Typescript</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Vue</span><!----></p><ul class="sidebar-group-items"><li><a href="/vue/" class="sidebar-link">Vuex学习笔记</a></li><li><a href="/vue/vuex-persistence.html" class="sidebar-link">Vuex 持久化方案一</a></li><li><a href="/vue/vueMultipage.html" class="sidebar-link">vue多页配置</a></li><li><a href="/vue/optimize.html" class="sidebar-link">vue项目优化</a></li><li><a href="/vue/parcel-vue.html" class="sidebar-link">parcel-vue初体验</a></li><li><a href="/vue/sync-component.html" class="sidebar-link">异步组件</a></li><li><a href="/vue/rebuild.html" class="sidebar-link">重构Vue阅读器</a></li><li><a href="/vue/vue-tsx.html" class="sidebar-link">搭建vue-tsx风格的开发模板</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>WebApp</span><!----></p><ul class="sidebar-group-items"><li><a href="/webapp/" class="sidebar-link">cordova 打包</a></li><li><a href="/webapp/questions.html" class="sidebar-link">移动端问题锦集</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Flutter</span><!----></p><ul class="sidebar-group-items"><li><a href="/flutter/" class="sidebar-link">环境搭建</a></li><li><a href="/flutter/dart.html" class="sidebar-link">Dart基础语法</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>Services</span><!----></p><ul class="sidebar-group-items"><li><a href="/services/" class="sidebar-link">Mongodb 好像有点意思？</a></li><li><a href="/services/mongodb.html" class="active sidebar-link">正经学个mongoDB吧！</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据crud" class="sidebar-link">数据CRUD</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#插入数据" class="sidebar-link">插入数据</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#读取数据" class="sidebar-link">读取数据</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#更新文档" class="sidebar-link">更新文档</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#删除文档" class="sidebar-link">删除文档</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据聚合操作" class="sidebar-link">数据聚合操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#aggregate" class="sidebar-link">aggregate</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#索引" class="sidebar-link">索引</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#操作" class="sidebar-link">操作</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据模型" class="sidebar-link">数据模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#文档结构" class="sidebar-link">文档结构</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#文档关系" class="sidebar-link">文档关系</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据复制" class="sidebar-link">数据复制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#复制集" class="sidebar-link">复制集</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#示例-12" class="sidebar-link">示例</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据库分片" class="sidebar-link">数据库分片</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#介绍" class="sidebar-link">介绍</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#分片集群的构成" class="sidebar-link">分片集群的构成</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#主分片" class="sidebar-link">主分片</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#分片片键" class="sidebar-link">分片片键</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据库安全" class="sidebar-link">数据库安全</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#创建用户" class="sidebar-link">创建用户</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#用户认证" class="sidebar-link">用户认证</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#授权" class="sidebar-link">授权</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据库常用工具" class="sidebar-link">数据库常用工具</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据处理工具" class="sidebar-link">数据处理工具</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据库监控" class="sidebar-link">数据库监控</a></li></ul></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#数据库故障诊断" class="sidebar-link">数据库故障诊断</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/services/mongodb.html#查询时间过长" class="sidebar-link">查询时间过长</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#响应时间过长" class="sidebar-link">响应时间过长</a></li><li class="sidebar-sub-header"><a href="/services/mongodb.html#连接失败" class="sidebar-link">连接失败</a></li></ul></li></ul></li><li><a href="/services/python.html" class="sidebar-link">学学Python吧~</a></li><li><a href="/services/mysql.html" class="sidebar-link">向mysql低头</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>其他</span><!----></p><ul class="sidebar-group-items"><li><a href="/others/" class="sidebar-link">VSCode 常用插件推荐</a></li><li><a href="/others/vsESlint.html" class="sidebar-link">VSCode ESLint 配置</a></li><li><a href="/others/nginx.html" class="sidebar-link">nginx服务器搭建</a></li><li><a href="/others/android-dev.html" class="sidebar-link">Mac 配置 Android 环境</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="hello-mongodb"><a href="#hello-mongodb" aria-hidden="true" class="header-anchor">#</a> Hello, MongoDB</h1><p>emm...其实也是因为很久没有更新过了，再加上最近刚好系统的学完了下<code>mongoDB</code>，就干脆发到这上面来了。</p><h2 id="数据crud"><a href="#数据crud" aria-hidden="true" class="header-anchor">#</a> 数据CRUD</h2><h3 id="插入数据"><a href="#插入数据" aria-hidden="true" class="header-anchor">#</a> 插入数据</h3><h4 id="insertone"><a href="#insertone" aria-hidden="true" class="header-anchor">#</a> insertOne</h4><h5 id="语法"><a href="#语法" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-text"><code>db.dbName.insertOne(&lt;document&gt;, {
+	writeConcern: &lt;document&gt;
+});
+
+# document 插入的文档内容
+# options 插入文档的操作参数
+## writeConcern 文档的写入级别 默认就行
+</code></pre></div><h5 id="示例"><a href="#示例" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-text"><code># 插入一条数据
+db.dbName.insertOne(
+{
+	id: 1,
+	name: &quot;张三&quot;
+})
+
+# 成功后的返回
+{ &quot;acknowledged&quot;: true, &quot;insertedId&quot;: 1}
+</code></pre></div><h5 id="注意事项"><a href="#注意事项" aria-hidden="true" class="header-anchor">#</a> 注意事项</h5><div class="warning custom-block"><p class="custom-block-title">注意</p><p><code>acknowledged</code>: true 表示<code>mongodb</code>的写入安全级别被启动，由于我们在<code>db.dbName.insertOne</code>命令中没有提供<code>writeConcern</code>文档，这里显示的是<code>mongodb</code>默认的安全写级别启用状态。</p></div><div class="warning custom-block"><p class="custom-block-title">注意</p><p><code>insertedId</code>是当前插入文档的<code>Object_id</code>。</p><p><code>dbName</code>在不存在时会自动<strong>创建</strong>。</p></div><h4 id="insertmany"><a href="#insertmany" aria-hidden="true" class="header-anchor">#</a> insertMany</h4><h5 id="语法-2"><a href="#语法-2" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-text"><code>db.dbName.insertMany([document array], {
+	writeConcern: &lt;document&gt;,
+	ordered: &lt;boolean&gt;
+});
+
+# [document array] 要插入的文档集合
+# options 插入文档操作的参数
+## writeConcern: 文档的安全写入级别 默认就行
+## ordered: 文档的写入顺序 默认为true 按顺序插入
+</code></pre></div><h5 id="示例-2"><a href="#示例-2" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-text"><code># 插入多条数据
+db.dbName.insertMany([
+	{
+		name: &quot;张三&quot;,
+		age: 24
+	},
+	{
+		name: &quot;李四&quot;,
+		age: 20
+	}
+])
+
+# 注意 insertMany 插入的是一个数组文档集合
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意事项</p><p>在使用<code>insertMany</code>插入多条文档的时候，在<code>ordered</code>为<code>true</code>的情况下，如果有其中一条文档出现错误，比如主键重复之类的，那么会导致所有文档无法被插入。反之，如果<code>ordered</code>属性为<code>false</code>的话，只有出错的文档无法被插入。可以使用<code>db.dbName.insertMany([], { ordered: false })</code>来控制是否按顺序插入文档。</p></div><h4 id="insert"><a href="#insert" aria-hidden="true" class="header-anchor">#</a> insert</h4><h5 id="语法-3"><a href="#语法-3" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-text"><code>db.dbName.insert(&lt;document or array of documents&gt;, {
+	writeConcern: &lt;document&gt;,
+	ordered: &lt;boolean&gt;
+});
+
+# &lt;document or array of documents&gt; 要插入的文档集合 可单个也可多个
+# options 插入文档操作的参数
+## writeConcern: 文档的安全写入级别 默认就行
+## ordered: 文档的写入顺序 默认为true 按顺序插入
+</code></pre></div><h5 id="示例-3"><a href="#示例-3" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-text"><code># 插入一条数据
+db.dbName.insert(
+	{
+		name: &quot;张三&quot;
+	}
+)
+
+# 插入多条数据
+db.dbName.insert([
+	{
+		name: &quot;张三&quot;
+	},
+	{
+		name: &quot;李四&quot;
+	}
+])
+</code></pre></div><h4 id="save"><a href="#save" aria-hidden="true" class="header-anchor">#</a> save</h4><p><code>save</code>和<code>insert</code>命令一样，唯一不同的地方在于<code>save</code>无法创建多条数据 。</p><h4 id="区别"><a href="#区别" aria-hidden="true" class="header-anchor">#</a> 区别</h4><p><code>insertOne</code>和<code>insertMany</code>不支持<code>db.dbName.explain()</code>命令。而<code>insert</code>可以。<code>explain</code>可以见<a href="####explain">explain</a></p><h3 id="读取数据"><a href="#读取数据" aria-hidden="true" class="header-anchor">#</a> 读取数据</h3><h4 id="find"><a href="#find" aria-hidden="true" class="header-anchor">#</a> find</h4><h5 id="语法-4"><a href="#语法-4" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-text"><code>db.dbName.find(&lt;query&gt;,&lt;projection&gt;);
+
+# query 筛选操作
+# projection 字段投影
+</code></pre></div><p>其中<code>projection</code>定义了对读取结果的进行的<a href="####%E6%96%87%E6%A1%A3%E6%8A%95%E5%BD%B1">投影</a>。</p><h5 id="示例-4"><a href="#示例-4" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-text"><code># 读取所有数据
+db.dbName.find();
+
+# 对读取文档进行格式化
+db.dbName.find().pretty();
+
+# 读取张三的数据
+db.dbName.find({ name: &quot;张三&quot; });
+
+# 读取年龄为25岁的张三的数据
+db.dbName.find({ name: &quot;张三&quot;, age: 25 });
+</code></pre></div><h4 id="操作符"><a href="#操作符" aria-hidden="true" class="header-anchor">#</a> 操作符</h4><h5 id="比较操作符"><a href="#比较操作符" aria-hidden="true" class="header-anchor">#</a> 比较操作符</h5><h6 id="语法-5"><a href="#语法-5" aria-hidden="true" class="header-anchor">#</a> 语法</h6><div class="language-shell extra-class"><pre class="language-text"><code>db.dbName.find({ field: { $&lt;operator&gt;: &lt;value&gt; } })
+
+# field 需要筛选的字段
+# operator 操作符
+# value 查询值
+</code></pre></div><h6 id="操作符-2"><a href="#操作符-2" aria-hidden="true" class="header-anchor">#</a> 操作符</h6><ul><li><code>$eq</code>: 匹配字段相等的文档</li><li><code>$ne</code>: 匹配字段不相等的文档</li><li><code>$gt</code>: 匹配字段值大于查询值的文档</li><li><code>$gte</code>: 匹配字段值大于等于查询值的文档</li><li><code>$lt</code>: 匹配字段值小于查询值的文档</li><li><code>$lte</code>: 匹配字段值小于等于查询值的文档</li></ul><div class="language-shell extra-class"><pre class="language-text"><code># 查找名字为张三的用户
+db.user.find({ name: { $eq: &quot;张三&quot; }});
+
+# 查找名字不是张三的用户
+db.user.find({ name: { $ne: &quot;张三&quot; }});
+
+# 查找年龄大于19岁的用户
+db.user.find({ age: { $gt: 19 }});
+
+# 查找年龄大于或者等于19的用户
+db.user.find({ age: { $gte: 19 }});
+
+# 查找名字为张三，且年龄大于18的用户
+db.user.find({ name: { $eq: &quot;张三&quot; }, age: { $gt: 18 }});
+</code></pre></div><p>除此之外，还有两个操作符：</p><ul><li><code>$in</code>: 匹配字段值在查询值之间的数据</li><li><code>$nin</code>: 匹配字段值不在查询值之间的数据</li></ul><p><code>$in</code>的形式为：<code>{ field: { $in: [&lt;value1&gt;, &lt;value2&gt;, ..., &lt;valueN&gt;] }}</code></p><p><code>$nin</code>同上。</p><div class="language-shell extra-class"><pre class="language-text"><code># 查找名字为张三和李四的信息
+db.user.find({ name: { $in: [&quot;张三&quot;, &quot;李四&quot;] }});
+
+# 查找名字不等于张三和李四的信息
+db.user.find({ name: { $nin: [&quot;张三&quot;, &quot;李四&quot;] }});
+</code></pre></div><h5 id="逻辑操作符"><a href="#逻辑操作符" aria-hidden="true" class="header-anchor">#</a> 逻辑操作符</h5><h6 id="操作符-3"><a href="#操作符-3" aria-hidden="true" class="header-anchor">#</a> 操作符</h6><ul><li><code>$not</code>: 匹配筛选条件不成立的文档</li><li><code>$and</code>: 匹配多个筛选条件全部成立的文档</li><li><code>$or</code>: 匹配至少一个筛选条件成立的文档</li><li><code>$nor</code>: 匹配多个筛选条件全部不成立的文档</li></ul><p><code>$not</code>的形式为：<code>{ field: $not: { &lt;operator-expression&gt; }}</code></p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 查找年龄不小于20的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> age: <span class="token variable">$not</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$lt</span><span class="token keyword">:</span> 20 <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>$and</code>的形式为： <code>{ $and: [&lt;expression1&gt;, &lt;expression2&gt;, ..., &lt;expressionN&gt;] }</code></p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查找年龄大于20且用户名不为张三的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token variable">$and</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">{</span> age: <span class="token punctuation">{</span> <span class="token variable">$gt</span><span class="token keyword">:</span> 20 <span class="token punctuation">}</span><span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span> name: <span class="token punctuation">{</span> <span class="token variable">$ne</span><span class="token keyword">:</span> <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># and 简写</span>
+<span class="token comment"># 字段不同时</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	age: <span class="token punctuation">{</span> <span class="token variable">$gt</span><span class="token keyword">:</span> 20 <span class="token punctuation">}</span>,
+	name: <span class="token punctuation">{</span> <span class="token variable">$ne</span><span class="token keyword">:</span> <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 字段相同时</span>
+<span class="token comment"># 查找年龄大于20且小于25的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	age: <span class="token punctuation">{</span> <span class="token variable">$gt</span><span class="token keyword">:</span> 20, <span class="token variable">$lt</span><span class="token keyword">:</span> 25 <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><code>$or</code>和<code>$nor</code>的形式同<code>$and</code>。</p><h5 id="字段操作符"><a href="#字段操作符" aria-hidden="true" class="header-anchor">#</a> 字段操作符</h5><ul><li><code>$exists</code>: 匹配字段存在的文档</li><li><code>$type</code>: 匹配字段类型是指定值的文档</li></ul><p>使用<code>exists</code>，形式为：<code>{ field: { $exists: &lt;boolean&gt; } }</code></p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 获取账户类型包含银行账户的文档</span>
+db.accouts.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token string">&quot;_id.type&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$exists</span><span class="token keyword">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 匹配id.type存在且值为checking的文档</span>
+db.accounts.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token string">&quot;_id.type&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		<span class="token variable">$eq</span><span class="token keyword">:</span> <span class="token string">&quot;checking&quot;</span>,
+		<span class="token variable">$exists</span><span class="token keyword">:</span> <span class="token boolean">true</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><code>$type</code>的形式有两种：</p><ul><li><code>{ field: { $type: &lt;BSON type&gt; } }</code></li><li><code>{ field: { $type: [&lt;BSON type1&gt;, &lt;BSON type2&gt;, ..., &lt;BSON typeN&gt;] } }</code></li></ul><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查找age字段类型为null的数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	age: <span class="token punctuation">{</span>
+		<span class="token variable">$type</span><span class="token keyword">:</span> null
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找age字段类型为string的数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	age: <span class="token punctuation">{</span>
+		<span class="token variable">$type</span><span class="token keyword">:</span> <span class="token string">&quot;string&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找主键_id为ObjectId和number的数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	_id: <span class="token punctuation">{</span>
+		<span class="token variable">$type</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;ObjectId&quot;</span>, <span class="token string">&quot;number&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h5 id="数组操作符"><a href="#数组操作符" aria-hidden="true" class="header-anchor">#</a> 数组操作符</h5><p>常用的数组操作符有：</p><ul><li><code>$all</code>: 匹配数组字段中包含所有查询值的文档</li><li><code>$elemMatch</code>: 匹配数组字段中至少存在一个值满足筛选条件的文档</li></ul><h6 id="示例-5"><a href="#示例-5" aria-hidden="true" class="header-anchor">#</a> 示例</h6><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 新建一些信息</span>
+db.user.insert<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		name: <span class="token string">&quot;张三&quot;</span>,
+		age: 20,
+		habbies: <span class="token punctuation">[</span><span class="token string">&quot;篮球&quot;</span>, <span class="token string">&quot;足球&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		name: <span class="token string">&quot;李四&quot;</span>,
+		age: 22,
+		habbies: <span class="token punctuation">[</span><span class="token string">&quot;唱歌&quot;</span>, <span class="token string">&quot;跑步&quot;</span>, <span class="token string">&quot;游泳&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找喜欢篮球和足球的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	habbies: <span class="token punctuation">{</span>
+		<span class="token variable">$all</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;篮球&quot;</span>, <span class="token string">&quot;足球&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找爱好喜欢唱歌和足球的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	habbies: <span class="token punctuation">{</span>
+		<span class="token variable">$elemMatch</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token variable">$in</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;唱歌&quot;</span>, <span class="token string">&quot;足球&quot;</span><span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h5 id="运算操作符"><a href="#运算操作符" aria-hidden="true" class="header-anchor">#</a> 运算操作符</h5><p>运算操作符使用<code>$regex</code>使用正则表达式进行匹配文档数据。</p><p><code>$regex</code>有两种语法：</p><ul><li><code>{ field: { : /pattern/, : &quot;&lt;options&gt;&quot; } }</code></li><li><code>{ field: { : /pattern/&lt;options&gt; } }</code></li></ul><h6 id="示例-6"><a href="#示例-6" aria-hidden="true" class="header-anchor">#</a> 示例</h6><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 第二种语法使用较少，通常搭配$in使用</span>
+<span class="token comment"># 查找名字中以c开头或者j开头的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	name: <span class="token punctuation">{</span>
+		<span class="token variable">$in</span><span class="token keyword">:</span> <span class="token punctuation">[</span>/^c/, /^j/<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找用户名字中包括lie的用户，不区分大小写</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	name: <span class="token punctuation">{</span>
+		<span class="token variable">$regex</span><span class="token keyword">:</span> /lie/,
+		<span class="token variable">$options</span><span class="token keyword">:</span> <span class="token string">&quot;i&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="游标"><a href="#游标" aria-hidden="true" class="header-anchor">#</a> 游标</h4><p>使用<code>db.dbName.find()</code>返回的就是一个游标，在不迭代游标的情况下，默认只列出前<strong>20</strong>个数据文档。</p><div class="language-shell extra-class"><pre class="language-shell"><code>var cursor <span class="token operator">=</span> db.user.find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment"># 前20条用户数据</span>
+cursor<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment"># 使用游标下标访问数据 </span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>这里定义了一个<code>cursor</code>变量用来保存游标，在游标没有遍历结束的情况下，10分钟后会被自动关闭，或者手动遍历结束，游标也会自动关闭。</p></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>如果想要游标不超时关闭，可以使用<code>noCursorTimeout()</code>来保持游标的持久性。
+比如： <code>var cursor = db.user.find().noCursorTimeout()</code>。</p><p>但需要注意的是，如果没有去遍历游标，则需要手动去关闭：<code>cursor.close()</code>。</p></div><h5 id="游标函数"><a href="#游标函数" aria-hidden="true" class="header-anchor">#</a> 游标函数</h5><h6 id="函数"><a href="#函数" aria-hidden="true" class="header-anchor">#</a> 函数</h6><ul><li><code>cursor.hasNext()</code> 判断游标中是否还有没有返回的游标</li><li><code>cursor.next()</code> 返回下一个还未返回的游标</li><li><code>cursor.forEach(&lt;function&gt;)</code> 循环遍历游标数据</li><li><code>cursor.limit(&lt;number&gt;)</code> 返回指定数量的游标</li><li><code>cursor.skip(&lt;offset&gt;)</code> 跳过指定数量的游标</li><li><code>cursor.count(&lt;applySkipLimit&gt;)</code> 计数游标数</li><li><code>cursor.sort(&lt;document&gt;)</code> 对游标进行排序</li></ul><h6 id="示例-7"><a href="#示例-7" aria-hidden="true" class="header-anchor">#</a> 示例</h6><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 返回下一个游标</span>
+var cursor <span class="token operator">=</span> db.user.find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+while<span class="token punctuation">(</span>cursor.hasNext<span class="token punctuation">(</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
+	printjson<span class="token punctuation">(</span>cursor.next<span class="token punctuation">(</span><span class="token punctuation">))</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 遍历游标</span>
+cursor.forEach<span class="token punctuation">(</span>printjson<span class="token punctuation">)</span>
+
+<span class="token comment"># 返回一条数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>.limit<span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+
+<span class="token comment"># 跳过前2条数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>.skip<span class="token punctuation">(</span>2<span class="token punctuation">)</span>
+
+<span class="token comment"># 统计名为张三的用户</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>.count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 返回find的数据数量</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>.limit<span class="token punctuation">(</span>1<span class="token punctuation">)</span>.count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 依然返回find的数据数量</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>.limit<span class="token punctuation">(</span>1<span class="token punctuation">)</span>.count<span class="token punctuation">(</span>true<span class="token punctuation">)</span> <span class="token comment"># 返回1</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意事项</p><p>如果<code>limit</code>传入的是<code>0</code>，那么返回的还是未限制的数据条数。</p></div><div class="warning custom-block"><p class="custom-block-title">注意事项</p><p>在<code>cursor.count</code>中，<code>applySkipLimit</code>默认为<code>false</code>，也就是说，<code>cursor.count</code>不会考虑<code>cursor.skip</code>和<code>cursor.limit</code>的效果。</p></div><div class="warning custom-block"><p class="custom-block-title">注意事项</p><p>在使用<code>db.dbName.find().count()</code>，也就是<code>find</code>不提供筛选条件的时候，<code>count</code>则会从集合的元数据中取得结果。<strong>在复杂的分布式结构中，这种做法是不提倡的，因为文档数据可能不准确</strong>。</p></div><p>在<code>sort</code>中，可以定义一些字段的排序要求来排序整个文档，具体语法为：<code>sort({ field: ordering })</code>。其中<code>ordering</code>的值有<code>1</code>和<code>-1</code>，<code>1</code>表示由小到大，也就是升序，<code>-1</code>表示由大到小，也就是降序排序。</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 年龄从大到小排列</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">)</span>.sort<span class="token punctuation">(</span><span class="token punctuation">{</span> age: -1 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 年龄由大到小 姓名按字母排序</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">)</span>.sort<span class="token punctuation">(</span><span class="token punctuation">{</span> age: -1, name: 1 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>当有多个<code>sort</code>字段的时候，依次从左往右进行排序。</p></div><h4 id="注意事项-2"><a href="#注意事项-2" aria-hidden="true" class="header-anchor">#</a> 注意事项</h4><p>在<code>find()</code>执行之后，在<code>sort</code>、<code>skip</code>和<code>limit</code>三种游标函数中，<code>sort</code>的优先级高于<code>skip</code>和<code>limit</code>，也就是先执行，其次就是<code>skip</code>的优先级高于<code>limit</code>。</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 先sort进行年龄升序排序，然后在sort结果中跳过前4条文档，最后限制输出2条文档。</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">)</span>.sort<span class="token punctuation">(</span><span class="token punctuation">{</span> age: 1 <span class="token punctuation">}</span><span class="token punctuation">)</span>.limit<span class="token punctuation">(</span>2<span class="token punctuation">)</span>.skip<span class="token punctuation">(</span>4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>和书写顺序无关。</p></blockquote><h4 id="文档投影"><a href="#文档投影" aria-hidden="true" class="header-anchor">#</a> 文档投影</h4><p>在<a href="####find">find</a>中，有另外一个参数<code>projection</code>可以用来选择性的返回文档中需要返回的字段，其语法为：<code>db.dbName.find({}, { field: inclusion })</code>，其中<code>inclusion</code>的值为<code>1</code>或者<code>0</code>。</p><p><code>1</code>表示返回该字段，<code>0</code>表示不返回。</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 只返回张三的姓名和年龄</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	name: 1,
+	age: 1
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 返回的文档不需要_id字段</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	_id: 0
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意哦</p><p>不可以同时存在<code>1</code>和<code>0</code>，不然会报错。<strong>要么列出所有想显示的字段，要么列出所有不想显示的字段，切勿同时存在包含和不包含的关系， 主键<code>_id</code>除外。</strong></p></div><h4 id="数组投影"><a href="#数组投影" aria-hidden="true" class="header-anchor">#</a> 数组投影</h4><h5 id="slice"><a href="#slice" aria-hidden="true" class="header-anchor">#</a> $slice</h5><p>数组投影可以使用<code>$slice</code>关键字进行操作，具体语法为：</p><ul><li><code>$slice: number</code>: 返回数组中指定位置的的数据，可为<strong>负数</strong>，从尾部开始计数</li><li><code>$slice: [skip, limit]</code>： 跳过指定条数的数据，开始返回指定数量的数据。</li></ul><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 返回张三的第一个兴趣爱好</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	habbies: <span class="token punctuation">{</span>
+		<span class="token variable">$slice</span><span class="token keyword">:</span> 1
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 返回张三第一个以外的其他两个兴趣</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	habbies: <span class="token punctuation">{</span>
+		<span class="token variable">$slice</span><span class="token keyword">:</span> <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h5 id="elemmatch"><a href="#elemmatch" aria-hidden="true" class="header-anchor">#</a> $elemMatch</h5><p>也可以使用<code>$elemMatch</code>和<code>$操作符</code>进行投影操作：</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 如果兴趣中有篮球或者游泳，则返回该habbies字段</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	name: 1,
+	habbies: <span class="token punctuation">{</span>
+		<span class="token variable">$elemMatch</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token variable">$in</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;篮球&quot;</span>, <span class="token string">&quot;游泳&quot;</span><span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="更新文档"><a href="#更新文档" aria-hidden="true" class="header-anchor">#</a> 更新文档</h3><h4 id="update"><a href="#update" aria-hidden="true" class="header-anchor">#</a> update</h4><h5 id="语法-6"><a href="#语法-6" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.update<span class="token punctuation">(</span><span class="token operator">&lt;</span>query<span class="token operator">&gt;</span>, <span class="token operator">&lt;</span>update<span class="token operator">&gt;</span>, <span class="token punctuation">{</span>
+	upsert: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>,
+	multi: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment"># query 文档的筛选条件</span>
+<span class="token comment"># update 文档的更新内容</span>
+<span class="token comment"># options 文档更新操作的一些参数</span>
+<span class="token comment">## upsert 是否文档不存在时创建 默认为false</span>
+<span class="token comment">## multi 是否多文档更新，默认false</span>
+</code></pre></div><h5 id="更新操作符"><a href="#更新操作符" aria-hidden="true" class="header-anchor">#</a> 更新操作符</h5><ul><li><code>$set</code>: 更新字段</li><li><code>$unset</code>: 删除字段</li><li><code>$rename</code>: 重命名字段</li><li><code>$inc</code>: 加减字段值</li><li><code>$mul</code>: 相乘字段值</li><li><code>$min</code>: 经过比较后，取最小字段值</li><li><code>$max</code>: 经过比较后，取最大字段值</li><li><code>$addToSet</code>: 用于数组更新，插入新值</li><li><code>$pop</code>: 用于数组删除，只能删除第一个或者最后一个元素</li><li><code>$pull</code>: 用于数组删除，删除特定元素</li><li><code>$pullAll</code>: 用于数组删除，删除多个特定元素</li><li><code>$push</code>: 用于数组添加，添加元素，大体同<code>addToSet</code>，但比之更灵活。</li></ul><h5 id="例子"><a href="#例子" aria-hidden="true" class="header-anchor">#</a> 例子</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 更新张三的年龄为24岁</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	name: <span class="token string">&quot;张三&quot;</span>,
+	age: 24
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 使用更新操作符</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$set</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		age: 24
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 更新内嵌字段</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$set</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		<span class="token string">&quot;info.age&quot;</span><span class="token keyword">:</span> 24
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 更新数组内的数据</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$set</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		<span class="token comment"># 更新张三的第一个兴趣为打游戏</span>
+		<span class="token string">&quot;habbies.0&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;打游戏&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment"># PS：如果修改的数组下标下不存在数据，则向数组追加数据，如果数组长度为3，添加的下标为6，跳过的数据则为null</span>
+
+<span class="token comment"># 删除张三的年龄</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$unset</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		age: <span class="token string">&quot;&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment"># PS: unset 删除数组是让对应下标的数据变成null，并不改变原有数组的长度。</span>
+
+<span class="token comment"># 重命名张三的age为user_age</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$rename</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		age: <span class="token string">&quot;user_age&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment"># PS: 如果修改后的字段原本已经存在在数据集合中，那么那个已经存在的则会被删除。</span>
+
+<span class="token comment"># 让张三的年龄减小1岁</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$inc</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		age: -1 <span class="token comment"># +1 表示原有的数值上+1</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 让张三的零花钱少一半</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$mul</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		money: 0.5 <span class="token comment"># 会在原有数值上*0.5</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 如果张三的钱&lt;我给的钱，则张三的钱 = 我给的钱</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$max</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		money: 150 <span class="token comment"># 张三原有的money为100，小于我给的150，所以张三现在的money为150</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment"># min 取最小值</span>
+
+<span class="token comment"># 给张三的兴趣爱好添加一个读书</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$addToSet</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		habbies: <span class="token string">&quot;读书&quot;</span> <span class="token comment"># 如果存在 则不更新。</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 给张三的兴趣添加读书和打电玩</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$addToSet</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		habbies: <span class="token punctuation">{</span>
+			<span class="token variable">$each</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;读书&quot;</span>, <span class="token string">&quot;打电玩&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 添加多个的情况需要使用$each 不然会将整个数组当做一个值插入</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除张三的最后一个兴趣</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$pop</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		habbies: 1 <span class="token comment"># -1 表示删除第一个值</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除兴趣里带有打字的兴趣</span>
+db.user.find<span class="token punctuation">(</span><span class="token punctuation">{</span> name: <span class="token string">&quot;张三&quot;</span> <span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$pull</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		habbies: <span class="token punctuation">{</span>
+			<span class="token variable">$regex</span><span class="token keyword">:</span> /打/
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意事项</p><p>当设置<code>update</code>的中的<code>multi</code>为<code>true</code>的时候，更新所有筛选到的文档，虽然都是在一个线程中执行，但是线程在执行的过程中是会被挂起的，别的线程也会有机会对他进行修改。</p></div><h4 id="findandmodify"><a href="#findandmodify" aria-hidden="true" class="header-anchor">#</a> findAndModify</h4><p>TODO。。</p><h4 id="save-2"><a href="#save-2" aria-hidden="true" class="header-anchor">#</a> save</h4><p>如果<code>save</code>的文档中，包含了主键<code>_id</code>，那么，<code>save</code>调用的其实就是<code>update</code>操作，进行更新操作，且<code>upsert</code>会被设置为<code>true</code>。</p><h3 id="删除文档"><a href="#删除文档" aria-hidden="true" class="header-anchor">#</a> 删除文档</h3><h4 id="remove"><a href="#remove" aria-hidden="true" class="header-anchor">#</a> remove</h4><h5 id="语法-7"><a href="#语法-7" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.remove<span class="token punctuation">(</span><span class="token operator">&lt;</span>query<span class="token operator">&gt;</span>, <span class="token punctuation">{</span>
+	justOne: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># query 查询条件</span>
+<span class="token comment"># options 操作参数</span>
+<span class="token comment">## justOne 是否只删除一个文档 默认为false</span>
+</code></pre></div><h5 id="示例-8"><a href="#示例-8" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 删除年龄为24的用户</span>
+db.user.remove<span class="token punctuation">(</span><span class="token punctuation">{</span> age: 24 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除年龄小于20岁的用户</span>
+db.user.remove<span class="token punctuation">(</span><span class="token punctuation">{</span> age: <span class="token punctuation">{</span>
+	<span class="token variable">$lt</span><span class="token keyword">:</span> 20
+<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除年龄小于20岁的第一个用户</span>
+db.user.remove<span class="token punctuation">(</span><span class="token punctuation">{</span> age: <span class="token punctuation">{</span>
+	<span class="token variable">$lt</span><span class="token keyword">:</span> 20
+<span class="token punctuation">}</span><span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	justOne: <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除所有数据</span>
+db.user.remove<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="drop"><a href="#drop" aria-hidden="true" class="header-anchor">#</a> drop</h4><h5 id="语法-8"><a href="#语法-8" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.drop<span class="token punctuation">(</span><span class="token punctuation">{</span> writeConcern: <span class="token operator">&lt;</span>document<span class="token operator">&gt;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># writeConcern: 删除操作的安全写级别</span>
+</code></pre></div><h5 id="示例-9"><a href="#示例-9" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 删除用户表</span>
+db.user.drop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="数据聚合操作"><a href="#数据聚合操作" aria-hidden="true" class="header-anchor">#</a> 数据聚合操作</h2><h3 id="aggregate"><a href="#aggregate" aria-hidden="true" class="header-anchor">#</a> aggregate</h3><h4 id="语法-9"><a href="#语法-9" aria-hidden="true" class="header-anchor">#</a> 语法</h4><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.aggregate<span class="token punctuation">(</span><span class="token operator">&lt;</span>pipeline<span class="token operator">&gt;</span>, <span class="token punctuation">{</span>
+	allowDiskUse: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># pipeline 定义了操作中使用的聚合管道阶段和聚合操作符</span>
+<span class="token comment"># options 聚合操作参数</span>
+<span class="token comment">## allowDiskUse 允许每个聚合管道操作超出内存上限(100MB)时，将操作数据写入临时文件</span>
+</code></pre></div><h4 id="表达式"><a href="#表达式" aria-hidden="true" class="header-anchor">#</a> 表达式</h4><h5 id="字段路径表达式"><a href="#字段路径表达式" aria-hidden="true" class="header-anchor">#</a> 字段路径表达式</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 字段路径表达式</span>
+$<span class="token operator">&lt;</span>field<span class="token operator">&gt;</span> <span class="token comment"># 使用$来指示字段路径</span>
+$<span class="token operator">&lt;</span>field<span class="token operator">&gt;</span>.<span class="token operator">&lt;</span>sub-field<span class="token operator">&gt;</span> <span class="token comment"># 使用$和.来指示内嵌文档字段路径</span>
+
+<span class="token comment"># 举例</span>
+<span class="token variable">$name</span> <span class="token comment"># 指示姓名字段</span>
+<span class="token variable">$info</span>.age <span class="token comment"># 指示用户信息中的年龄字段</span>
+</code></pre></div><h5 id="系统变量表达式"><a href="#系统变量表达式" aria-hidden="true" class="header-anchor">#</a> 系统变量表达式</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 系统字段表达式</span>
+$$<span class="token operator">&lt;</span>variable<span class="token operator">&gt;</span> <span class="token comment"># 使用$$来指示系统变量</span>
+
+<span class="token comment"># 举例</span>
+$<span class="token variable">$CURRENT</span> <span class="token comment"># 指示管道中当前操作的文档</span>
+$<span class="token variable">$CURRENT</span>.<span class="token operator">&lt;</span>field<span class="token operator">&gt;</span> <span class="token comment"># 和$&lt;field&gt;是等效的</span>
+</code></pre></div><h5 id="常量表达式"><a href="#常量表达式" aria-hidden="true" class="header-anchor">#</a> 常量表达式</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 常量表达式</span>
+<span class="token variable">$literal</span><span class="token keyword">:</span> <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span> <span class="token comment"># 指示常量value</span>
+
+<span class="token comment"># 举例</span>
+<span class="token variable">$literal</span><span class="token keyword">:</span> <span class="token string">&quot;<span class="token variable">$name</span>&quot;</span> <span class="token comment"># 指示常量字符串 &quot;$name&quot;</span>
+									<span class="token comment"># 这里的$被当做常量处理，而不是字段路径表达式</span>
+</code></pre></div><h4 id="聚合管道阶段"><a href="#聚合管道阶段" aria-hidden="true" class="header-anchor">#</a> 聚合管道阶段</h4><p>先创建点数据，方便以下例子使用：</p><div class="language-shell extra-class"><pre class="language-shell"><code>db.user.insert<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		name: <span class="token punctuation">{</span> firstName: <span class="token string">&quot;Zhang&quot;</span>, lastName: <span class="token string">&quot;san&quot;</span> <span class="token punctuation">}</span>,
+		age: 22,
+		money: 1000
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		name: <span class="token punctuation">{</span> firstName: <span class="token string">&quot;Li&quot;</span>, lastName: <span class="token string">&quot;si&quot;</span> <span class="token punctuation">}</span>,
+		age: 20,
+		money: 1500
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><h5 id="project"><a href="#project" aria-hidden="true" class="header-anchor">#</a> $project</h5><blockquote><p>对输入的文档再次投影，控制文档的格式输出</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 返回用户的存款和姓氏</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>,
+			money: 1
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, money: 1000 }</span>
+<span class="token comment"># { user: &quot;Li&quot;, money: 1500 }</span>
+
+<span class="token comment"># 使用$concat进行字段拼接</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token punctuation">{</span>
+				<span class="token variable">$concat</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;<span class="token variable">$name</span>.lastName&quot;</span><span class="token punctuation">]</span>
+			<span class="token punctuation">}</span>,
+			money: 1
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { user: &quot;Zhang san&quot;, money: 1000 }</span>
+<span class="token comment"># { user: &quot;Li si&quot;, money: 1500 }</span>
+</code></pre></div><h5 id="match"><a href="#match" aria-hidden="true" class="header-anchor">#</a> $match</h5><blockquote><p>对输入的文档进行筛选，和读取文档的筛选语法一样</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 在管道中获取姓氏中为Zhang的用户</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$match</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Zhang&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Zhang&quot;, lastName: &quot;san&quot; }, age: 22, money: 1000 }</span>
+
+<span class="token comment"># 多条件筛选</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$match</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token variable">$or</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					money: <span class="token punctuation">{</span> <span class="token variable">$gt</span><span class="token keyword">:</span> 800, <span class="token variable">$lt</span><span class="token keyword">:</span> 1200<span class="token punctuation">}</span>
+				<span class="token punctuation">}</span>,
+				<span class="token punctuation">{</span>
+					<span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Li&quot;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Zhang&quot;, lastName: &quot;san&quot; }, age: 22, money: 1000 }</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Li&quot;, lastName: &quot;si&quot; }, age: 20, money: 1500 }</span>
+
+<span class="token comment"># PS: $match 并不会修改原有的数据格式。</span>
+
+<span class="token comment"># 配合project使用</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$match</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Zhang&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>,
+			money: 1
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, money: 1000 }</span>
+</code></pre></div><h5 id="limit"><a href="#limit" aria-hidden="true" class="header-anchor">#</a> $limit</h5><blockquote><p>筛选管道内前N篇文档</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 筛选第一个用户</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$limit</span><span class="token keyword">:</span> 1
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Zhang&quot;, lastName: &quot;san&quot; }, age: 22, money: 1000 }</span>
+</code></pre></div><h5 id="skip"><a href="#skip" aria-hidden="true" class="header-anchor">#</a> $skip</h5><blockquote><p>跳过管道内前N篇文档</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 跳过第一个用户</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$skip</span><span class="token keyword">:</span> 1
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Li&quot;, lastName: &quot;si&quot; }, age: 20, money: 1500 }</span>
+</code></pre></div><h5 id="unwind"><a href="#unwind" aria-hidden="true" class="header-anchor">#</a> $unwind</h5><blockquote><p>展开输入文档中的数组字段</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 新增字段currency</span>
+db.user.update<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token string">&quot;name.firstName&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Zhang&quot;</span>,
+<span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$set</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		currency: <span class="token punctuation">[</span><span class="token string">&quot;CNY&quot;</span>, <span class="token string">&quot;USD&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+db.user.update<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token string">&quot;name.firstName&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Li&quot;</span>
+<span class="token punctuation">}</span>, <span class="token punctuation">{</span>
+	<span class="token variable">$set</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+		currency: <span class="token string">&quot;GBP&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 展开数据中的货币数组</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$unwind</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			path: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span> <span class="token comment"># path 指向需要展开的数组字段</span>
+			<span class="token comment">#includeArrayIndex: &quot;ccyIndex&quot; 展开数组时，显示对应的下标字段，值为对应的索引。如果path指向的非数组，该字段的值则为null</span>
+			<span class="token comment">#preserveNullAndEmptyArrays: true 不过滤那些path指向的字段值为null或者为空数组[]或者不存在的数据。</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Zhang&quot;, lastName: &quot;san&quot; }, age: 22, money: 1000, currency: &quot;CNY&quot; }</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Zhang&quot;, lastName: &quot;san&quot; }, age: 22, money: 1000, currency: &quot;USD&quot; }</span>
+<span class="token comment"># { _id: ObjectId(xxx), name: { firstName: &quot;Li&quot;, lastName: &quot;si&quot; }, age: 20, money: 1500, currency: &quot;GBP&quot; }</span>
+
+<span class="token comment"># PS：unwind是将数组拆分成单独的一条数据 由数组-&gt;字符串</span>
+<span class="token comment"># PS：unwind展开的数组字段如果不存在或者为空数组[]，或者为null，则unwind会过滤这些数据。如不想过滤，设置preserveNullAndEmptyArrays为true即可。不存在和数组为空的情况下，打印出的数据不会包含指向字段，null的情况则会打印字段并且值为null。</span>
+</code></pre></div><h5 id="sort"><a href="#sort" aria-hidden="true" class="header-anchor">#</a> $sort</h5><blockquote><p>对输入的文档进行排序</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 对年龄进行排序</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$sort</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token variable">$age</span><span class="token keyword">:</span> 1 <span class="token comment"># 由小到大排序</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 先对年龄升序排序，再对收入降序排序</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$sort</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			<span class="token variable">$age</span><span class="token keyword">:</span> 1, <span class="token comment"># 升序</span>
+			<span class="token variable">$money</span><span class="token keyword">:</span> -1 <span class="token comment"># 降序</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><h5 id="lookup"><a href="#lookup" aria-hidden="true" class="header-anchor">#</a> $lookup</h5><blockquote><p>对输入的文档进行查询操作，可以对非管道数据集进行操作。</p></blockquote><h6 id="简单查询"><a href="#简单查询" aria-hidden="true" class="header-anchor">#</a> 简单查询</h6><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 基本语法</span>
+<span class="token variable">$lookup</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+	<span class="token comment"># 同一数据库中的另一个集合(表)</span>
+	from: <span class="token operator">&lt;</span>collection to join<span class="token operator">&gt;</span>,
+	<span class="token comment"># 管道中希望用来去查询的字段名</span>
+	localField: <span class="token operator">&lt;</span>field from the input documents<span class="token operator">&gt;</span>,
+	<span class="token comment"># 查询from集合中的查询字段</span>
+	foreignField: <span class="token operator">&lt;</span>field from the documents of the <span class="token string">&quot;from&quot;</span> collection<span class="token operator">&gt;</span>,
+	<span class="token comment"># 把查询到的结果写入管道中的自定义的字段中 该字段是数组类型</span>
+	as: <span class="token operator">&lt;</span>output array field<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 增加一个额外的集合(表)forex</span>
+db.forex.insert<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		ccy: <span class="token string">&quot;USD&quot;</span>,
+		rate: 6.91
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		ccy: <span class="token string">&quot;GBP&quot;</span>,
+		rate: 8.72
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		ccy: <span class="token string">&quot;CNY&quot;</span>,
+		rate: 1.0
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查询汇率写入对应的用户表中</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$unwind</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			path: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$lookup</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			from: <span class="token string">&quot;forex&quot;</span>,
+			localField: <span class="token string">&quot;currency&quot;</span>,
+			foreignField: <span class="token string">&quot;ccy&quot;</span>,
+			as: <span class="token string">&quot;forexRate&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>,
+			currency: 1
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;USD&quot;, forexRate: [{ ccy: &quot;USD&quot;, rate: 6.91 }] }</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;CNY&quot;, forexRate: [{ ccy: &quot;CNY&quot;, rate: 1.0 }] }</span>
+<span class="token comment"># { user: &quot;Li&quot;, currency: &quot;GBP&quot;, forexRate: [{ ccy: &quot;GBP&quot;, rate: 8.72 }] }</span>
+</code></pre></div><h6 id="复杂查询"><a href="#复杂查询" aria-hidden="true" class="header-anchor">#</a> 复杂查询</h6><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 基本语法</span>
+<span class="token variable">$lookup</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+	<span class="token comment"># 同一数据库中的其他集合(表)</span>
+	from: <span class="token operator">&lt;</span>collection to join<span class="token operator">&gt;</span>,
+	<span class="token comment"># 对原有管道的中需要在pipeline中使用的字段进行声明，如没有 可省略</span>
+	let: <span class="token punctuation">{</span> <span class="token operator">&lt;</span>var_1<span class="token operator">&gt;</span>: <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span>, <span class="token punctuation">..</span>, <span class="token operator">&lt;</span>var_n<span class="token operator">&gt;</span>: <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token punctuation">}</span>,
+	<span class="token comment"># 对from集合进行聚合处理，该管道中无法使用原有管道的字段变量，如需使用，则需要再let中声明</span>
+	pipeline: <span class="token punctuation">[</span><span class="token operator">&lt;</span>pipeline to execute on the collection to join<span class="token operator">&gt;</span><span class="token punctuation">]</span>,
+	<span class="token comment"># 把查询到的结果写入管道中的自定义的字段中 该字段是数组类型</span>
+	as: <span class="token operator">&lt;</span>output array field<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 将汇率大于7的写入用户表</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>,
+			currency: 1
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$unwind</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			path: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$lookup</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			from: <span class="token string">&quot;forex&quot;</span>,
+			pipeline: <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token variable">$match</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+						rate: <span class="token punctuation">{</span>
+							<span class="token variable">$gt</span><span class="token keyword">:</span> 7
+						<span class="token punctuation">}</span>
+					<span class="token punctuation">}</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>,
+			as: <span class="token string">&quot;forexRate&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output 会发现结果是无差别写入</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;USD&quot;, forexRate: [{ ccy: &quot;GBP&quot;, rate: 8.72 }] }</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;CNY&quot;, forexRate: [{ ccy: &quot;GBP&quot;, rate: 8.72 }] }</span>
+<span class="token comment"># { user: &quot;Li&quot;, currency: &quot;GBP&quot;, forexRate: [{ ccy: &quot;GBP&quot;, rate: 8.72 }] }</span>
+
+<span class="token comment"># 为currency为USD的写入汇率大于7的数据</span>
+db.user.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$project</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: 0,
+			user: <span class="token string">&quot;<span class="token variable">$name</span>.firstName&quot;</span>,
+			currency: 1
+		<span class="token punctuation">}</span>,
+		<span class="token punctuation">{</span>
+			<span class="token variable">$unwind</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+				path: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>,
+		<span class="token punctuation">{</span>
+			<span class="token variable">$lookup</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+				from <span class="token string">&quot;forex&quot;</span>,
+				let: <span class="token punctuation">{</span> cry: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span> <span class="token punctuation">}</span>,
+				pipeline: <span class="token punctuation">[</span>
+					<span class="token punctuation">{</span>
+						<span class="token variable">$match</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+							<span class="token comment"># 当使用let声明系统变量的时候，需要使用expr才可以调用到</span>
+							<span class="token variable">$expr</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+								<span class="token variable">$and</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+									<span class="token punctuation">{</span>
+										<span class="token variable">$eq</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;$<span class="token variable">$cry</span>&quot;</span>, <span class="token string">&quot;USD&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 使用let中声明的系统变量cry</span>
+									<span class="token punctuation">}</span>,
+									<span class="token punctuation">{</span>
+										<span class="token variable">$gt</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$rate</span>&quot;</span>, 7<span class="token punctuation">]</span> <span class="token comment"># 使用from集合中的字段变量</span>
+									<span class="token punctuation">}</span>
+								<span class="token punctuation">]</span>
+							<span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+					<span class="token punctuation">}</span>
+				<span class="token punctuation">]</span>,
+				as: <span class="token string">&quot;forexRate&quot;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;USD&quot;, forexRate: [{ ccy: &quot;GBP&quot;, rate: 8.72 }] }</span>
+<span class="token comment"># { user: &quot;Zhang&quot;, currency: &quot;CNY&quot;, forexRate: [] }</span>
+<span class="token comment"># { user: &quot;Li&quot;, currency: &quot;GBP&quot;, forexRate: [] }</span>
+</code></pre></div><h5 id="group"><a href="#group" aria-hidden="true" class="header-anchor">#</a> $group</h5><blockquote><p>对输入的文档进行分组</p><p>在不使用管道操作符的情况下，可以返回管道文档中某一值的不重复值</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 语法</span>
+<span class="token variable">$group</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+	_id: <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span>, <span class="token comment"># 必须要的参数 用于定义分组规则</span>
+	<span class="token operator">&lt;</span>field1<span class="token operator">&gt;</span>: <span class="token punctuation">{</span> <span class="token operator">&lt;</span>accumulator1<span class="token operator">&gt;</span> <span class="token keyword">:</span> <span class="token operator">&lt;</span>expression1<span class="token operator">&gt;</span> <span class="token punctuation">}</span>, <span class="token comment"># 使用聚合操作符定义新字段</span>
+	<span class="token punctuation">..</span>.
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 定义一个交易集合</span>
+db.transactions.insert<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		symbol: <span class="token string">&quot;10023&quot;</span>,
+		qty: 100,
+		price: 567.4,
+		currency: <span class="token string">&quot;CNY&quot;</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		symbol: <span class="token string">&quot;AMZN&quot;</span>,
+		qty: 1,
+		price: 1377.5,
+		currency: <span class="token string">&quot;USD&quot;</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		symbol: <span class="token string">&quot;AAPL&quot;</span>,
+		qty: 20,
+		price: 150.7,
+		currency: <span class="token string">&quot;USD&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 简单示例</span>
+<span class="token comment"># 针对交易集合中的币种进行分组</span>
+db.transactions.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$group</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">#output</span>
+<span class="token comment"># { _id: &quot;CNY&quot; }</span>
+<span class="token comment"># { _id: &quot;USD&quot; }</span>
+
+<span class="token comment"># 分组统计</span>
+db.transactions.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$group</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>,
+			totalQty: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span> <span class="token punctuation">}</span>,
+			totalNotional: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>,
+			avgPrice: <span class="token punctuation">{</span> <span class="token variable">$avg</span><span class="token keyword">:</span> <span class="token string">&quot;<span class="token variable">$price</span>&quot;</span> <span class="token punctuation">}</span>,
+			count: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> 1 <span class="token punctuation">}</span>,
+			maxNotional: <span class="token punctuation">{</span> <span class="token variable">$max</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>,
+			minNotional: <span class="token punctuation">{</span> <span class="token variable">$min</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># output</span>
+<span class="token comment"># { &quot;_id&quot; : &quot;USD&quot;, &quot;totalQty&quot; : 21.0, &quot;totalNotional&quot; : 4391.5, &quot;avgPrice&quot; : 764.1, &quot;count&quot; : 2.0, &quot;maxNotional&quot; : 3014.0, &quot;minNotional&quot; : 1377.5 }</span>
+<span class="token comment"># { &quot;_id&quot; : &quot;CNY&quot;, &quot;totalQty&quot; : 100.0, &quot;totalNotional&quot; : 56740.0, &quot;avgPrice&quot; : 567.4, &quot;count&quot; : 1.0, &quot;maxNotional&quot; : 56740.0, &quot;minNotional&quot; : 56740.0 }</span>
+</code></pre></div><h5 id="out"><a href="#out" aria-hidden="true" class="header-anchor">#</a> $out</h5><blockquote><p>将管道内的文档输出</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 输出统计信息</span>
+db.transactions.aggregate<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token variable">$group</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+			_id: <span class="token string">&quot;<span class="token variable">$currency</span>&quot;</span>,
+			totalQty: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span> <span class="token punctuation">}</span>,
+			totalNotional: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>,
+			avgPrice: <span class="token punctuation">{</span> <span class="token variable">$avg</span><span class="token keyword">:</span> <span class="token string">&quot;<span class="token variable">$price</span>&quot;</span> <span class="token punctuation">}</span>,
+			count: <span class="token punctuation">{</span> <span class="token variable">$sum</span><span class="token keyword">:</span> 1 <span class="token punctuation">}</span>,
+			maxNotional: <span class="token punctuation">{</span> <span class="token variable">$max</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>,
+			minNotional: <span class="token punctuation">{</span> <span class="token variable">$min</span><span class="token keyword">:</span> <span class="token punctuation">{</span> <span class="token variable">$multiply</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">&quot;<span class="token variable">$price</span>&quot;</span>, <span class="token string">&quot;<span class="token variable">$qty</span>&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		<span class="token variable">$out</span><span class="token keyword">:</span> <span class="token string">&quot;output&quot;</span> <span class="token comment"># 输出结果到新的集合(表)output中。</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># PS：如果该集合(表)已经存在，则会在保留索引的情况下，清空数据，再插入新保存的数据</span>
+</code></pre></div><h4 id="优化"><a href="#优化" aria-hidden="true" class="header-anchor">#</a> 优化</h4><ul><li>在有<code>$match</code>的时候，尽量保证<code>$match</code>的执行先于其他管道操作。因为<code>$match</code>阶段，会对管道文档进行筛选，减少管道中的文档数量，数量越少，调整效率越快。</li><li>在<code>$skip</code>和<code>$project</code>都存在的情况下，保证<code>$skip</code>的操作优先于<code>$project</code>。<code>$skip</code>用于跳过文档，避免对要跳过的文档做完操作后再去<code>skip</code>，也是提升效率的一种。</li><li>其实<code>mongodb</code>都会自动保证这些的优先级。</li></ul><h2 id="索引"><a href="#索引" aria-hidden="true" class="header-anchor">#</a> 索引</h2><p>索引就是给指定字段进行排序的数据结构，给数据集合(表)创建索引，能够大大提高数据库搜索性能。</p><h3 id="操作"><a href="#操作" aria-hidden="true" class="header-anchor">#</a> 操作</h3><h4 id="createindex"><a href="#createindex" aria-hidden="true" class="header-anchor">#</a> createIndex</h4><h5 id="语法-10"><a href="#语法-10" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.createIndex<span class="token punctuation">(</span><span class="token operator">&lt;</span>keys<span class="token operator">&gt;</span>, <span class="token punctuation">{</span>
+	unique: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>,
+	sparse: <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>,
+	expireAfterSeconds: <span class="token operator">&lt;</span>number<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># keys 索引字段</span>
+<span class="token comment"># options 创建索引操作的参数</span>
+<span class="token comment">## unique 索引的唯一性 默认为false</span>
+<span class="token comment">## sparse 索引的稀疏性 只将包含索引字段的文档加入到索引集合中 默认为false</span>
+<span class="token comment">## expireAfterSeconds 索引的可生存时间 单位秒</span>
+
+<span class="token comment"># PS：复合键索引也可以具有稀疏性，只有在缺失复合键所包含的所有字段的情况下，文档才不会加入到索引中</span>
+<span class="token comment"># PS：复合键索引不具备生存时间特性</span>
+</code></pre></div><h5 id="示例-10"><a href="#示例-10" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建数据</span>
+db.demoIndex.insert<span class="token punctuation">(</span><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		name: <span class="token string">&quot;blob&quot;</span>,
+		balance: 100,
+		currency: <span class="token punctuation">[</span><span class="token string">&quot;CNY&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		name: <span class="token string">&quot;lucy&quot;</span>,
+		balance: 200,
+		currency: <span class="token punctuation">[</span><span class="token string">&quot;AUD&quot;</span>, <span class="token string">&quot;USD&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>,
+	<span class="token punctuation">{</span>
+		name: <span class="token string">&quot;andy&quot;</span>,
+		balance: 50,
+		currency: <span class="token punctuation">[</span><span class="token string">&quot;GBP&quot;</span>, <span class="token string">&quot;CNY&quot;</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 为demoIndex集合创建单键索引</span>
+db.demoIndex.createIndex<span class="token punctuation">(</span><span class="token punctuation">{</span> name: 1 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 为demoIndex集合创建一个复合键索引</span>
+db.demoIndex.createIndex<span class="token punctuation">(</span><span class="token punctuation">{</span> name: 1, balance: -1 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 为demoIndex集合创建一个多建索引</span>
+db.demoIndex.createIndex<span class="token punctuation">(</span><span class="token punctuation">{</span> currency: 1 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意</p><ul><li><strong>多键索引</strong>只能给数组建立，多键索引会给数组的每一个元素创建一个键。</li><li><code>1</code>表示索引字段按升序排列，<code>-1</code>表示索引字段按降序排列</li></ul></div><h4 id="getindexes"><a href="#getindexes" aria-hidden="true" class="header-anchor">#</a> getIndexes</h4><p>获取集合索引信息</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 获取demoIndex的索引信息</span>
+db.demoIndex.getIndexes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="dropindex"><a href="#dropindex" aria-hidden="true" class="header-anchor">#</a> dropIndex</h4><p>删除索引信息</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 删除demoIndex的索引</span>
+db.demoIndex.dropIndex<span class="token punctuation">(</span><span class="token operator">&lt;</span>keys <span class="token operator">|</span> name<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># keys 索引的字段信息</span>
+<span class="token comment"># name 索引name 可以通过getIndexes获取到</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">提示</p><p>如果需要更改索引，只能通过删除索引后重新建立。</p></div><h4 id="explain"><a href="#explain" aria-hidden="true" class="header-anchor">#</a> explain</h4><p>用于查看建立索引后的效果。</p><h5 id="语法-11"><a href="#语法-11" aria-hidden="true" class="header-anchor">#</a> 语法</h5><div class="language-shell extra-class"><pre class="language-shell"><code>db.dbName.explain<span class="token punctuation">(</span><span class="token punctuation">)</span>.<span class="token operator">&lt;</span>method<span class="token punctuation">(</span><span class="token punctuation">..</span>.<span class="token punctuation">)</span><span class="token operator">&gt;</span>
+
+<span class="token comment"># method 用于查看索引效果的方法，包括find()、count()、aggregate()、distinct()、group()、remove()、update()。</span>
+</code></pre></div><h5 id="示例-11"><a href="#示例-11" aria-hidden="true" class="header-anchor">#</a> 示例</h5><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 使用没有创建索引的字段进行搜索</span>
+db.demoIndex.explain<span class="token punctuation">(</span><span class="token punctuation">)</span>.find<span class="token punctuation">(</span><span class="token punctuation">{</span> balance: 100 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 主要观察返回信息中的queryPlanner.winningPlan.stage字段</span>
+<span class="token comment">## COLLSCAN 效率最低，通常需要循环遍历整个文档</span>
+<span class="token comment">## PROJECTION 效率最高</span>
+<span class="token comment">## FETCH 命中索引，效率一般</span>
+</code></pre></div><h2 id="数据模型"><a href="#数据模型" aria-hidden="true" class="header-anchor">#</a> 数据模型</h2><h3 id="文档结构"><a href="#文档结构" aria-hidden="true" class="header-anchor">#</a> 文档结构</h3><h4 id="内嵌式文档"><a href="#内嵌式文档" aria-hidden="true" class="header-anchor">#</a> 内嵌式文档</h4><p>内嵌式文档，一般指在一个文档中，还会存在其他子文档，比如：</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">{</span>
+	name: <span class="token string">&quot;张三&quot;</span>,
+	info: <span class="token punctuation">{</span>
+		age: 22,
+		habbies: <span class="token string">&quot;篮球&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># info为子文档 也就是内嵌文档。</span>
+</code></pre></div><h4 id="规范式文档"><a href="#规范式文档" aria-hidden="true" class="header-anchor">#</a> 规范式文档</h4><p>规范式文档就是，将顶层文档中的一些子文档提取出来存放在一个新的文档中，通过<code>ObjectId</code>进行关联，这样做能够有效的减少一些重复子文档。</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 文档一</span>
+<span class="token punctuation">{</span>
+	course: <span class="token string">&quot;篮球课&quot;</span>,
+	user: <span class="token operator">&lt;</span>ObjectId_1<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+	course: <span class="token string">&quot;乒乓球课&quot;</span>,
+	user: <span class="token operator">&lt;</span>ObjectId_1<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 文档二</span>
+<span class="token punctuation">{</span>
+	id: <span class="token operator">&lt;</span>ObjectId_1<span class="token operator">&gt;</span>,
+	name: <span class="token string">&quot;张三&quot;</span>,
+	age: 22
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 可能会存在一个人选多门课程 将用户的文档提取出来 通过ObjectId和顶层课程文档进行关联。</span>
+</code></pre></div><h3 id="文档关系"><a href="#文档关系" aria-hidden="true" class="header-anchor">#</a> 文档关系</h3><h4 id="一对一"><a href="#一对一" aria-hidden="true" class="header-anchor">#</a> 一对一</h4><p>使用内嵌文档的<strong>好处</strong>：</p><ul><li>一次查询就可以返回所有需要用的信息</li><li>更具有独立性的数据作为顶层文档</li><li>补充性的数据作为内嵌文档</li></ul><h4 id="一对多"><a href="#一对多" aria-hidden="true" class="header-anchor">#</a> 一对多</h4><p>使用内嵌文档的<strong>好处</strong>：</p><ul><li>一次查询就可以得到所有需要用的信息</li></ul><p>使用内嵌文档的<strong>缺点</strong>：</p><ul><li>更新内嵌文档的复杂度增高</li></ul><p>使用规范式文档的<strong>好处</strong>：</p><ul><li>减少了重复数据</li><li>降低了文档更新的复杂度</li></ul><p>使用规范式文档的<strong>缺点</strong>：</p><ul><li>需要多次查询才能得到完整的数据</li></ul><h2 id="数据复制"><a href="#数据复制" aria-hidden="true" class="header-anchor">#</a> 数据复制</h2><ul><li>高可用性</li><li>数据安全</li><li>分流/分工</li></ul><h3 id="复制集"><a href="#复制集" aria-hidden="true" class="header-anchor">#</a> 复制集</h3><p>在复制集节点中，会存在一个<strong>主节点</strong>，<strong>主节点</strong>主要负责的是所有数据的写入请求。</p><p>而<strong>主节点</strong>底下会存在若干个<strong>副节点</strong>，<strong>副节点</strong>会不断的从<strong>主节点</strong>（或者其他符合条件的副节点）中复制数据，该步骤是异步的。</p><p><strong>主副节点</strong>都可以处理<strong>读取</strong>的请求。</p><p>每个节点之间都会相互发送一个<strong>心跳请求</strong>，用于<strong>检测节点之间的健康情况</strong>。</p><p>默认情况下，节点之间会<strong>每隔2秒发送一次心跳请求，超过10秒无响应的，则表示该节点出现故障</strong>。</p><p>一个复制集中最多<strong>只能存在50个节点</strong>。</p><p>如果<strong>主节点</strong>故障了，那么MongoDB则会通过内部的一个<strong>选举算法</strong>，从副节点中选出一个成为新的主节点。</p><h3 id="示例-12"><a href="#示例-12" aria-hidden="true" class="header-anchor">#</a> 示例</h3><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 假设已经存在三个mongodb数据库 在不同的服务/端口下</span>
+
+<span class="token comment"># 创建一个拥有三个节点的数据集</span>
+rs.initiate<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	_id: <span class="token string">&quot;mytest&quot;</span>,
+	members: <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			_id: 0,
+			host: <span class="token string">&quot;mongo1:27017&quot;</span>
+		<span class="token punctuation">}</span>,
+		<span class="token punctuation">{</span>
+			_id: 1,
+			host: <span class="token string">&quot;mongo2:27018&quot;</span>
+		<span class="token punctuation">}</span>,
+		<span class="token punctuation">{</span>
+			_id: 2,
+			host: <span class="token string">&quot;mongo3:27019&quot;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查看复制集的状态</span>
+rs.status<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="数据库分片"><a href="#数据库分片" aria-hidden="true" class="header-anchor">#</a> 数据库分片</h2><h3 id="介绍"><a href="#介绍" aria-hidden="true" class="header-anchor">#</a> 介绍</h3><p>数据库分片，简单说就是将整个数据库的数据分成一个个子集，然后将每个子集存储在分片上，最终这些分片集群合在一起就是这个数据库完整的数据。</p><p>每个数据库分片是能够运行在不同的服务器中的，从而提高数据库的可拓展性。</p><h3 id="分片集群的构成"><a href="#分片集群的构成" aria-hidden="true" class="header-anchor">#</a> 分片集群的构成</h3><ul><li>至少两个分片</li><li>配置服务器    用于存储分片元数据和集群配置，哪些数据存于哪些分片信息之类的</li><li>mongos   分片路由，客户端访问分片路由，再由分片路由去访问配置服务器获取对应分片数据</li><li>server   用于运行分片路由的应用服务器</li></ul><h4 id="配置服务器"><a href="#配置服务器" aria-hidden="true" class="header-anchor">#</a> 配置服务器</h4><ul><li>存储各分片数据段列表和数据段范围</li><li>存储集群的认证和授权配置</li><li>不同的集群不要共用配置服务器</li></ul><h4 id="mongos"><a href="#mongos" aria-hidden="true" class="header-anchor">#</a> mongos</h4><ul><li>客户请求应发给mongos，而不是分片服务器</li><li>当查询包含分片片键时，mongos将查询发送到指定分片</li><li>否则mongos将查询发送到所有分片，并汇总所有查询结果</li></ul><h3 id="主分片"><a href="#主分片" aria-hidden="true" class="header-anchor">#</a> 主分片</h3><ul><li>集群中的每个数据库都会选择一个分片做为主分片</li><li>主分片中存储的是不需要分片的集合</li><li>创建数据库的时候，数据最少的分片会被选择为主分片</li></ul><h3 id="分片片键"><a href="#分片片键" aria-hidden="true" class="header-anchor">#</a> 分片片键</h3><ul><li>片键值被用来将集合中的文档划分为数据段</li><li>片键必须对应一个索引或者索引前缀（单键或者复合键）</li><li>可以使用片键值的哈希值来生成哈希片键</li></ul><h2 id="数据库安全"><a href="#数据库安全" aria-hidden="true" class="header-anchor">#</a> 数据库安全</h2><h3 id="创建用户"><a href="#创建用户" aria-hidden="true" class="header-anchor">#</a> 创建用户</h3><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 进入admin数据库 该数据库用来保存用户信息</span>
+use admin<span class="token punctuation">;</span>
+
+<span class="token comment"># 在admin数据库中创建用户信息</span>
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	user: <span class="token string">&quot;userAdmin&quot;</span>,
+	pwd: <span class="token string">&quot;passwords&quot;</span>,
+	roles: <span class="token punctuation">[</span><span class="token string">&quot;userAdminAnyDatabase&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 授权角色 该权限只能管理数据库用户和角色 但是不能操作集合</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><code>mongodb</code>默认是没有启动身份认证的，也就是默认用户登录。这种情况下，没办法使用创建用户进行登录，如果想使用身份认证，则启动<code>mongodb</code>的时候需要加上一个参数<code>-auth</code>：</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 启用mongodb的身份认证</span>
+mongod --auth<span class="token punctuation">;</span>
+</code></pre></div><p>启用身份认证之后，就可以使用自定义用户进行登录<code>mongodb</code>。</p><h3 id="用户认证"><a href="#用户认证" aria-hidden="true" class="header-anchor">#</a> 用户认证</h3><p>创建好用户之后，需要进行用户验证：</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 验证用户</span>
+mongo -u <span class="token string">&quot;userAdmin&quot;</span> -p <span class="token string">&quot;passwords&quot;</span> --authenticationDatabase <span class="token string">&quot;admin&quot;</span>
+
+<span class="token comment"># --anthenticationDatabase 表示需要验证信息的数据库是哪个，如果用户信息存在默认进入的表中，则不需要该参数</span>
+
+<span class="token comment"># or </span>
+use admin<span class="token punctuation">;</span>
+db.auth<span class="token punctuation">(</span><span class="token string">&quot;userAdmin&quot;</span>, <span class="token string">&quot;passwords&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="授权"><a href="#授权" aria-hidden="true" class="header-anchor">#</a> 授权</h3><h4 id="权限"><a href="#权限" aria-hidden="true" class="header-anchor">#</a> 权限</h4><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 权限 = 我在哪儿 + 做什么</span>
+<span class="token comment"># e.g</span>
+<span class="token punctuation">{</span>
+	resource: <span class="token punctuation">{</span>
+		db: <span class="token string">&quot;test&quot;</span>,
+		collection: <span class="token string">&quot;&quot;</span>
+	<span class="token punctuation">}</span>,
+	actions: <span class="token punctuation">[</span><span class="token string">&quot;find&quot;</span>, <span class="token string">&quot;update&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># resource 表示我想操作权限的数据库和集合是哪些，如果collection为空，则为整个db的所有集合</span>
+<span class="token comment"># actions 表示对该数据库，我能做的操作有哪些，这里表示在test中，该用户能够对集合执行find和update操作</span>
+</code></pre></div><h4 id="角色"><a href="#角色" aria-hidden="true" class="header-anchor">#</a> 角色</h4><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 角色 = 一组权限的集合</span>
+<span class="token comment"># e.g</span>
+<span class="token function">read</span> <span class="token comment"># 读取当前数据库中所有非系统集合</span>
+readWrite <span class="token comment"># 读写当前数据库中所有非系统集合</span>
+dbAdmin <span class="token comment"># 管理当前数据库</span>
+userAdmin <span class="token comment"># 管理当前数据库中的用户和角色</span>
+read/readWrite/dbAdmin/userAdmin + AnyDatabase <span class="token comment"># 对所有数据库执行操作(只在admin数据库中提供)</span>
+</code></pre></div><h4 id="示例-13"><a href="#示例-13" aria-hidden="true" class="header-anchor">#</a> 示例</h4><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建一个只能读取test数据库的用户</span>
+use admin<span class="token punctuation">;</span>
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	user: <span class="token string">&quot;onlyRead&quot;</span>,
+	pwd: <span class="token string">&quot;password&quot;</span>,
+	roles: <span class="token punctuation">[</span><span class="token punctuation">{</span>
+		role: <span class="token string">&quot;read&quot;</span>,
+		db: <span class="token string">&quot;test&quot;</span> <span class="token comment"># 如果是在test中创建的用户 可以省略db</span>
+	<span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+mongo -u <span class="token string">&quot;onlyRead&quot;</span> -p <span class="token string">&quot;password&quot;</span> --authenticationDatabase <span class="token string">&quot;admin&quot;</span><span class="token punctuation">;</span>
+<span class="token comment"># PS: 新创建的用户要生效，一定需要关闭mongodb的进程，重新进入</span>
+
+
+<span class="token comment"># 创建一个只能读取user集合的用户</span>
+<span class="token comment"># 没有内建角色符合，所以先创建一个自定义的角色</span>
+use <span class="token function">test</span><span class="token punctuation">;</span>
+db.createRole<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	role: <span class="token string">&quot;readUser&quot;</span>,
+	privileges: <span class="token punctuation">[</span><span class="token punctuation">{</span>
+		resource: <span class="token punctuation">{</span>
+			db: <span class="token string">&quot;test&quot;</span>,
+			collection: <span class="token string">&quot;user&quot;</span>
+		<span class="token punctuation">}</span>,
+		actions: <span class="token punctuation">[</span><span class="token string">&quot;find&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 只能执行读取操作</span>
+	<span class="token punctuation">}</span><span class="token punctuation">]</span>,
+	roles: <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment"># 从原有角色继承</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 然后创建角色</span>
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">{</span>
+	user: <span class="token string">&quot;onlyReadUser&quot;</span>,
+	pwd: <span class="token string">&quot;password&quot;</span>,
+	roles: <span class="token punctuation">[</span><span class="token punctuation">{</span>
+		role: <span class="token string">&quot;readUser&quot;</span>,
+		db: <span class="token string">&quot;test&quot;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="数据库常用工具"><a href="#数据库常用工具" aria-hidden="true" class="header-anchor">#</a> 数据库常用工具</h2><h3 id="数据处理工具"><a href="#数据处理工具" aria-hidden="true" class="header-anchor">#</a> 数据处理工具</h3><h4 id="mongoexport"><a href="#mongoexport" aria-hidden="true" class="header-anchor">#</a> mongoexport</h4><blockquote><p>将数据导出为<code>json</code>或者<code>csv</code>格式的文件。</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 语法</span>
+mongoexport --db dbName --collection collectionName --type<span class="token operator">=</span>csv/json --fields field1,field2,<span class="token punctuation">..</span>.,fieldn --out outputPath -u userName -p password --authenticationDatabase <span class="token string">&quot;admin&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># dbName 数据库名称</span>
+<span class="token comment"># collectionName 集合名称</span>
+<span class="token comment"># --type csv或者json</span>
+<span class="token comment"># --fields 导出的字段名称 type为csv时必须提供 如果有内嵌文档，可以使用field.field方式选择</span>
+<span class="token comment"># ouputPath 导出的路径</span>
+<span class="token comment"># userName 执行导出操作的用户名称</span>
+<span class="token comment"># password 执行导出操作的用户密码</span>
+</code></pre></div><p><code>mongoexport</code>还可以使用查询语句进行文档导出：</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 通过筛选导出</span>
+<span class="token comment"># 在原来的语法最后加上--query参数</span>
+mongoexport --db dbName --collection collectionName --type<span class="token operator">=</span>csv/json --fields field1,field2,<span class="token punctuation">..</span>.,fieldn --out outputPath -u userName -p password --authenticationDatabase <span class="token string">&quot;admin&quot;</span> --query <span class="token string">'{ field: &lt;expression&gt; }'</span><span class="token punctuation">;</span>
+</code></pre></div><p>除此之外，还支持<code>--limit</code>、<code>--skip</code>和<code>--sort</code>。</p><h4 id="mongoimport"><a href="#mongoimport" aria-hidden="true" class="header-anchor">#</a> mongoimport</h4><blockquote><p>将json或者csv格式的数据导入到mongodb中。</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 语法</span>
+mongoimport --db dbName --collection collectionName --type csv/json <span class="token punctuation">[</span>--headerline <span class="token operator">|</span> --fields field1,field2,<span class="token punctuation">..</span>.,fieldn<span class="token punctuation">]</span> --file filePath  <span class="token punctuation">[</span>--drop<span class="token punctuation">]</span> -u userName -p password --authenticationDatabase <span class="token string">&quot;admin&quot;</span> <span class="token punctuation">[</span>--upsertFields filed1,filed2,<span class="token punctuation">..</span>.,filedn<span class="token punctuation">]</span> <span class="token punctuation">[</span>--stopOnError<span class="token punctuation">]</span> <span class="token punctuation">[</span>--maintainInsertionOrder<span class="token punctuation">]</span>
+
+<span class="token comment"># dbName 数据库名称</span>
+<span class="token comment"># collectionName 集合名称</span>
+<span class="token comment"># --type csv或者json 为json时可以不提供headerline和fields</span>
+<span class="token comment"># --headerline 告知程序csv的第一行为字段名称而非数据</span>
+<span class="token comment"># --fileds 和headerline是二选一参数 headerline取第一行字段为字段名，fields则是自定义字段名称</span>
+<span class="token comment"># filePath 导入文件的路径</span>
+<span class="token comment"># --drop 是否在导入前先drop集合 可选参数</span>
+<span class="token comment"># userName 执行导出操作的用户名称</span>
+<span class="token comment"># password 执行导出操作的用户密码</span>
+<span class="token comment"># upsertFields 告诉mongodb 导入的时候看字段是否相同，相同的话就更新，不要根据文档主键不同而不断的去新增文档 可选参数</span>
+<span class="token comment"># --stopOnError 导入出错就停止 可选参数</span>
+<span class="token comment"># --maintainInsertionOrder 按照文件字段值顺序进行导入 可选参数</span>
+</code></pre></div><h3 id="数据库监控"><a href="#数据库监控" aria-hidden="true" class="header-anchor">#</a> 数据库监控</h3><h4 id="mongostat"><a href="#mongostat" aria-hidden="true" class="header-anchor">#</a> mongostat</h4><blockquote><p>监听数据库的使用情况</p></blockquote><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 语法</span>
+mongostat --host localhost --port 27017 -u userName -p password --authenticationDatabase <span class="token string">&quot;admin&quot;</span> <span class="token punctuation">[</span>--rowcount times<span class="token punctuation">]</span> <span class="token punctuation">[</span>times<span class="token punctuation">]</span> <span class="token punctuation">[</span>-o <span class="token string">&quot;filed1,filed2,..,fieldn&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># localhost 监听的ip</span>
+<span class="token comment"># port 监听的端口</span>
+<span class="token comment"># --rowcount times 一共抓取times次监控数据 可选参数</span>
+<span class="token comment"># times 每隔times秒抓取一次数据 可选参数</span>
+<span class="token comment"># -o 只想显示的状态名称</span>
+
+<span class="token comment"># PS：需要用户有clusterMonitor的角色权限</span>
+
+<span class="token comment"># 状态名称</span>
+<span class="token comment">## command 每秒执行的命令书</span>
+<span class="token comment">## dirty, used 数据库引擎缓存的使用量百分比</span>
+<span class="token comment">## vsize 虚拟内存使用量(MB)</span>
+<span class="token comment">## res 常驻内存使用量(MB)</span>
+<span class="token comment">## conn 连接数</span>
+</code></pre></div><h4 id="mongotop"><a href="#mongotop" aria-hidden="true" class="header-anchor">#</a> mongotop</h4><blockquote><p>监听数据库中集合的查询情况</p></blockquote><p>语法同<code>mongostat</code>。</p><h2 id="数据库故障诊断"><a href="#数据库故障诊断" aria-hidden="true" class="header-anchor">#</a> 数据库故障诊断</h2><h3 id="查询时间过长"><a href="#查询时间过长" aria-hidden="true" class="header-anchor">#</a> 查询时间过长</h3><p>建立合适的索引，可以使用<a href="####explain">explain</a>来判断索引的效率。</p><h3 id="响应时间过长"><a href="#响应时间过长" aria-hidden="true" class="header-anchor">#</a> 响应时间过长</h3><p>工作集可能超出RAM的大小，可以通过<code>mongostat</code>来查看数据库的使用情况。</p><h3 id="连接失败"><a href="#连接失败" aria-hidden="true" class="header-anchor">#</a> 连接失败</h3><p>可能超过了连接数，使用命令<code>db.serverStatus().connections</code>来查看<code>mongodb</code>支持的连接数。</p><p>查看服务器数据库配置文件中的<code>maxIncomingConnections</code>的数值是否被限制。</p><p>查看<code>ulimit</code>配置，主要看<code>open files</code>的数值。使用命令：<code>ulimit -a</code>。</p></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">上次更新: </span><span class="time">9/23/2019, 6:38:35 PM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/services/" class="prev router-link-active">
+          Mongodb 好像有点意思？
+        </a></span><span class="next"><a href="/services/python.html">
+          学学Python吧~
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/13.5399a19b.js" defer></script><script src="/assets/js/app.a03d4e4f.js" defer></script>
+  </body>
+</html>
