@@ -457,3 +457,9 @@ export default class ZButton extends tsc.Component<ButtonProps> {
   }
 }
 ```
+
+::: tip 注意
+这里有个问题需要注意，在`ts`下打包的应用会丢失三方组件库的样式，而在开发环境是没有问题的。而导致该问题的发生是`ts-loader`不支持多线程打包。
+
+解决方式为在`vue.config.js`中配置`parallel: false`即可。
+:::
